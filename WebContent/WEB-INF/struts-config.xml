@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+
+
+	<form-beans>
+		<form-bean
+			name="CourseForm"
+			type="ac.ma.view.CourseForm"/>
+			<form-bean
+			name="SearchForm"
+			type="ac.ma.view.SearchForm"/>
+			<form-bean
+			name="PlanificationForm"
+			type="ac.ma.view.PlanificationForm"/>
+	</form-beans>
+	<global-exceptions>
+	</global-exceptions>
+
+
+	<global-forwards>
+		<forward name="welcome" path="/Welcome.do" />
+	</global-forwards>
+
+	<action-mappings>
+		 <action
+            path="/Add"
+            type="ac.ma.controler.ImportAction"
+            name="CourseForm"
+            scope="request"
+            validate="false"
+            input="/importCourse.jsp">
+           <forward name="success" path="/listeCourse.jsp"></forward>
+           </action>
+           <action
+            path="/Search"
+            type="ac.ma.controler.SearchAction"
+            name="SearchForm"
+            scope="request"
+            validate="false"
+            input="/listeCourse.jsp">
+           	<forward name="success" path="/resultat.jsp"></forward>
+           </action>
+            <action
+            path="/Planification"
+            type="ac.ma.controler.PlanificationAction"
+            name="PlanificationForm"
+            scope="request"
+            validate="false"
+            input="/planifier.jsp">
+           	<forward name="success" path="/resultat.jsp"></forward>
+           </action>
+	</action-mappings>
+
+	<message-resources parameter="MessageResources" />
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+			value="/org/apache/struts/validator/validator-rules.xml,
+               /WEB-INF/validation.xml" />
+	</plug-in>
+
+</struts-config>
+
