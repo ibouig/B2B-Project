@@ -1,5 +1,7 @@
 package ma.jemla.controller;
 
-public class UserInscription {
+import org.apache.struts.action.Action;
+
+public class UserInscription extends Action{
 
 }

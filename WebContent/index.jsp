@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
+<%@taglib uri="http://struts.apache.org/tags-logic" prefix="logic"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -90,7 +94,7 @@
 								<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
 								<li><a href="WEB-INF/Pages/checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
 								<li><a href="WEB-INF/Pages/cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-								<li><a href="WEB-INF/Pages/login.html"><i class="fa fa-lock"></i> Login</a></li>
+								<li><html:link action="login.do"><i class="fa fa-lock"></i> Login</html:link></li>
 							</ul>
 						</div>
 					</div>
