@@ -4,6 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 
 @Entity@Inheritance
-public class Admin extends User{
+public class Admin extends Account{
 	
 }

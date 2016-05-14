@@ -4,6 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 
 @Entity@Inheritance
-public class Manager extends User{
+public class Manager extends Account{
 
 }

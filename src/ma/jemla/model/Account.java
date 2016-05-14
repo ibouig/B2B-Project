@@ -3,7 +3,7 @@ package ma.jemla.model;
 import javax.persistence.*;
 
 @Entity
-public class User {
+public class Account {
 	@Id@GeneratedValue
 	private long id;
 	private String name;
