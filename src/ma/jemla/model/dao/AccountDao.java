@@ -1,5 +1,5 @@
 package ma.jemla.model.dao;
 
-public interface UserDao {
+public interface AccountDao {
 
 }
