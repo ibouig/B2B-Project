@@ -4,7 +4,7 @@
 	<class>ma.jemla.model.User</class>
 	<class>ma.jemla.model.Entreprise</class>
 	<class>ma.jemla.model.Admin</class>
-	<class>ma.jemla.model.Customer</class>
+	<class>ma.jemla.model.Manager</class>
 	<properties>
 			<property name="eclipselink.target-database" value="MySQL" />
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
