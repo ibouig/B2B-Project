@@ -1,16 +1,16 @@
 package ma.jemla.model;
 
+import java.io.Serializable;
+
 import javax.persistence.*;
 
-<<<<<<< HEAD:src/ma/jemla/model/Account.java
+
 
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @MappedSuperclass
-=======
-@Entity
->>>>>>> origin/master:src/ma/jemla/model/Account.java
-public class Account {
-	@Id@GeneratedValue
+public class Account implements Serializable{
+	@Id
+	@GeneratedValue
 	private long id;
 	private String name;
 	private String password;
@@ -56,6 +56,15 @@ public class Account {
 	}
 	
 	
+	public Account() {
+		// TODO Auto-generated constructor stub
+	}
+	public Account(String name, String password, String conf_pass) {
+		super();
+		this.name = name;
+		this.password = password;
+		this.conf_pass = conf_pass;
+	}
 	
 
 }
