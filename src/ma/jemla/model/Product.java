@@ -20,7 +20,7 @@ import javax.persistence.TemporalType;
 
 
 @NamedQueries(
-		@NamedQuery(name)
+		@NamedQuery(name="fetchByCategorie", query="select p from Product p where p.category=:cat")
 		)
 
 @Entity

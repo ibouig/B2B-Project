@@ -92,9 +92,9 @@
 							<ul class="nav navbar-nav">
 								<li><a href=""><i class="fa fa-user"></i> Account</a></li>
 								<li><a href=""><i class="fa fa-star"></i> Wishlist</a></li>
-								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-								<li><a href="login.html" class="active"><i class="fa fa-lock"></i> Login</a></li>
+								<li><a href="checkout.jsp"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+								<li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+								<li><a href="login.jsp" class="active"><i class="fa fa-lock"></i> Login</a></li>
 							</ul>
 						</div>
 					</div>
@@ -116,24 +116,24 @@
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="index.html">Home</a></li>
+								<li><a href="index.jsp">Home</a></li>
 								<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="shop.html">Products</a></li>
-										<li><a href="product-details.html">Product Details</a></li> 
-										<li><a href="checkout.html">Checkout</a></li> 
-										<li><a href="cart.html">Cart</a></li> 
-										<li><a href="login.html" class="active">Login</a></li> 
+                                        <li><a href="shop.jsp">Products</a></li>
+										<li><a href="product-details.jsp">Product Details</a></li> 
+										<li><a href="checkout.jsp">Checkout</a></li> 
+										<li><a href="cart.jsp">Cart</a></li> 
+										<li><a href="login.jsp" class="active">Login</a></li> 
                                     </ul>
                                 </li> 
 								<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="blog.html">Blog List</a></li>
-										<li><a href="blog-single.html">Blog Single</a></li>
+                                        <li><a href="blog.jsp">Blog List</a></li>
+										<li><a href="blog-single.jsp">Blog Single</a></li>
                                     </ul>
                                 </li> 
-								<li><a href="404.html">404</a></li>
-								<li><a href="contact-us.html">Contact</a></li>
+								<li><a href="404.jsp">404</a></li>
+								<li><a href="contact-us.jsp">Contact</a></li>
 							</ul>
 						</div>
 					</div>
@@ -176,8 +176,11 @@
 							<input type="password" placeholder="Password" name="password" />
 							<input type="password" placeholder="Confirm password" name="conf_pass" />
 							<input type="text" placeholder="Adresse" name="adresse"/>
+							<input type="text" placeholder="Street" name="street"/>
+							<input type="text" placeholder="Zip Code" name="zipeCode"/>
 							<input type="text" placeholder="Ville" name="ville"/>
-							<!-- <select class="form-control" id="Role" name="role">
+							<input type="text" placeholder="Phone" name="phone"/>
+							<!-- <select class="form-control" id="secteur" name="secteur">
         						<option>Utilisateur</option>
         						<option>Entreprise</option>
       						</select> -->
