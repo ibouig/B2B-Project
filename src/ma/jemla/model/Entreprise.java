@@ -6,6 +6,11 @@ import javax.persistence.Entity;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> origin/saidBranch
 @NamedQuery(name="findByEmail",query="select e from Entreprise e where e.email=:email1 and e.password=:pass1")
 @Entity
 public class Entreprise extends Account{
