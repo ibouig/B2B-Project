@@ -19,9 +19,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 
-@NamedQueries(
-		@NamedQuery(name)
-		)
 
 @Entity
 public class Product {

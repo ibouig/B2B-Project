@@ -15,6 +15,7 @@ public class Account implements Serializable{
 	private String name;
 	private String password;
 	private String conf_pass;
+	private String email;
 	
 	
 	public long getId() {
