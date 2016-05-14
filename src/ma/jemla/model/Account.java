@@ -15,8 +15,7 @@ public class Account implements Serializable{
 	private String name;
 	private String password;
 	private String conf_pass;
-	private String adresse;
-	private String city;
+	
 	
 	public long getId() {
 		return id;
@@ -42,18 +41,7 @@ public class Account implements Serializable{
 	public void setConf_pass(String conf_pass) {
 		this.conf_pass = conf_pass;
 	}
-	public String getAdresse() {
-		return adresse;
-	}
-	public void setAdresse(String adresse) {
-		this.adresse = adresse;
-	}
-	public String getCity() {
-		return city;
-	}
-	public void setCity(String city) {
-		this.city = city;
-	}
+	
 	
 	
 	public Account() {
