@@ -1,7 +1,7 @@
 package ma.jemla.daoimpl;
 
-import ma.jemla.model.dao.UserDao;
+import ma.jemla.model.dao.AccountDao;
 
-public class UserDaoImpl implements UserDao{
+public class UserDaoImpl implements AccountDao{
 
 }

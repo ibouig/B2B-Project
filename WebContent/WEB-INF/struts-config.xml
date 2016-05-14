@@ -11,16 +11,25 @@
 
     <form-beans>
 
-        <form-bean  name="register" type="ma.jemla.view.RegisterForm"/>
-
+        <form-bean  name="registerForm" type="ma.jemla.view.RegisterForm"/>
+		<form-bean  name="loginForm" type="ma.jemla.view.LoginForm"/>
     </form-beans>
 
     <action-mappings>
 
-        <action path="/register"  type="ma.jemla.controller.UserInscription" name="register"
+        <action path="/register"  type="ma.jemla.controller.UserInscription" name="registerForm"
             scope="request"
-            validate="true" />
-		<action path="/login" forward="/WEB-INF/Pages/login.jsp"/>
+            validate="true" >
+        	<forward name="success" path="/WEB-INF/Pages/EntrepriseDashboard.jsp"/>
+        	<forward name="failure" path="/WEB-INF/Pages/login.jsp"></forward>
+        </action>
+        <action path="/login"  type="ma.jemla.controller.Login" name="loginForm"
+            scope="request"
+            validate="true" >
+        	<forward name="success" path="/WEB-INF/Pages/EntrepriseDashboard.jsp"/>
+        	<forward name="failure" path="/WEB-INF/Pages/login.jsp"></forward>
+        </action>
+		<action path="/loginRedirect" forward="/WEB-INF/Pages/login.jsp"/>
     </action-mappings>
 
 
