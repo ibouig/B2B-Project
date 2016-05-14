@@ -18,13 +18,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-
-<<<<<<< HEAD
 @NamedQueries(
 		@NamedQuery(name="fetchByCategorie", query="select p from Product p where p.category=:cat")
 		)
-=======
->>>>>>> origin/saidBranch
 
 @Entity
 public class Product {
