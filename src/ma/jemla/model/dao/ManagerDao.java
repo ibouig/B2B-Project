@@ -1,5 +1,5 @@
 package ma.jemla.model.dao;
 
-public interface CustomerDao {
+public interface ManagerDao {
 
 }
