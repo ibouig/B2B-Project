@@ -2,8 +2,10 @@ package ma.jemla.model;
 
 import javax.persistence.*;
 
-@Entity
-public class User {
+
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@MappedSuperclass
+public class Account {
 	@Id@GeneratedValue
 	private long id;
 	private String name;
