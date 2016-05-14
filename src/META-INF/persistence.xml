@@ -27,8 +27,8 @@
 			<property name="javax.persistence.jdbc.user" value="root" />
 			<property name="eclipselink.loggin.session" value="false" />
 			<property name="javax.persistence.jdbc.password" value="" />
-<!-- 			<property name="eclipselink.ddl-generation" value="update-table" /> -->
-			<property name="eclipselink.ddl-generation" value="drop-and-create-tables" /> 
+			<property name="eclipselink.ddl-generation" value="update-table" />
+<!-- 			<property name="eclipselink.ddl-generation" value="drop-and-create-tables" />  -->
 			<property name="eclipselink.logging.level" value="ALL" />
 		</properties>
 	</persistence-unit>

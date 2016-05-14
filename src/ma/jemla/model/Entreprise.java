@@ -4,12 +4,17 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+<<<<<<< HEAD
 import javax.persistence.Inheritance;
 import javax.persistence.OneToMany;
 
+=======
+import javax.persistence.NamedQuery;
+>>>>>>> refs/remotes/origin/HamzaBranch
 
 
 
+@NamedQuery(name="findByEmail",query="select e from Entreprise e where e.email=:email1 and e.password=:pass1")
 @Entity
 public class Entreprise extends Account{
 	private String street;

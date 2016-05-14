@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Login | E-Shopper</title>
+    <title>Contact | E-Shopper</title>
     <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="Bootstrap/css/font-awesome.min.css" rel="stylesheet">
     <link href="Bootstrap/css/prettyPhoto.css" rel="stylesheet">
@@ -21,11 +21,11 @@
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
     <![endif]-->       
-    <link rel="shortcut icon" href="images/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="Bootstrap/images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="Bootstrap/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="Bootstrap/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="Bootstrap/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="Bootstrap/images/ico/apple-touch-icon-57-precomposed.png">
 </head><!--/head-->
 
 <body>
@@ -61,7 +61,7 @@
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
-							<a href="index.jsp"><img src="images/home/logo.png" alt="" /></a>
+							<a href="index.jsp"><img src="Bootstrap/Bootstrap/images/home/logo.png" alt="" /></a>
 						</div>
 						<div class="btn-group pull-right">
 							<div class="btn-group">
@@ -94,7 +94,7 @@
 								<li><a href=""><i class="fa fa-star"></i> Wishlist</a></li>
 								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
 								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-								<li><a href="login.html" class="active"><i class="fa fa-lock"></i> Login</a></li>
+								<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
 							</ul>
 						</div>
 					</div>
@@ -116,14 +116,14 @@
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="index.html">Home</a></li>
+								<li><a href="index.jsp">Home</a></li>
 								<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="shop.html">Products</a></li>
 										<li><a href="product-details.html">Product Details</a></li> 
 										<li><a href="checkout.html">Checkout</a></li> 
 										<li><a href="cart.html">Cart</a></li> 
-										<li><a href="login.html" class="active">Login</a></li> 
+										<li><html:link action="loginRedirect.do">Login</html:link></li> 
                                     </ul>
                                 </li> 
 								<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
@@ -133,7 +133,7 @@
                                     </ul>
                                 </li> 
 								<li><a href="404.html">404</a></li>
-								<li><a href="contact-us.html">Contact</a></li>
+								<li><a href="contact-us.html" class="active">Contact</a></li>
 							</ul>
 						</div>
 					</div>
@@ -146,55 +146,73 @@
 			</div>
 		</div><!--/header-bottom-->
 	</header><!--/header-->
-	
-	<section id="form"><!--form-->
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-4 col-sm-offset-1">
-					<div class="login-form"><!--login form-->
-						<h2>Login to your account</h2>
-						<form action="#" method="post">
-							<input type="email" placeholder="Email Address" name="email"/>
-							<input type="password" placeholder="password" name="password"/>
-							<span>
-								<input type="checkbox" class="checkbox"> 
-								Keep me signed in
-							</span>
-							<button type="submit" class="btn btn-default">Login</button>
-						</form>
-					</div><!--/login form-->
-				</div>
-				<div class="col-sm-1">
-					<h2 class="or">OR</h2>
-				</div>
-				<div class="col-sm-4">
-					<div class="signup-form"><!--sign up form-->
-						<h2>New User Signup!</h2>
-						<form action="register.do" method="POST">
-							<input type="text" placeholder="Name" name="name" />
-							<input type="email" placeholder="Email Address" name="email" />
-							<input type="password" placeholder="Password" name="password" />
-							<input type="password" placeholder="Confirm password" name="conf_pass" />
-							<input type="text" placeholder="Adresse" name="adresse"/>
-							<input type="text" placeholder="Ville" name="ville"/>
-							<!-- <select class="form-control" id="Role" name="role">
-        						<option>Utilisateur</option>
-        						<option>Entreprise</option>
-      						</select> -->
-							<!-- <div class="radio">
-								<label><input type="radio" placeholder="Role"/>Utilisateur</label>
-							</div>
-							<div class="radio">
-								<label><input type="radio" placeholder="Role"/>Entreprise</label>
-							</div> -->
-							<button type="submit" class="btn btn-default">Signup</button>
-						</form>
-					</div><!--/sign up form-->
-				</div>
-			</div>
-		</div>
-	</section><!--/form-->
-	
+	 
+	 <div id="contact-page" class="container">
+    	<div class="bg">
+	    	<div class="row">    		
+	    		<div class="col-sm-12">    			   			
+					<h2 class="title text-center">Contact <strong>Us</strong></h2>    			    				    				
+					<div id="gmap" class="contact-map">
+					</div>
+				</div>			 		
+			</div>    	
+    		<div class="row">  	
+	    		<div class="col-sm-8">
+	    			<div class="contact-form">
+	    				<h2 class="title text-center">Get In Touch</h2>
+	    				<div class="status alert alert-success" style="display: none"></div>
+				    	<form id="main-contact-form" class="contact-form row" name="contact-form" method="post">
+				            <div class="form-group col-md-6">
+				                <input type="text" name="name" class="form-control" required="required" placeholder="Name">
+				            </div>
+				            <div class="form-group col-md-6">
+				                <input type="email" name="email" class="form-control" required="required" placeholder="Email">
+				            </div>
+				            <div class="form-group col-md-12">
+				                <input type="text" name="subject" class="form-control" required="required" placeholder="Subject">
+				            </div>
+				            <div class="form-group col-md-12">
+				                <textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder="Your Message Here"></textarea>
+				            </div>                        
+				            <div class="form-group col-md-12">
+				                <input type="submit" name="submit" class="btn btn-primary pull-right" value="Submit">
+				            </div>
+				        </form>
+	    			</div>
+	    		</div>
+	    		<div class="col-sm-4">
+	    			<div class="contact-info">
+	    				<h2 class="title text-center">Contact Info</h2>
+	    				<address>
+	    					<p>E-Shopper Inc.</p>
+							<p>935 W. Webster Ave New Streets Chicago, IL 60614, NY</p>
+							<p>Newyork USA</p>
+							<p>Mobile: +2346 17 38 93</p>
+							<p>Fax: 1-714-252-0026</p>
+							<p>Email: info@e-shopper.com</p>
+	    				</address>
+	    				<div class="social-networks">
+	    					<h2 class="title text-center">Social Networking</h2>
+							<ul>
+								<li>
+									<a href="#"><i class="fa fa-facebook"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="fa fa-google-plus"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="fa fa-youtube"></i></a>
+								</li>
+							</ul>
+	    				</div>
+	    			</div>
+    			</div>    			
+	    	</div>  
+    	</div>	
+    </div><!--/#contact-page-->
 	
 	<footer id="footer"><!--Footer-->
 		<div class="footer-top">
@@ -357,9 +375,12 @@
 
   
     <script src="Bootstrap/js/jquery.js"></script>
+	<script src="Bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <script type="text/javascript" src="js/gmaps.js"></script>
+	<script src="Bootstrap/js/contact.js"></script>
 	<script src="Bootstrap/js/price-range.js"></script>
     <script src="Bootstrap/js/jquery.scrollUp.min.js"></script>
-	<script src="Bootstrap/js/bootstrap.min.js"></script>
     <script src="Bootstrap/js/jquery.prettyPhoto.js"></script>
     <script src="Bootstrap/js/main.js"></script>
 </body>

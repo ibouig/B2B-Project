@@ -15,8 +15,20 @@ public class Account implements Serializable{
 	private String name;
 	private String password;
 	private String conf_pass;
+<<<<<<< HEAD
 	
+=======
+	private String adresse;
+	private String city;
+	private String email;
+>>>>>>> refs/remotes/origin/HamzaBranch
 	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public long getId() {
 		return id;
 	}
