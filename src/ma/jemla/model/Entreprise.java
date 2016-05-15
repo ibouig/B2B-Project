@@ -9,7 +9,6 @@ import javax.persistence.OneToMany;
 @NamedQuery(name="findByEmail",query="select e from Entreprise e where e.email=:email1 and e.password=:pass1")
 @Entity
 public class Entreprise extends Account{
-	private String street;
 	
 	private String street;
 	private String zipCode;
