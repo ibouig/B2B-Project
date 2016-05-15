@@ -11,6 +11,7 @@
 		<class>ma.jemla.model.Admin</class>
 		<class>ma.jemla.model.Manager</class>
 		<class>ma.jemla.model.Entreprise</class>
+		<class>ma.jemla.model.Message</class>
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
 	
 		

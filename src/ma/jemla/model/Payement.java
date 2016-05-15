@@ -10,7 +10,7 @@ public class Payement {
 	@Id
 	@GeneratedValue
 	private long id ;
-	
+
 	@OneToOne
 	private Order order;
 	

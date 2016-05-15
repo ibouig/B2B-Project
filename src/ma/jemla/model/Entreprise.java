@@ -2,11 +2,23 @@ package ma.jemla.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.NamedQuery;
+import javax.persistence.NamedQueries;
 import javax.persistence.OneToMany;
 
-@NamedQuery(name="findByEmail",query="select e from Entreprise e where e.email=:email1 and e.password=:pass1")
+
+@NamedQueries({
+	@NamedQuery(name="findByEmail",query="select e from Entreprise e where e.email=:email1 and e.password=:pass1")
+	,@NamedQuery(name="findEntrepriseByEmail",query="select e from Entreprise e where e.email=:email1 and e.password=:pass1")
+	,@NamedQuery(name="findEntrepriseByName",query="select e from Entreprise e where e.name=:name1 ")
+	,@NamedQuery(name="findEntrepriseByEmailAlone",query="select e from Entreprise e where  e.email=:email1 ")
+	,@NamedQuery(name="findEntrepriseByPays",query="select e from Entreprise e where  e.pays=:pays1 ")
+	 
+	
+
+})
 @Entity
 public class Entreprise extends Account{
 	
@@ -37,6 +49,9 @@ public class Entreprise extends Account{
 	
 	@OneToMany(mappedBy = "entreprise")
 	private List<Product> products;
+	
+	@OneToMany(mappedBy="sender" , cascade = {CascadeType.ALL})
+	List<Message> messages;
 
 	public String toString(){
 		return this.getName();
