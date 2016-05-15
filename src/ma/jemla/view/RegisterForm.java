@@ -14,7 +14,6 @@ public class RegisterForm extends ActionForm{
 	private String conf_pass;
 	private String adresse;
 	private String ville;
-	private String role;
 	public ActionErrors validate(ActionMapping mapping,  HttpServletRequest request) {
 		ActionErrors errors = new ActionErrors();
 		if(name==null||name.length()<=6)
@@ -61,12 +60,6 @@ public class RegisterForm extends ActionForm{
 	}
 	public void setVille(String ville) {
 		this.ville = ville;
-	}
-	public String getRole() {
-		return role;
-	}
-	public void setRole(String role) {
-		this.role = role;
 	}
 
 	

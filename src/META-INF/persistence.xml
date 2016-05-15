@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="B2B-Project">
-
-
-
-	<class>ma.jemla.model.Entreprise</class>
-	<class>ma.jemla.model.Admin</class>
-	<class>ma.jemla.model.Manager</class>
-	<class>ma.jemla.model.Account</class>
+		<class>ma.jemla.model.Category</class>
+		<class>ma.jemla.model.Product</class>
+		<class>ma.jemla.model.Catalogue</class>
+		<class>ma.jemla.model.Order</class>
+		<class>ma.jemla.model.OrderLine</class>
+		<class>ma.jemla.model.Payement</class>
+		<class>ma.jemla.model.Account</class>
+		<class>ma.jemla.model.Admin</class>
+		<class>ma.jemla.model.Manager</class>
+		<class>ma.jemla.model.Entreprise</class>
+		<exclude-unlisted-classes>false</exclude-unlisted-classes>
+	
+		
+<!--         <exclude-unlisted-classes>false</exclude-unlisted-classes> -->
+	
+	
+	
+	
+	
 	<properties>
 			<property name="eclipselink.target-database" value="MySQL" />
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
