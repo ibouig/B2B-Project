@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Contact | E-Shopper</title>
+    <title>Contact | Jemla-Ma</title>
     <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="Bootstrap/css/font-awesome.min.css" rel="stylesheet">
     <link href="Bootstrap/css/prettyPhoto.css" rel="stylesheet">
@@ -37,7 +37,7 @@
 						<div class="contactinfo">
 							<ul class="nav nav-pills">
 								<li><a href=""><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-								<li><a href=""><i class="fa fa-envelope"></i> info@domain.com</a></li>
+								<li><a href=""><i class="fa fa-envelope"></i> info@jemla.ma</a></li>
 							</ul>
 						</div>
 					</div>
@@ -119,8 +119,8 @@
 								<li><a href="index.jsp">Home</a></li>
 								<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="shop.jsp">Products</a></li>
-										<li><a href="product-details.jsp">Product Details</a></li> 
+                                        <!-- <li><a href="shop.jsp">Products</a></li>
+										<li><a href="product-details.jsp">Product Details</a></li> --> 
 										<li><a href="checkout.jsp">Checkout</a></li> 
 										<li><a href="cart.jsp">Cart</a></li> 
 										<li><html:link action="loginRedirect.do">Login</html:link></li> 
@@ -184,12 +184,12 @@
 	    			<div class="contact-info">
 	    				<h2 class="title text-center">Contact Info</h2>
 	    				<address>
-	    					<p>E-Shopper Inc.</p>
-							<p>935 W. Webster Ave New Streets Chicago, IL 60614, NY</p>
-							<p>Newyork USA</p>
+	    					<p>Jemla Ma Inc.</p>
+							<p>Bd Abdelkrim El Lhatabi, Marrakech</p>
+							<p>Maroc</p>
 							<p>Mobile: +2346 17 38 93</p>
 							<p>Fax: 1-714-252-0026</p>
-							<p>Email: info@e-shopper.com</p>
+							<p>Email: info@jemla.ma</p>
 	    				</address>
 	    				<div class="social-networks">
 	    					<h2 class="title text-center">Social Networking</h2>
@@ -220,7 +220,7 @@
 				<div class="row">
 					<div class="col-sm-2">
 						<div class="companyinfo">
-							<h2><span>e</span>-shopper</h2>
+							<h2><span>Jemla</span>-Ma</h2>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor</p>
 						</div>
 					</div>
@@ -236,7 +236,7 @@
 									</div>
 								</a>
 								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
+								<h2>15 Mai 2016</h2>
 							</div>
 						</div>
 						
@@ -251,7 +251,7 @@
 									</div>
 								</a>
 								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
+								<h2>15 Mai 2016</h2>
 							</div>
 						</div>
 						
@@ -266,7 +266,7 @@
 									</div>
 								</a>
 								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
+								<h2>15 Mai 2016</h2>
 							</div>
 						</div>
 						
@@ -281,7 +281,7 @@
 									</div>
 								</a>
 								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
+								<h2>15 Mai 2016</h2>
 							</div>
 						</div>
 					</div>
@@ -364,7 +364,7 @@
 		<div class="footer-bottom">
 			<div class="container">
 				<div class="row">
-					<p class="pull-left">Copyright © 2013 E-SHOPPER Inc. All rights reserved.</p>
+					<p class="pull-left">Copyright © 2016 Jemla_Ma Inc. All rights reserved.</p>
 					<p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
 				</div>
 			</div>

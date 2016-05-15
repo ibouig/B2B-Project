@@ -29,7 +29,14 @@
 			<forward name="success" path="/WEB-INF/Pages/EntrepriseDashboard.jsp" />
 			<forward name="failure" path="/WEB-INF/Pages/login.jsp"/>
 		</action>
-		<action path="/loginRedirect" forward="/WEB-INF/Pages/login.jsp" />
+		<action path="/loginRedirect" type="ma.jemla.controller.LoginRedirect" >
+			<forward name="success" path="/WEB-INF/Pages/EntrepriseDashboard.jsp" />
+			<forward name="failure" path="/WEB-INF/Pages/login.jsp"/>
+		</action>
+		<action path="/inbox" scope="session" type="ma.jemla.controller.Inbox" >
+			<forward name="success" path="/WEB-INF/Pages/DashboardInbox.jsp" />
+			<forward name="failure" path="/WEB-INF/Pages/login.jsp"/>
+		</action>
 	</action-mappings>
 
 

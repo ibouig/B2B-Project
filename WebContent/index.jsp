@@ -38,6 +38,7 @@
 							<ul class="nav nav-pills">
 								<li><a href="#"><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
 								<li><a href="#"><i class="fa fa-envelope"></i> info@domain.com</a></li>
+								li><a href=""><i class="fa fa-envelope"></i><%= session.getAttribute("ActiveUser")%></a></li>
 							</ul>
 						</div>
 					</div>
@@ -63,7 +64,7 @@
 						<div class="logo pull-left">
 							<a href="index.jsp"><img src="Bootstrap/images/home/logo.png" alt="" /></a>
 						</div>
-						<div class="btn-group pull-right">
+						<!-- <div class="btn-group pull-right">
 							<div class="btn-group">
 								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
 									USA
@@ -85,13 +86,13 @@
 									<li><a href="#">Pound</a></li>
 								</ul>
 							</div>
-						</div>
+						</div> -->
 					</div>
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href="#"><i class="fa fa-user"></i> Account</a></li>
-								<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
+								<li><html:link action="loginRedirect.do"><i class="fa fa-user"></i> Account</html:link></li>
+								<!-- <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li> -->
 								<li><a href="WEB-INF/Pages/checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
 								<li><a href="WEB-INF/Pages/cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
 								<li><html:link action="loginRedirect.do"><i class="fa fa-lock"></i> Login</html:link></li>

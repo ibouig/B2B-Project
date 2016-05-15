@@ -38,6 +38,9 @@ public class Entreprise extends Account{
 	@OneToMany(mappedBy = "entreprise")
 	private List<Product> products;
 
+	public String toString(){
+		return this.getName();
+	}
 	public String getStreet() {
 		return street;
 	}
