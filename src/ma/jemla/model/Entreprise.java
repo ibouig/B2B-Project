@@ -21,6 +21,8 @@ public class Entreprise extends Account{
 	
 	private String phone;
 	
+	private String street;
+	
 	//@Column(table="secteur")
 	private String secteur;
 	

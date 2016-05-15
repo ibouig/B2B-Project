@@ -153,7 +153,7 @@
 				<div class="col-sm-4 col-sm-offset-1">
 					<div class="login-form"><!--login form-->
 						<h2>Login to your account</h2>
-						<form action="#" method="post">
+						<form action="login.do" method="post">
 							<input type="email" placeholder="Email Address" name="email"/>
 							<input type="password" placeholder="password" name="password"/>
 							<span>
@@ -172,7 +172,7 @@
 						<h2>New User Signup!</h2>
 						<form action="register.do" method="POST">
 							<input type="text" placeholder="Name" name="name" />
-							<input type="email" placeholder="Email Address" name="email" />
+							<input type="email" placeholder="Email Address" name="email" /><html:errors property="email"/>
 							<input type="password" placeholder="Password" name="password" />
 							<input type="password" placeholder="Confirm password" name="conf_pass" />
 							<input type="text" placeholder="Adresse" name="adresse"/>

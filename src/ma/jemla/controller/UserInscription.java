@@ -22,6 +22,7 @@ public class UserInscription extends Action{
 		entreprise.setAdresse(registerForm.getAdresse());
 		entreprise.setVille(registerForm.getVille());
 		entreprise.setPassword(registerForm.getPassword());
+		entreprise.setEmail(registerForm.getEmail());
 		entreprise.setName(registerForm.getName());
 		EntrepriseDaoImpl e_DaoImpl = new EntrepriseDaoImpl();
 		if(e_DaoImpl.inserer(entreprise)){

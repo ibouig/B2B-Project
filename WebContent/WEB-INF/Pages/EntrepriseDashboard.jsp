@@ -116,24 +116,23 @@
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="index.jsp">Home</a></li>
-								<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
+								<li><a href="#">Dashboard Home</a></li>
+								<li class="dropdown"><a href="#">Profile<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="shop.jsp">Products</a></li>
-										<li><a href="product-details.jsp">Product Details</a></li> 
+                                        <li><a href="shop.jsp">Qui sommes nous</a></li>
+										<li><a href="product-details.jsp">Produits</a></li> 
 										<li><a href="checkout.jsp">Checkout</a></li> 
-										<li><a href="cart.jsp">Cart</a></li> 
-										<li><a href="login.jsp">Login</a></li> 
+										<li><a href="cart.jsp">Promouvoir Site</a></li> 
                                     </ul>
                                 </li> 
-								<li class="dropdown"><a href="#" class="active">Blog<i class="fa fa-angle-down"></i></a>
+								<li class="dropdown"><a href="#" class="active">Produits<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="blog.jsp" class="active">Blog List</a></li>
-										<li><a href="blog-single.jsp">Blog Single</a></li>
+                                        <li><a href="blog.jsp" class="active">Acheter</a></li>
+										<li><a href="blog-single.jsp">Vendue</a></li>
                                     </ul>
                                 </li> 
-								<li><a href="404.jsp">404</a></li>
-								<li><a href="contact-us.jsp">Contact</a></li>
+								<li><a href="404.jsp">Inbox</a></li>
+								<li><a href="contact-us.jsp">Publier produit</a></li>
 							</ul>
 						</div>
 					</div>
