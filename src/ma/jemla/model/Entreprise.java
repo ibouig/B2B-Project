@@ -11,6 +11,7 @@ import javax.persistence.OneToMany;
 public class Entreprise extends Account{
 	private String street;
 	
+	private String street;
 	private String zipCode;
 	
 	//@Column(table="ville")
@@ -22,8 +23,7 @@ public class Entreprise extends Account{
 	
 	private String phone;
 	
-	//@Column(table="secteur")
-	private String secteur;
+	
 	
 	//@Column(table="entrepriseType")
 	private String entrepriseType;
