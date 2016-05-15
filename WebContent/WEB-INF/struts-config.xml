@@ -18,12 +18,12 @@
 	<action-mappings>
 
 		<action path="/register" scope="session" name="registerForm" type="ma.jemla.controller.UserInscription"
-		 validate="true">
+		 validate="true" input="/WEB-INF/Pages/login.jsp">
 			<forward name="success" path="/WEB-INF/Pages/EntrepriseDashboard.jsp" />
 			<forward name="failure" path="/WEB-INF/Pages/login.jsp"/>
 		</action>
 		<action path="/login" scope="session" name="loginForm" type="ma.jemla.controller.Login"
-		 validate="true" >
+		 validate="true" input="/WEB-INF/Pages/login.jsp">
 		<!-- 	<forward name="success" path="index.jsp"/>
 			<forward name="failure" path="index.jsp"/> -->
 			<forward name="success" path="/WEB-INF/Pages/EntrepriseDashboard.jsp" />
