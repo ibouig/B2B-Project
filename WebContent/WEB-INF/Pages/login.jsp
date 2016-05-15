@@ -172,7 +172,7 @@
 						<h2>New User Signup!</h2>
 						<form action="register.do" method="POST">
 							<input type="text" placeholder="Name" name="name" />
-							<input type="email" placeholder="Email Address" name="email" />
+							<input type="email" placeholder="Email Address" name="email" /><html:errors property="email"/>
 							<input type="password" placeholder="Password" name="password" />
 							<input type="password" placeholder="Confirm password" name="conf_pass" />
 							<input type="text" placeholder="Adresse" name="adresse"/>
