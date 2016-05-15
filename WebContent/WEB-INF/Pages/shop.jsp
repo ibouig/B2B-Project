@@ -93,7 +93,7 @@
 								<li><a href=""><i class="fa fa-user"></i> Account</a></li>
 								<li><a href=""><i class="fa fa-star"></i> Wishlist</a></li>
 								<li><a href="checkout.jsp"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-								<li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+								<li><html:link action="cart.do"><i class="fa fa-shopping-cart"></i> Cart</html:link></li>
 								<li><a href="login.jsp"><i class="fa fa-lock"></i> Login</a></li>
 							</ul>
 						</div>
@@ -122,7 +122,7 @@
                                         <li><a href="shop.jsp" class="active">Products</a></li>
 										<li><a href="product-details.jsp">Product Details</a></li> 
 										<li><a href="checkout.jsp">Checkout</a></li> 
-										<li><a href="cart.jsp">Cart</a></li> 
+										<li><html:link action="cart.do">Cart</html:link></li> 
 										<li><a href="login.jsp">Login</a></li> 
                                     </ul>
                                 </li> 

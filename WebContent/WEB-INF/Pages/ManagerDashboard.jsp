@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Contact | Jemla-Ma</title>
+    <title>ManagerDashboard | Jemla-Ma</title>
     <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="Bootstrap/css/font-awesome.min.css" rel="stylesheet">
     <link href="Bootstrap/css/prettyPhoto.css" rel="stylesheet">
@@ -38,6 +38,7 @@
 							<ul class="nav nav-pills">
 								<li><a href=""><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
 								<li><a href=""><i class="fa fa-envelope"></i> info@jemla.ma</a></li>
+								<li><a href=""><i class="fa fa-envelope"></i><%= session.getAttribute("ActiveUser")%></a></li>
 							</ul>
 						</div>
 					</div>
@@ -67,10 +68,8 @@
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-								<li><html:link action="login.do"><i class="fa fa-user"></i> Account</html:link></li>
-								<li><html:link action="checkout.do"><i class="fa fa-crosshairs"></i> Checkout</html:link></li>
-								<li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-								<li><html:link action="login.do"><i class="fa fa-lock"></i> Login</html:link></li>
+								<li><a href=""><i class="fa fa-user"></i> Account</a></li>
+								<li><html:link action="loginRedirect.do"><i class="fa fa-lock"></i> Logout</html:link></li>
 							</ul>
 						</div>
 					</div>
@@ -92,24 +91,15 @@
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="index.jsp">Home</a></li>
-								<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
+								<li><a href="#">Dashboard Home</a></li>
+								<li class="dropdown"><a href="#">Profile<i class="fa fa-angle-down"></i></a>
+                                </li> 
+								<li class="dropdown"><a href="#" class="active">Valider<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <!-- <li><a href="shop.jsp">Products</a></li>
-										<li><a href="product-details.jsp">Product Details</a></li> --> 
-										<li><a href="checkout.jsp">Checkout</a></li> 
-										<li><a href="cart.jsp">Cart</a></li> 
-										<li><html:link action="login.do">Login</html:link></li> 
+                                        <li><a href="#" class="active">Annonces</a></li>
+										<li><a href="#">Ordres</a></li>
                                     </ul>
                                 </li> 
-								<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="blog.jsp">Blog List</a></li>
-										<li><a href="blog-single.jsp">Blog Single</a></li>
-                                    </ul>
-                                </li> 
-								<!-- <li><a href="404.jsp">404</a></li> -->
-								
 							</ul>
 						</div>
 					</div>
@@ -122,73 +112,94 @@
 			</div>
 		</div><!--/header-bottom-->
 	</header><!--/header-->
-	 
-	 <div id="contact-page" class="container">
-    	<div class="bg">
-	    	<div class="row">    		
-	    		<div class="col-sm-12">    			   			
-					<h2 class="title text-center">Contact <strong>Us</strong></h2>    			    				    				
-					<div id="gmap" class="contact-map">
-					</div>
-				</div>			 		
-			</div>    	
-    		<div class="row">  	
-	    		<div class="col-sm-8">
-	    			<div class="contact-form">
-	    				<h2 class="title text-center">Get In Touch</h2>
-	    				<div class="status alert alert-success" style="display: none"></div>
-				    	<form id="main-contact-form" class="contact-form row" name="contact-form" method="post">
-				            <div class="form-group col-md-6">
-				                <input type="text" name="name" class="form-control" required="required" placeholder="Name">
-				            </div>
-				            <div class="form-group col-md-6">
-				                <input type="email" name="email" class="form-control" required="required" placeholder="Email">
-				            </div>
-				            <div class="form-group col-md-12">
-				                <input type="text" name="subject" class="form-control" required="required" placeholder="Subject">
-				            </div>
-				            <div class="form-group col-md-12">
-				                <textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder="Your Message Here"></textarea>
-				            </div>                        
-				            <div class="form-group col-md-12">
-				                <input type="submit" name="submit" class="btn btn-primary pull-right" value="Submit">
-				            </div>
-				        </form>
-	    			</div>
-	    		</div>
-	    		<div class="col-sm-4">
-	    			<div class="contact-info">
-	    				<h2 class="title text-center">Contact Info</h2>
-	    				<address>
-	    					<p>Jemla Ma Inc.</p>
-							<p>Bd Abdelkrim El Lhatabi, Marrakech</p>
-							<p>Maroc</p>
-							<p>Mobile: +2346 17 38 93</p>
-							<p>Fax: 1-714-252-0026</p>
-							<p>Email: info@jemla.ma</p>
-	    				</address>
-	    				<div class="social-networks">
-	    					<h2 class="title text-center">Social Networking</h2>
-							<ul>
-								<li>
-									<a href="#"><i class="fa fa-facebook"></i></a>
-								</li>
-								<li>
-									<a href="#"><i class="fa fa-twitter"></i></a>
-								</li>
-								<li>
-									<a href="#"><i class="fa fa-google-plus"></i></a>
-								</li>
-								<li>
-									<a href="#"><i class="fa fa-youtube"></i></a>
-								</li>
+	
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3">
+					<!--  -->
+				<div class="col-sm-9">
+					<div class="blog-post-area">
+						<h2 class="title text-center">Latest From our Blog</h2>
+						<div class="single-blog-post">
+							<h3>Girls Pink T Shirt arrived in store</h3>
+							<div class="post-meta">
+								<ul>
+									<li><i class="fa fa-user"></i> Mac Doe</li>
+									<li><i class="fa fa-clock-o"></i> 1:33 pm</li>
+									<li><i class="fa fa-calendar"></i> DEC 5, 2013</li>
+								</ul>
+								<span>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star-half-o"></i>
+								</span>
+							</div>
+							<a href="">
+								<img src="Bootstrap/images/blog/blog-one.jpg" alt="">
+							</a>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+							<a  class="btn btn-primary" href="">Read More</a>
+						</div>
+						<div class="single-blog-post">
+							<h3>Girls Pink T Shirt arrived in store</h3>
+							<div class="post-meta">
+								<ul>
+									<li><i class="fa fa-user"></i> Mac Doe</li>
+									<li><i class="fa fa-clock-o"></i> 1:33 pm</li>
+									<li><i class="fa fa-calendar"></i> DEC 5, 2013</li>
+								</ul>
+								<span>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star-half-o"></i>
+								</span>
+							</div>
+							<a href="">
+								<img src="Bootstrap/images/blog/blog-two.jpg" alt="">
+							</a>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+							<a  class="btn btn-primary" href="">Read More</a>
+						</div>
+						<div class="single-blog-post">
+							<h3>Girls Pink T Shirt arrived in store</h3>
+							<div class="post-meta">
+								<ul>
+									<li><i class="fa fa-user"></i> Mac Doe</li>
+									<li><i class="fa fa-clock-o"></i> 1:33 pm</li>
+									<li><i class="fa fa-calendar"></i> DEC 5, 2013</li>
+								</ul>
+								<span>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star-half-o"></i>
+								</span>
+							</div>
+							<a href="">
+								<img src="Bootstrap/images/blog/blog-three.jpg" alt="">
+							</a>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+							<a  class="btn btn-primary" href="">Read More</a>
+						</div>
+						<div class="pagination-area">
+							<ul class="pagination">
+								<li><a href="" class="active">1</a></li>
+								<li><a href="">2</a></li>
+								<li><a href="">3</a></li>
+								<li><a href=""><i class="fa fa-angle-double-right"></i></a></li>
 							</ul>
-	    				</div>
-	    			</div>
-    			</div>    			
-	    	</div>  
-    	</div>	
-    </div><!--/#contact-page-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 	
 	<footer id="footer"><!--Footer-->
 		<div class="footer-top">
@@ -196,7 +207,7 @@
 				<div class="row">
 					<div class="col-sm-2">
 						<div class="companyinfo">
-							<h2><span>Jemla</span>-Ma</h2>
+							<h2><span>e</span>-shopper</h2>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor</p>
 						</div>
 					</div>
@@ -212,7 +223,7 @@
 									</div>
 								</a>
 								<p>Circle of Hands</p>
-								<h2>15 Mai 2016</h2>
+								<h2>24 DEC 2014</h2>
 							</div>
 						</div>
 						
@@ -227,7 +238,7 @@
 									</div>
 								</a>
 								<p>Circle of Hands</p>
-								<h2>15 Mai 2016</h2>
+								<h2>24 DEC 2014</h2>
 							</div>
 						</div>
 						
@@ -242,7 +253,7 @@
 									</div>
 								</a>
 								<p>Circle of Hands</p>
-								<h2>15 Mai 2016</h2>
+								<h2>24 DEC 2014</h2>
 							</div>
 						</div>
 						
@@ -257,13 +268,13 @@
 									</div>
 								</a>
 								<p>Circle of Hands</p>
-								<h2>15 Mai 2016</h2>
+								<h2>24 DEC 2014</h2>
 							</div>
 						</div>
 					</div>
 					<div class="col-sm-3">
 						<div class="address">
-							<img src="Bootstrap/images/home/map.png" alt="" />
+							<img src="images/home/map.png" alt="" />
 							<p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
 						</div>
 					</div>
@@ -340,7 +351,7 @@
 		<div class="footer-bottom">
 			<div class="container">
 				<div class="row">
-					<p class="pull-left">Copyright © 2016 Jemla_Ma Inc. All rights reserved.</p>
+					<p class="pull-left">Copyright © 2013 E-SHOPPER Inc. All rights reserved.</p>
 					<p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
 				</div>
 			</div>
@@ -351,12 +362,9 @@
 
   
     <script src="Bootstrap/js/jquery.js"></script>
-	<script src="Bootstrap/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
-    <script type="text/javascript" src="js/gmaps.js"></script>
-	<script src="Bootstrap/js/contact.js"></script>
 	<script src="Bootstrap/js/price-range.js"></script>
-    <script src="Bootstrap/js/jquery.scrollUp.min.js"></script>
+	<script src="Bootstrap/js/jquery.scrollUp.min.js"></script>
+	<script src="Bootstrap/js/bootstrap.min.js"></script>
     <script src="Bootstrap/js/jquery.prettyPhoto.js"></script>
     <script src="Bootstrap/js/main.js"></script>
 </body>

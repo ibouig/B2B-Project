@@ -68,8 +68,8 @@
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
 								<li><a href=""><i class="fa fa-user"></i> Account</a></li>
-								<li><a href=""><i class="fa fa-star"></i> Wishlist</a></li>
-								<li><a href="checkout.jsp"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+<!-- 								<li><a href=""><i class="fa fa-star"></i> Wishlist</a></li> -->
+								<li><html:link action="checkout.do"><i class="fa fa-crosshairs"></i> Checkout</html:link></li>
 								<li><html:link action="cart.do"><i class="fa fa-shopping-cart"></i> Cart</html:link></li>
 								<li><a href="login.jsp" class="active"><i class="fa fa-lock"></i> Login</a></li>
 							</ul>
@@ -98,19 +98,19 @@
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="shop.jsp">Products</a></li>
 										<li><a href="product-details.jsp">Product Details</a></li> 
-										<li><a href="checkout.jsp">Checkout</a></li> 
-										<li><a href="cart.jsp">Cart</a></li> 
-										<li><a href="login.jsp" class="active">Login</a></li> 
+										<li><html:link action="checkout.do">Checkout</html:link></li> 
+										<li><html:link action="cart.do">Cart</html:link></li> 
+										<li><a href="#" class="active">Login</a></li> 
                                     </ul>
                                 </li> 
-								<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="blog.jsp">Blog List</a></li>
-										<li><a href="blog-single.jsp">Blog Single</a></li>
-                                    </ul>
-                                </li> 
-								<li><a href="404.jsp">404</a></li>
-								<li><a href="contact-us.jsp">Contact</a></li>
+<!-- 								<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a> -->
+<!--                                     <ul role="menu" class="sub-menu"> -->
+<!--                                         <li><a href="blog.jsp">Blog List</a></li> -->
+<!-- 										<li><a href="blog-single.jsp">Blog Single</a></li> -->
+<!--                                     </ul> -->
+<!--                                 </li>  -->
+<!-- 								<li><a href="404.jsp">404</a></li> -->
+								<li><html:link action="contactUs.do">Contact</html:link></li>
 							</ul>
 						</div>
 					</div>
@@ -157,6 +157,24 @@
 							<input type="text" placeholder="Zip Code" name="zipeCode"/>
 							<input type="text" placeholder="Ville" name="ville"/>
 							<input type="text" placeholder="Phone" name="phone"/>
+							<select name="country" class="countries" id="countryId">
+							<option value="">Select Country</option>
+							</select>
+							<div><br/></div>
+							
+							<select name="state" class="states" id="stateId">
+							<option value="">Select State</option>
+							</select>
+							<div><br/></div>
+							<select name="city" class="cities" id="cityId">
+							<option value="">Select City</option>
+							</select>
+							<div><br/></div>
+							
+							
+							 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+							<script src="http://lab.iamrohit.in/js/location.js"></script>
+							
 							<!-- <select class="form-control" id="secteur" name="secteur">
         						<option>Utilisateur</option>
         						<option>Entreprise</option>

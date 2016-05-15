@@ -94,8 +94,8 @@
 								<li><a href=""><i class="fa fa-user"></i> Account</a></li>
 								<li><a href=""><i class="fa fa-star"></i> Wishlist</a></li>
 								<li><a href="checkout.jsp"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-								<li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-								<li><html:link action="loginRedirect.do"><i class="fa fa-lock"></i> Login</html:link></li>
+								<li><html:link action="cart.do"><i class="fa fa-shopping-cart"></i> Cart</html:link></li>
+								<li><html:link action="loginRedirect.do"><i class="fa fa-lock"></i> Logout</html:link></li>
 							</ul>
 						</div>
 					</div>
@@ -120,20 +120,22 @@
 								<li><a href="#">Dashboard Home</a></li>
 								<li class="dropdown"><a href="#">Profile<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="shop.jsp">Qui sommes nous</a></li>
+                                        <li><a href="#">Qui sommes nous</a></li>
 										<li><a href="product-details.jsp">Produits</a></li> 
-										<li><a href="checkout.jsp">Checkout</a></li> 
-										<li><a href="cart.jsp">Promouvoir Site</a></li> 
+										<li><html:link action="checkout.do">Checkout</html:link></li> 
+										<!-- <li><a href="cart.jsp">Promouvoir Site</a></li>  -->
+										<li><a href="cart.jsp">Logout</a></li> 
                                     </ul>
                                 </li> 
 								<li class="dropdown"><a href="#" class="active">Produits<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="blog.jsp" class="active">Acheter</a></li>
-										<li><a href="blog-single.jsp">Vendue</a></li>
+                                        <li><a href="#" class="active">Acheter</a></li>
+										<li><a href="#">Vendue</a></li>
                                     </ul>
                                 </li> 
 								<li><html:link action="inbox.do">Inbox</html:link></li>
-								<li><a href="contact-us.jsp">Publier produit</a></li>
+								<li><a href="#">Publier produit</a></li>
+								<li><html:link action="contactUs.do">Contact us</html:link></li>
 							</ul>
 						</div>
 					</div>

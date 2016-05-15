@@ -99,9 +99,9 @@
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="WEB-INF/Pages/shop.html">Products</a></li>
 										<li><a href="Bootstrap/product-details.html">Product Details</a></li> 
-										<li><a href="WEB-INF/Pages/checkout.html">Checkout</a></li> 
-										<li><a href="WEB-INF/Pages/cart.html">Cart</a></li> 
-										<li><a href="login.jsp">Login</a></li> 
+										<li><html:link action="checkout.do">Checkout</html:link></li> 
+										<li><html:link action="cart.do">Cart</html:link></li> 
+										<li><html:link action="loginRedirect.do">Login</html:link></li> 
                                     </ul>
                                 </li> 
 								<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
@@ -111,7 +111,7 @@
                                     </ul>
                                 </li> 
 								<li><a href="WEB-INF/Pages/404.html">404</a></li>
-								<li><a href="WEB-INF/Pages/contact-us.html">Contact</a></li>
+								<li><html:link action="contactUs.do">Contact</html:link></li>
 							</ul>
 						</div>
 					</div>

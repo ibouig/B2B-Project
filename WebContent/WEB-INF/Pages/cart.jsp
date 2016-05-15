@@ -67,9 +67,8 @@
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-								<li><html:link action="loginRedirect.do"><i class="fa fa-user"></i> Account</html:link></li>
-								<li><a href=""><i class="fa fa-star"></i> Wishlist</a></li>
-								<li><a href="checkout.jsp"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+								<li><html:link action="login.do"><i class="fa fa-user"></i> Account</html:link></li>
+								<li><html:link action="checkout.do"><i class="fa fa-crosshairs"></i> Checkout</html:link></li>
 								<li><a href="#" class="active"><i class="fa fa-shopping-cart"></i> Cart</a></li>
 								<!-- <li><a href="login.jsp"><i class="fa fa-lock"></i> Login</a></li> -->
 							</ul>
@@ -99,8 +98,8 @@
                                         <li><a href="shop.jsp">Products</a></li>
 										<li><a href="product-details.jsp">Product Details</a></li> 
 										<li><a href="checkout.jsp">Checkout</a></li> 
-										<li><a href="cart.jsp" class="active">Cart</a></li> 
-										<li><a href="login.jsp">Login</a></li> 
+										<li><a href="#" class="active">Cart</a></li> 
+										<li><html:link action="login.do">Login</html:link></li> 
                                     </ul>
                                 </li> 
 								<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
@@ -109,7 +108,6 @@
 										<li><a href="blog-single.jsp">Blog Single</a></li>
                                     </ul>
                                 </li> 
-								<li><a href="404.jsp">404</a></li>
 								<li><a href="contact-us.jsp">Contact</a></li>
 							</ul>
 						</div>

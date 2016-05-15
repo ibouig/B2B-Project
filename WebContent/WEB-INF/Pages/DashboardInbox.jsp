@@ -71,7 +71,7 @@
 								<li><a href=""><i class="fa fa-star"></i> Wishlist</a></li>
 								<li><a href="checkout.jsp"><i class="fa fa-crosshairs"></i> Checkout</a></li>
 								<li><html:link action="cart.do"><i class="fa fa-shopping-cart"></i> Cart</html:link></li>
-								<li><html:link action="loginRedirect.do"><i class="fa fa-lock"></i> Login</html:link></li>
+<%-- 								<li><html:link action="loginRedirect.do"><i class="fa fa-lock"></i> Logout</html:link></li> --%>
 							</ul>
 						</div>
 					</div>
@@ -100,6 +100,7 @@
 										<li><a href="product-details.jsp">Produits</a></li> 
 										<li><a href="checkout.jsp">Checkout</a></li> 
 										<li><a href="cart.jsp">Promouvoir Site</a></li> 
+										<li><a href="cart.jsp">Logout</a></li> 
                                     </ul>
                                 </li> 
 								<li class="dropdown"><a href="#" class="active">Produits<i class="fa fa-angle-down"></i></a>
