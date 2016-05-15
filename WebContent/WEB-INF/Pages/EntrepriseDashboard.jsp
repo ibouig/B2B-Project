@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Blog | E-Shopper</title>
+    <title>Blog | Jemla-Ma</title>
     <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="Bootstrap/css/font-awesome.min.css" rel="stylesheet">
     <link href="Bootstrap/css/prettyPhoto.css" rel="stylesheet">
@@ -37,7 +37,8 @@
 						<div class="contactinfo">
 							<ul class="nav nav-pills">
 								<li><a href=""><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-								<li><a href=""><i class="fa fa-envelope"></i> info@domain.com</a></li>
+								<li><a href=""><i class="fa fa-envelope"></i> info@jemla.ma</a></li>
+								<li><a href=""><i class="fa fa-envelope"></i><%= session.getAttribute("ActiveUser")%></a></li>
 							</ul>
 						</div>
 					</div>
@@ -63,7 +64,7 @@
 						<div class="logo pull-left">
 							<a href="index.jsp"><img src="Bootstrap/images/home/logo.png" alt="" /></a>
 						</div>
-						<div class="btn-group pull-right">
+						<!-- <div class="btn-group pull-right">
 							<div class="btn-group">
 								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
 									USA
@@ -85,7 +86,7 @@
 									<li><a href="">Pound</a></li>
 								</ul>
 							</div>
-						</div>
+						</div> -->
 					</div>
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
@@ -93,8 +94,8 @@
 								<li><a href=""><i class="fa fa-user"></i> Account</a></li>
 								<li><a href=""><i class="fa fa-star"></i> Wishlist</a></li>
 								<li><a href="checkout.jsp"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-								<li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-								<li><a href="login.jsp"><i class="fa fa-lock"></i> Login</a></li>
+								<li><html:link action="cart.do"><i class="fa fa-shopping-cart"></i> Cart</html:link></li>
+								<li><html:link action="loginRedirect.do"><i class="fa fa-lock"></i> Logout</html:link></li>
 							</ul>
 						</div>
 					</div>
@@ -119,20 +120,22 @@
 								<li><a href="#">Dashboard Home</a></li>
 								<li class="dropdown"><a href="#">Profile<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="shop.jsp">Qui sommes nous</a></li>
+                                        <li><a href="#">Qui sommes nous</a></li>
 										<li><a href="product-details.jsp">Produits</a></li> 
-										<li><a href="checkout.jsp">Checkout</a></li> 
-										<li><a href="cart.jsp">Promouvoir Site</a></li> 
+										<li><html:link action="checkout.do">Checkout</html:link></li> 
+										<!-- <li><a href="cart.jsp">Promouvoir Site</a></li>  -->
+										<li><a href="cart.jsp">Logout</a></li> 
                                     </ul>
                                 </li> 
 								<li class="dropdown"><a href="#" class="active">Produits<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="blog.jsp" class="active">Acheter</a></li>
-										<li><a href="blog-single.jsp">Vendue</a></li>
+                                        <li><a href="#" class="active">Acheter</a></li>
+										<li><a href="#">Vendue</a></li>
                                     </ul>
                                 </li> 
-								<li><a href="404.jsp">Inbox</a></li>
-								<li><a href="contact-us.jsp">Publier produit</a></li>
+								<li><html:link action="inbox.do">Inbox</html:link></li>
+								<li><a href="#">Publier produit</a></li>
+								<li><html:link action="contactUs.do">Contact us</html:link></li>
 							</ul>
 						</div>
 					</div>

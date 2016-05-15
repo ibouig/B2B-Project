@@ -29,7 +29,25 @@
 			<forward name="success" path="/WEB-INF/Pages/EntrepriseDashboard.jsp" />
 			<forward name="failure" path="/WEB-INF/Pages/login.jsp"/>
 		</action>
-		<action path="/loginRedirect" forward="/WEB-INF/Pages/login.jsp" />
+		<action path="/loginRedirect" type="ma.jemla.controller.LoginRedirect" >
+			<forward name="success" path="/WEB-INF/Pages/EntrepriseDashboard.jsp" />
+			<forward name="failure" path="/WEB-INF/Pages/login.jsp"/>
+		</action>
+		<action path="/inbox" scope="session" type="ma.jemla.controller.Inbox" >
+			<forward name="success" path="/WEB-INF/Pages/DashboardInbox.jsp" />
+			<forward name="failure" path="/WEB-INF/Pages/login.jsp"/>
+		</action>
+		<action path="/cart" scope="session" type="ma.jemla.controller.CartRedirect" >
+			<forward name="success" path="/WEB-INF/Pages/cart.jsp" />
+			<forward name="failure" path="/WEB-INF/Pages/cart.jsp"/>
+		</action>
+		
+		<action path="/checkout" scope="session" type="ma.jemla.controller.CheckoutRedirect" >
+			<forward name="success" path="/WEB-INF/Pages/checkout.jsp" />
+			<forward name="failure" path="/WEB-INF/Pages/checkout.jsp"/>
+		</action>
+		<action path="/contactUs" forward="/WEB-INF/Pages/contact-us.jsp"/>
+		<action path="/managerLogin" forward="/WEB-INF/Pages/ManagerLogin.jsp"/>
 	</action-mappings>
 
 
