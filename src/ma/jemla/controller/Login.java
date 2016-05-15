@@ -20,7 +20,7 @@ public class Login extends Action{
 		LoginForm myForm = (LoginForm) form;
 		EntrepriseDaoImpl e_DaoImpl = new EntrepriseDaoImpl();
 		Entreprise entreprise = e_DaoImpl.login(myForm.getEmail(), myForm.getPassword());
-		
+
 		if(entreprise != null){
 			req.getSession().setAttribute("ActiveUser", entreprise);
 			return mapping.findForward("success");

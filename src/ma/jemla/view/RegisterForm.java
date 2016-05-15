@@ -15,6 +15,8 @@ public class RegisterForm extends ActionForm{
 	private String adresse;
 	private String ville;
 	public ActionErrors validate(ActionMapping mapping,  HttpServletRequest request) {
+		System.out.println("Here in the ActionErrors validate form");
+		System.out.println("the name is: "+name+", the email is: "+email+", password is: "+password);
 		ActionErrors errors = new ActionErrors();
 		if(name==null||name.length()<=6)
 			errors.add("name", new ActionMessage("error.name"));
@@ -22,9 +24,9 @@ public class RegisterForm extends ActionForm{
 			errors.add("email", new ActionMessage("error.email"));
 		if(password ==null || conf_pass==null|| !password.equals(conf_pass))
 			errors.add("password", new ActionMessage("error.password"));
-		
+
 		return errors;
-			}
+	}
 	public String getName() {
 		return name;
 	}
@@ -62,5 +64,5 @@ public class RegisterForm extends ActionForm{
 		this.ville = ville;
 	}
 
-	
+
 }

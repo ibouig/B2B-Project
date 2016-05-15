@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Blog | E-Shopper</title>
+    <title>Entreprise Dashboard</title>
     <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="Bootstrap/css/font-awesome.min.css" rel="stylesheet">
     <link href="Bootstrap/css/prettyPhoto.css" rel="stylesheet">
@@ -36,6 +36,7 @@
 					<div class="col-sm-6">
 						<div class="contactinfo">
 							<ul class="nav nav-pills">
+								<li><a href=""><i class="fa fa-phone"></i><=% ActiveUser.getNom()%></a></li>
 								<li><a href=""><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
 								<li><a href=""><i class="fa fa-envelope"></i> info@domain.com</a></li>
 							</ul>
@@ -123,7 +124,7 @@
 										<li><a href="product-details.jsp">Product Details</a></li> 
 										<li><a href="checkout.jsp">Checkout</a></li> 
 										<li><a href="cart.jsp">Cart</a></li> 
-										<li><a href="login.jsp">Login</a></li> 
+										<li><html:link action="loginRedirect.do">Login</html:link></li> 
                                     </ul>
                                 </li> 
 								<li class="dropdown"><a href="#" class="active">Blog<i class="fa fa-angle-down"></i></a>

@@ -94,7 +94,7 @@
 								<li><a href=""><i class="fa fa-star"></i> Wishlist</a></li>
 								<li><a href="checkout.jsp"><i class="fa fa-crosshairs"></i> Checkout</a></li>
 								<li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-								<li><a href="login.jsp" class="active"><i class="fa fa-lock"></i> Login</a></li>
+								<li><html:link action="loginRedirect.do"><i class="fa fa-lock"></i> Login</html:link></li>
 							</ul>
 						</div>
 					</div>
@@ -123,7 +123,7 @@
 										<li><a href="product-details.jsp">Product Details</a></li> 
 										<li><a href="checkout.jsp">Checkout</a></li> 
 										<li><a href="cart.jsp">Cart</a></li> 
-										<li><a href="login.jsp" class="active">Login</a></li> 
+										<!-- <li><a href="login.jsp" class="active">Login</a></li> --> 
                                     </ul>
                                 </li> 
 								<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
@@ -132,7 +132,7 @@
 										<li><a href="blog-single.jsp">Blog Single</a></li>
                                     </ul>
                                 </li> 
-								<li><a href="404.jsp">404</a></li>
+								<!-- <li><a href="404.jsp">404</a></li> -->
 								<li><a href="contact-us.jsp">Contact</a></li>
 							</ul>
 						</div>
@@ -153,9 +153,9 @@
 				<div class="col-sm-4 col-sm-offset-1">
 					<div class="login-form"><!--login form-->
 						<h2>Login to your account</h2>
-						<form action="#" method="post">
-							<input type="email" placeholder="Email Address" name="email"/>
-							<input type="password" placeholder="password" name="password"/>
+						<form action="login.do" method="post">
+							<input type="email" placeholder="Email Address" name="email"/><html:errors property="email"/>
+							<input type="password" placeholder="password" name="password"/><html:errors property="password"/>
 							<span>
 								<input type="checkbox" class="checkbox"> 
 								Keep me signed in
@@ -172,8 +172,8 @@
 						<h2>New User Signup!</h2>
 						<form action="register.do" method="POST">
 							<input type="text" placeholder="Name" name="name" />
-							<input type="email" placeholder="Email Address" name="email" />
-							<input type="password" placeholder="Password" name="password" />
+							<input type="email" placeholder="Email Address" name="email" /><html:errors property="email"/>
+							<input type="password" placeholder="Password" name="password" /><html:errors property="password"/>
 							<input type="password" placeholder="Confirm password" name="conf_pass" />
 							<input type="text" placeholder="Adresse" name="adresse"/>
 							<input type="text" placeholder="Street" name="street"/>

@@ -2,7 +2,14 @@ package ma.jemla.model;
 
 import java.io.Serializable;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.MappedSuperclass;
+
+import com.sun.istack.internal.NotNull;
 
 
 
@@ -15,6 +22,8 @@ public class Account implements Serializable{
 	private String name;
 	private String password;
 	private String conf_pass;
+	@NotNull
+	@Column(nullable=false)
 	private String email;
 	
 	public String getEmail() {

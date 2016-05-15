@@ -21,13 +21,17 @@ public class UserInscription extends Action{
 		Entreprise entreprise = new Entreprise();
 		entreprise.setAdresse(registerForm.getAdresse());
 		entreprise.setVille(registerForm.getVille());
+		entreprise.setEmail(registerForm.getEmail());
 		entreprise.setPassword(registerForm.getPassword());
 		entreprise.setName(registerForm.getName());
 		EntrepriseDaoImpl e_DaoImpl = new EntrepriseDaoImpl();
+		System.out.println("in the controller of UserInscription"+entreprise);
+		//return mapping.findForward("success");
 		if(e_DaoImpl.inserer(entreprise)){
 			req.getSession().setAttribute("ActiveUser", entreprise);
 			return mapping.findForward("success");
 		}else{
+			System.out.println("A problem in the user inscription");
 			return mapping.findForward("failure");
 		}
 	}
