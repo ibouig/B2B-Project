@@ -37,6 +37,10 @@
 			<forward name="success" path="/WEB-INF/Pages/DashboardInbox.jsp" />
 			<forward name="failure" path="/WEB-INF/Pages/login.jsp"/>
 		</action>
+		<action path="/cart" scope="session" type="ma.jemla.controller.CartRedirect" >
+			<forward name="success" path="/WEB-INF/Pages/cart.jsp" />
+			<forward name="failure" path="/WEB-INF/Pages/cart.jsp"/>
+		</action>
 	</action-mappings>
 
 

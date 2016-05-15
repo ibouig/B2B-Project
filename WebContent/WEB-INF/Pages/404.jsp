@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Home | E-Shopper</title>
+    <title>Error | Jemla-Ma</title>
     <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="Bootstrap/css/font-awesome.min.css" rel="stylesheet">
     <link href="Bootstrap/css/prettyPhoto.css" rel="stylesheet">
@@ -35,7 +35,7 @@
 		</div>
 		<div class="content-404">
 			<img src="Bootstrap/images/404/404.png" class="img-responsive" alt="" />
-			<h1><b>OPPS!</b> We Couldnâ€™t Find this Page</h1>
+			<h1><b>OPPS!</b> We Couldn'€™t Find this Page</h1>
 			<p>Uh... So it looks like you brock something. The page you are looking for has up and Vanished.</p>
 			<h2><a href="index.jsp">Bring me back Home</a></h2>
 		</div>
