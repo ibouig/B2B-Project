@@ -37,6 +37,62 @@ public class Order {
 	
 	@OneToOne
 	private Payement payement;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public Entreprise getEntreprise() {
+		return entreprise;
+	}
+
+	public void setEntreprise(Entreprise entreprise) {
+		this.entreprise = entreprise;
+	}
+
+	public Date getCreationDate() {
+		return creationDate;
+	}
+
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
+	}
+
+	public OrderStatus getOrderStatus() {
+		return orderStatus;
+	}
+
+	public void setOrderStatus(OrderStatus orderStatus) {
+		this.orderStatus = orderStatus;
+	}
+
+	public List<OrderLine> getLines() {
+		return lines;
+	}
+
+	public void setLines(List<OrderLine> lines) {
+		this.lines = lines;
+	}
+
+	public double getPrixTotal() {
+		return prixTotal;
+	}
+
+	public void setPrixTotal(double prixTotal) {
+		this.prixTotal = prixTotal;
+	}
+
+	public Payement getPayement() {
+		return payement;
+	}
+
+	public void setPayement(Payement payement) {
+		this.payement = payement;
+	}
 	
 	
 	

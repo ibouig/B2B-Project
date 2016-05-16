@@ -64,29 +64,6 @@
 						<div class="logo pull-left">
 							<a href="index.jsp"><img src="Bootstrap/images/home/logo.png" alt="" /></a>
 						</div>
-						<!-- <div class="btn-group pull-right">
-							<div class="btn-group">
-								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-									USA
-									<span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><a href="">Canada</a></li>
-									<li><a href="">UK</a></li>
-								</ul>
-							</div>
-							
-							<div class="btn-group">
-								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-									DOLLAR
-									<span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><a href="">Canadian Dollar</a></li>
-									<li><a href="">Pound</a></li>
-								</ul>
-							</div>
-						</div> -->
 					</div>
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
@@ -134,8 +111,8 @@
                                     </ul>
                                 </li> 
 								<li><html:link action="inbox.do">Inbox</html:link></li>
-								<li><a href="#">Publier produit</a></li>
-								<li><html:link action="contactUs.do">Contact us</html:link></li>
+								<li><html:link action="inbox.do">Publier produit</html:link></li>
+								<li><html:link action="publishProduct.do">Contact us</html:link></li>
 							</ul>
 						</div>
 					</div>

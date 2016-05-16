@@ -55,4 +55,145 @@ public class Product {
 	@JoinColumn(name = "product")
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Entreprise entreprise;
+
+
+	public long getId() {
+		return id;
+	}
+
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+
+	public String getNom() {
+		return nom;
+	}
+
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+
+	public String getDescription() {
+		return description;
+	}
+
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+
+	public double getPrix() {
+		return prix;
+	}
+
+
+	public void setPrix(double prix) {
+		this.prix = prix;
+	}
+
+
+	public Unite getUnite() {
+		return unite;
+	}
+
+
+	public void setUnite(Unite unite) {
+		this.unite = unite;
+	}
+
+
+	public long getQuantite() {
+		return quantite;
+	}
+
+
+	public void setQuantite(long quantite) {
+		this.quantite = quantite;
+	}
+
+
+	public long getDelai_jours() {
+		return delai_jours;
+	}
+
+
+	public void setDelai_jours(long delai_jours) {
+		this.delai_jours = delai_jours;
+	}
+
+
+	public String getImagePath() {
+		return imagePath;
+	}
+
+
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
+	}
+
+
+	public String getRef() {
+		return ref;
+	}
+
+
+	public void setRef(String ref) {
+		this.ref = ref;
+	}
+
+
+	public Date getDateAjout() {
+		return dateAjout;
+	}
+
+
+	public void setDateAjout(Date dateAjout) {
+		this.dateAjout = dateAjout;
+	}
+
+
+	public List<OrderLine> getOrderLines() {
+		return orderLines;
+	}
+
+
+	public void setOrderLines(List<OrderLine> orderLines) {
+		this.orderLines = orderLines;
+	}
+
+
+	public Category getCategory() {
+		return category;
+	}
+
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+
+	public List<Catalogue> getCataogues() {
+		return cataogues;
+	}
+
+
+	public void setCataogues(List<Catalogue> cataogues) {
+		this.cataogues = cataogues;
+	}
+
+
+	public Entreprise getEntreprise() {
+		return entreprise;
+	}
+
+
+	public void setEntreprise(Entreprise entreprise) {
+		this.entreprise = entreprise;
+	}
+	
 }

@@ -24,6 +24,38 @@ public class Catalogue {
 	
 	@ManyToMany
 	private List<Product> products;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public Date getDate_ajout() {
+		return date_ajout;
+	}
+
+	public void setDate_ajout(Date date_ajout) {
+		this.date_ajout = date_ajout;
+	}
+
+	public List<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
+	}
 	
 	
 }

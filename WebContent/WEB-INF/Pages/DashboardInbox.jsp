@@ -93,24 +93,23 @@
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="#">Dashboard Home</a></li>
+								<li><html:link action=login.do"">Dashboard Home</html:link></li>
 								<li class="dropdown"><a href="#">Profile<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="shop.jsp">Qui sommes nous</a></li>
-										<li><a href="product-details.jsp">Produits</a></li> 
-										<li><a href="checkout.jsp">Checkout</a></li> 
-										<li><a href="cart.jsp">Promouvoir Site</a></li> 
-										<li><a href="cart.jsp">Logout</a></li> 
+                                        <li><a href="">Qui sommes nous</a></li>
+										<li><a href="">Produits</a></li> 
+										<li><a href="">Checkout</a></li> 
+										<li><a href="">Logout</a></li> 
                                     </ul>
                                 </li> 
 								<li class="dropdown"><a href="#" class="active">Produits<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="blog.jsp" class="active">Acheter</a></li>
-										<li><a href="blog-single.jsp">Vendue</a></li>
+                                        <li><a href="" class="active">Acheter</a></li>
+										<li><a href="">Vendue</a></li>
                                     </ul>
                                 </li> 
-								<li><a href="404.jsp">Inbox</a></li>
-								<li><a href="contact-us.jsp">Publier produit</a></li>
+								<li><a href="#">Inbox</a></li>
+								<li><a href="">Publier produit</a></li>
 							</ul>
 						</div>
 					</div>
