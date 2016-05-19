@@ -54,8 +54,8 @@
 		
 		<action path="/managerLogin" forward="/WEB-INF/Pages/ManagerLogin.jsp"/>
 		
-		<action path="/publishProduct" type="ma.jemla.controller.addProduct" name="addForm">
-			<forward name="success" path="/WEB-INF/Pages/EntrepriseDashboard.jsp" />
+		<action path="/publishProduct" type="ma.jemla.controller.AddProduct" name="addForm">
+			<forward name="success" path="/WEB-INF/Pages/publishProduct.jsp" />
 			<forward name="failure" path="/WEB-INF/Pages/login.jsp"/>
 		</action>
 		

@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Blog | Jemla-Ma</title>
+    <title>Inbox | Jemla-Ma</title>
     <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="Bootstrap/css/font-awesome.min.css" rel="stylesheet">
     <link href="Bootstrap/css/prettyPhoto.css" rel="stylesheet">
@@ -68,7 +68,6 @@
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
 								<li><a href=""><i class="fa fa-user"></i> Account</a></li>
-								<li><a href=""><i class="fa fa-star"></i> Wishlist</a></li>
 								<li><a href="checkout.jsp"><i class="fa fa-crosshairs"></i> Checkout</a></li>
 								<li><html:link action="cart.do"><i class="fa fa-shopping-cart"></i> Cart</html:link></li>
 <%-- 								<li><html:link action="loginRedirect.do"><i class="fa fa-lock"></i> Logout</html:link></li> --%>
@@ -93,23 +92,23 @@
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><html:link action=login.do"">Dashboard Home</html:link></li>
+								<li><html:link action="login.do">Dashboard Home</html:link></li>
 								<li class="dropdown"><a href="#">Profile<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="">Qui sommes nous</a></li>
 										<li><a href="">Produits</a></li> 
-										<li><a href="">Checkout</a></li> 
+										<li><html:link action="checkout.do">Checkout</html:link></li> 
 										<li><a href="">Logout</a></li> 
                                     </ul>
                                 </li> 
-								<li class="dropdown"><a href="#" class="active">Produits<i class="fa fa-angle-down"></i></a>
+								<li class="dropdown"><a href="#" >Produits<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="" class="active">Acheter</a></li>
 										<li><a href="">Vendue</a></li>
                                     </ul>
                                 </li> 
-								<li><a href="#">Inbox</a></li>
-								<li><a href="">Publier produit</a></li>
+								<li><a href="#" class="active">Inbox</a></li>
+								<li><html:link action="publishProduct.do">Publier produit</html:link></li>
 							</ul>
 						</div>
 					</div>
