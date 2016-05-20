@@ -69,7 +69,7 @@
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
 								<li><a href=""><i class="fa fa-user"></i> Account</a></li>
-								<li><html:link action="loginRedirect.do"><i class="fa fa-lock"></i> Logout</html:link></li>
+								<li><html:link action="logoutRedirect.do"><i class="fa fa-lock"></i> Logout</html:link></li>
 							</ul>
 						</div>
 					</div>
@@ -91,15 +91,16 @@
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="#">Dashboard Home</a></li>
+								<li><a href="#" class="active">Manager Dashboard</a></li>
 								<li class="dropdown"><a href="#">Profile<i class="fa fa-angle-down"></i></a>
                                 </li> 
-								<li class="dropdown"><a href="#" class="active">Valider<i class="fa fa-angle-down"></i></a>
+								<li class="dropdown"><a href="#" >Valider<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="#" class="active">Annonces</a></li>
 										<li><a href="#">Ordres</a></li>
                                     </ul>
                                 </li> 
+                                <li><html:link action="inboxManager.do">Inbox</html:link></li>
 							</ul>
 						</div>
 					</div>

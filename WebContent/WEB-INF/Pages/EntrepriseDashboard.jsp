@@ -69,9 +69,9 @@
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
 								<li><a href=""><i class="fa fa-user"></i> Account</a></li>
-								<li><a href="checkout.jsp"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+								<li><html:link action="checkout.do"><i class="fa fa-crosshairs"></i> Checkout</html:link></li>
 								<li><html:link action="cart.do"><i class="fa fa-shopping-cart"></i> Cart</html:link></li>
-								<li><html:link action="loginRedirect.do"><i class="fa fa-lock"></i> Logout</html:link></li>
+								<li><html:link action="logoutRedirect.do"><i class="fa fa-lock"></i> Logout</html:link></li>
 							</ul>
 						</div>
 					</div>

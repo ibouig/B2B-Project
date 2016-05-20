@@ -8,21 +8,15 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import ma.jemla.daoimpl.EntrepriseDaoImpl;
-import ma.jemla.model.Entreprise;
-import ma.jemla.view.LoginForm;
+import ma.jemla.model.Account;
 
-public class Login extends Action{
+public class ManagerInbox extends Action {
 	public ActionForward execute(ActionMapping mapping, ActionForm form,HttpServletRequest req, 
 			HttpServletResponse res)throws Exception
 	{
-		System.out.println("in the controller of Entreprise login");
-		LoginForm myForm = (LoginForm) form;
-		EntrepriseDaoImpl e_DaoImpl = new EntrepriseDaoImpl();
-		Entreprise entreprise = e_DaoImpl.login(myForm.getEmail(), myForm.getPassword());
-		
-		if(entreprise != null){
-			req.getSession().setAttribute("ActiveUser", entreprise);
+		System.out.println("in the controller ");
+		Account account = (Account) req.getSession().getAttribute("ActiveUser");
+		if(account != null){
 			return mapping.findForward("success");
 		}else{
 			return mapping.findForward("failure");
