@@ -92,16 +92,24 @@
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="#" class="active">Manager Dashboard</a></li>
+								<li><html:link action="loginRedirect.do">Dashboard Home</html:link></li>
 								<li class="dropdown"><a href="#">Profile<i class="fa fa-angle-down"></i></a>
-                                </li> 
-								<li class="dropdown"><a href="#" >Valider<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="#" class="active">Annonces</a></li>
-										<li><a href="#">Ordres</a></li>
-										<li><html:link action="inboxManager.do">Inbox</html:link></li>
+                                        <li><a href="#">Qui sommes nous</a></li>
+										<li><a href="product-details.jsp">Produits</a></li> 
+										<li><html:link action="checkout.do">Checkout</html:link></li> 
+										<!-- <li><a href="cart.jsp">Promouvoir Site</a></li>  -->
+										<li><a href="cart.jsp">Logout</a></li> 
                                     </ul>
                                 </li> 
+								<li class="dropdown"><a href="#" >Produits<i class="fa fa-angle-down"></i></a>
+                                    <ul role="menu" class="sub-menu">
+                                        <li><a href="#" class="active">Acheter</a></li>
+										<li><a href="#">Vendue</a></li>
+                                    </ul>
+                                </li> 
+								<li><a class="active" href="#">Inbox</a></li>
+								<li><html:link action="publishProduct.do">Publier produit</html:link></li>
 							</ul>
 						</div>
 					</div>
