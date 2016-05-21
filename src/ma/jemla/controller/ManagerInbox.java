@@ -8,15 +8,15 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import ma.jemla.model.Entreprise;
+import ma.jemla.model.Account;
 
-public class AddProduct extends Action{
+public class ManagerInbox extends Action {
 	public ActionForward execute(ActionMapping mapping, ActionForm form,HttpServletRequest req, 
 			HttpServletResponse res)throws Exception
 	{
 		System.out.println("in the controller ");
-		Entreprise entreprise = (Entreprise) req.getSession().getAttribute("ActiveUser");
-		if(entreprise != null){
+		Account account = (Account) req.getSession().getAttribute("ActiveUser");
+		if(account != null){
 			return mapping.findForward("success");
 		}else{
 			return mapping.findForward("failure");

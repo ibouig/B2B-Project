@@ -16,7 +16,7 @@ public class Login extends Action{
 	public ActionForward execute(ActionMapping mapping, ActionForm form,HttpServletRequest req, 
 			HttpServletResponse res)throws Exception
 	{
-		System.out.println("in the controller ");
+		System.out.println("in the controller of Entreprise login");
 		LoginForm myForm = (LoginForm) form;
 		EntrepriseDaoImpl e_DaoImpl = new EntrepriseDaoImpl();
 		Entreprise entreprise = e_DaoImpl.login(myForm.getEmail(), myForm.getPassword());

@@ -13,6 +13,7 @@
 
 		<form-bean name="registerForm" type="ma.jemla.view.RegisterForm" />
 		<form-bean name="loginForm" type="ma.jemla.view.LoginForm" />
+		<form-bean name="addForm" type="ma.jemla.view.AddProductForm" />
 	</form-beans>
 
 	<action-mappings>
@@ -22,21 +23,38 @@
 			<forward name="success" path="/WEB-INF/Pages/EntrepriseDashboard.jsp" />
 			<forward name="failure" path="/WEB-INF/Pages/login.jsp"/>
 		</action>
+		
 		<action path="/login" scope="session" name="loginForm" type="ma.jemla.controller.Login"
 		 validate="true" input="/WEB-INF/Pages/login.jsp">
-		<!-- 	<forward name="success" path="index.jsp"/>
-			<forward name="failure" path="index.jsp"/> -->
 			<forward name="success" path="/WEB-INF/Pages/EntrepriseDashboard.jsp" />
 			<forward name="failure" path="/WEB-INF/Pages/login.jsp"/>
 		</action>
+		
+		<action path="/manager" scope="session" name="loginForm" type="ma.jemla.controller.ManagerLogin"
+		 validate="true" input="/WEB-INF/Pages/ManagerLogin.jsp">
+			<forward name="success" path="/WEB-INF/Pages/ManagerDashboard.jsp" />
+			<forward name="failure" path="/WEB-INF/Pages/ManagerLogin.jsp"/>
+		</action>
+		
 		<action path="/loginRedirect" type="ma.jemla.controller.LoginRedirect" >
 			<forward name="success" path="/WEB-INF/Pages/EntrepriseDashboard.jsp" />
 			<forward name="failure" path="/WEB-INF/Pages/login.jsp"/>
 		</action>
+		
+		<action path="/logoutRedirect" type="ma.jemla.controller.Logout" >
+			<forward name="success" path="/index.jsp" />
+		</action>
+		
 		<action path="/inbox" scope="session" type="ma.jemla.controller.Inbox" >
 			<forward name="success" path="/WEB-INF/Pages/DashboardInbox.jsp" />
 			<forward name="failure" path="/WEB-INF/Pages/login.jsp"/>
 		</action>
+		
+		<action path="/inboxManager" scope="session" type="ma.jemla.controller.ManagerInbox" >
+			<forward name="success" path="/WEB-INF/Pages/ManagerInbox.jsp" />
+			<forward name="failure" path="/WEB-INF/Pages/login.jsp"/>
+		</action>
+		
 		<action path="/cart" scope="session" type="ma.jemla.controller.CartRedirect" >
 			<forward name="success" path="/WEB-INF/Pages/cart.jsp" />
 			<forward name="failure" path="/WEB-INF/Pages/cart.jsp"/>
@@ -46,9 +64,21 @@
 			<forward name="success" path="/WEB-INF/Pages/checkout.jsp" />
 			<forward name="failure" path="/WEB-INF/Pages/checkout.jsp"/>
 		</action>
-		<action path="/contactUs" forward="/WEB-INF/Pages/contact-us.jsp"/>
+		
+		<action path="/contactUs" type="ma.jemla.controller.ContactUs">
+			<forward name="active" path="/WEB-INF/Pages/DashboardInbox.jsp" />
+			<forward name="inactive" path="/WEB-INF/Pages/contact-us.jsp"/>
+		</action>
+		
 		<action path="/managerLogin" forward="/WEB-INF/Pages/ManagerLogin.jsp"/>
-	</action-mappings>
+		
+		<action path="/publishProduct" type="ma.jemla.controller.AddProduct" name="addForm">
+			<forward name="success" path="/WEB-INF/Pages/publishProduct.jsp" />
+			<forward name="failure" path="/WEB-INF/Pages/login.jsp"/>
+		</action>
+		
+		</action-mappings>
+	
 
 
 	<!-- ======================================== Message Resources Definitions -->
