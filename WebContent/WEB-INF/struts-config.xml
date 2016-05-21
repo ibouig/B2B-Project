@@ -14,6 +14,7 @@
 		<form-bean name="registerForm" type="ma.jemla.view.RegisterForm" />
 		<form-bean name="loginForm" type="ma.jemla.view.LoginForm" />
 		<form-bean name="addForm" type="ma.jemla.view.AddProductForm" />
+		<form-bean name="addCategory" type="ma.jemla.view.AddCategoryForm" />
 	</form-beans>
 
 	<action-mappings>
@@ -70,12 +71,29 @@
 			<forward name="inactive" path="/WEB-INF/Pages/contact-us.jsp"/>
 		</action>
 		
-		<action path="/managerLogin" forward="/WEB-INF/Pages/ManagerLogin.jsp"/>
+		<action path="/managerLogin" type="ma.jemla.controller.ContactUs">
+			<forward name="success" path="/WEB-INF/Pages/ManagerDashboard.jsp" />
+			<forward name="failure" path="/WEB-INF/Pages/ManagerLogin.jsp"/>
+			<forward name="active" path="/WEB-INF/Pages/ManagerDashboard.jsp" />
+			<forward name="inactive" path="/WEB-INF/Pages/ManagerLogin.jsp"/>
+		</action>
 		
 		<action path="/publishProduct" type="ma.jemla.controller.AddProduct" name="addForm">
 			<forward name="success" path="/WEB-INF/Pages/publishProduct.jsp" />
 			<forward name="failure" path="/WEB-INF/Pages/login.jsp"/>
 		</action>
+		
+		<action path="/addCategory" scope="session" name="addCategory" type="ma.jemla.controller.AddCategory"
+		 validate="true" input="/WEB-INF/Pages/addCategory.jsp">
+			<forward name="success" path="/WEB-INF/Pages/ManagerDashboard.jsp" />
+			<forward name="failure" path="/WEB-INF/Pages/addCategory.jsp"/>
+		</action>
+		
+		<action path="/addCategoryRedirect" type="ma.jemla.controller.AddCategoryRedirect" >
+			<forward name="success" path="/WEB-INF/Pages/addCategory.jsp" />
+			<forward name="failure" path="/WEB-INF/Pages/EntrepriseDashboard.jsp"/>
+		</action>
+		
 		
 		</action-mappings>
 	

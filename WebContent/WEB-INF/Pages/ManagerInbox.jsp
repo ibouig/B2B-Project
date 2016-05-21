@@ -67,10 +67,8 @@
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href=""><i class="fa fa-user"></i> Account</a></li>
-								<li><a href="checkout.jsp"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-								<li><html:link action="cart.do"><i class="fa fa-shopping-cart"></i> Cart</html:link></li>
-<%-- 								<li><html:link action="loginRedirect.do"><i class="fa fa-lock"></i> Logout</html:link></li> --%>
+								<li><html:link action="cart.do"><i class="fa fa-user"></i> Account</html:link></li>
+								<li><html:link action="logoutRedirect.do"><i class="fa fa-lock"></i> Logout</html:link></li>
 							</ul>
 						</div>
 					</div>
@@ -92,9 +90,7 @@
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="#" >Manager Dashboard</a></li>
-								<li class="dropdown"><a href="#">Profile<i class="fa fa-angle-down"></i></a>
-                                </li> 
+								<li><html:link action="managerLogin.do">Manager Dashboard</html:link></li>
 								<li class="dropdown"><a href="#" >Valider<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="#" class="active">Annonces</a></li>
@@ -102,6 +98,7 @@
                                     </ul>
                                 </li> 
                                 <li><a class="active" >Inbox</a></li>
+                                <li ><html:link action="addCategoryRedirect.do">Add category</html:link></li> 
 							</ul>
 						</div>
 					</div>

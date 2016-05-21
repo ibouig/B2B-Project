@@ -123,6 +123,22 @@
 		</div><!--/header-bottom-->
 	</header><!--/header-->
 	<section>
+		<div class="container">
+			<div class="row">
+				<h2>Publish a new product</h2>
+					<form action="" method="post">
+						<input type="text" placeholder="Product name" name="nom"/>
+						<input type="text" placeholder="Price" name="prix"/>
+						<input type="text" placeholder="Description" name="description"/>
+						<input type="text" placeholder="Unit" name="unite"/>
+						<input type="text" placeholder="Available quantity" name="quantite"/>
+						<input type="text" placeholder="Price" name="prix"/>
+						<input type="text" placeholder="Unit" name="unite"/>
+						
+						<button type="submit" class="btn btn-default">Add product</button>
+					</form>
+			</div>
+		</div>
 		
 	</section>
 	
