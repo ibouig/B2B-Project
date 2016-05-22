@@ -2,6 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@taglib uri="http://struts.apache.org/tags-logic" prefix="logic"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -92,7 +93,7 @@
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="#">Dashboard Home</a></li>
+								<li><html:link action="loginRedirect.do">Dashboard Home</html:link></li>
 								<li class="dropdown"><a href="#">Profile<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="#">Qui sommes nous</a></li>
@@ -125,6 +126,8 @@
 	<section>
 		<div class="container">
 			<div class="row">
+			<div class="col-sm-4">
+			<div class="login-form">
 				<h2>Publish a new product</h2>
 					<form action="" method="post">
 						<input type="text" placeholder="Product name" name="nom"/>
@@ -134,10 +137,16 @@
 						<input type="text" placeholder="Available quantity" name="quantite"/>
 						<input type="text" placeholder="Price" name="prix"/>
 						<input type="text" placeholder="Unit" name="unite"/>
-						
+						<select name="categorie">
+							<c:forEach items="${categories}" var="cat">
+								<option value="${cat}">${cat}</option>
+							</c:forEach>
+						</select>
 						<button type="submit" class="btn btn-default">Add product</button>
 					</form>
+				</div>
 			</div>
+		</div>
 		</div>
 		
 	</section>

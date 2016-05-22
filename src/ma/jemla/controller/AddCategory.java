@@ -10,6 +10,7 @@ import org.apache.struts.action.ActionMapping;
 
 import ma.jemla.daoimpl.CategoryDaoImpl;
 import ma.jemla.model.Category;
+import ma.jemla.model.Manager;
 import ma.jemla.view.AddCategoryForm;
 
 public class AddCategory extends Action{
@@ -23,12 +24,15 @@ public class AddCategory extends Action{
 		category.setDescription(myForm.getDescription());
 		category.setNom(myForm.getNom());
 		boolean val = c_DaoImpl.inserer(category);
+		if(req.getSession().getAttribute("ActiveUser") == null || 
+				req.getSession().getAttribute("ActiveUser").getClass()!=Manager.class)
+			return mapping.findForward("failure");
 		
 		if(val){
 			//req.getSession().setAttribute("ActiveUser", entreprise);
 			return mapping.findForward("success");
 		}else{
-			return mapping.findForward("failure");
+			return mapping.findForward("entreprise");
 		}
 	}
 

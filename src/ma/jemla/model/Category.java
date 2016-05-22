@@ -5,8 +5,12 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-
+@NamedQueries(
+		@NamedQuery(name="fetchCategoryName", query="Select c.nom from Category c")
+		)
 @Entity
 public class Category {
 	@Id

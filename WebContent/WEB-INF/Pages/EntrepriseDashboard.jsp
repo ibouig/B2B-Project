@@ -38,7 +38,8 @@
 							<ul class="nav nav-pills">
 								<li><a href=""><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
 								<li><a href=""><i class="fa fa-envelope"></i> info@jemla.ma</a></li>
-								<li><a href=""><i class="fa fa-envelope"></i><%= session.getAttribute("ActiveUser")%></a></li>
+								<li><a href=""><i class="fa fa-envelope"></i>${ActiveUser.name}</a></li>
+<%-- 								<li><a href=""><i class="fa fa-envelope"></i><%= session.getAttribute("ActiveUser")%></a></li> --%>
 							</ul>
 						</div>
 					</div>
