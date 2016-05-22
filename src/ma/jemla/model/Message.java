@@ -3,17 +3,25 @@ package ma.jemla.model;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+@NamedQueries({
+	@NamedQuery(name="findMessageById",query="select m from Message m where m.id=:id")
+	,@NamedQuery(name="findMessageBySender",query="select m from Message m where m.sender=:sender")
+	,@NamedQuery(name="findMessageByReceiver",query="select m from Message m where m.receiver=:receiver")
+	,@NamedQuery(name="findMessageAll",query="select m from Message m ")
+	,@NamedQuery(name="findMessageByStatus",query="select m from Message m where m.messageStatus=:messageStatus")
+
+})
 @Entity
 public class Message {
 	
@@ -21,24 +29,24 @@ public class Message {
 	@GeneratedValue
 	private long id;
 	
+	@Temporal(TemporalType.TIMESTAMP)
+    @Column(nullable = false)
+	private Date sendDate;
 	
+	private String object;
 	
+	@Column(nullable = false, length = 5000)
+	private String messageContent;
+	
+	@Enumerated
+	private MessageStatus messageStatus;
+
 	@ManyToOne(cascade = {CascadeType.ALL })
 	private Entreprise sender;
 	
 	@ManyToOne(cascade = {CascadeType.ALL })
 	private Entreprise receiver;
 	
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date sendDate;
-	
-	private String object;
-	
-	private String messageContent;
-	
-	@Enumerated
-	private MessageStatus messageStatus;
-
 	public long getId() {
 		return id;
 	}

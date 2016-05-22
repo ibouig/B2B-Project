@@ -50,8 +50,8 @@ public class Entreprise extends Account{
 	@OneToMany(mappedBy = "entreprise")
 	private List<Product> products;
 	
-	@OneToMany(mappedBy="sender" , cascade = {CascadeType.ALL})
-	List<Message> messages;
+//	@OneToMany(mappedBy="sender" , cascade = {CascadeType.ALL})
+//	List<Message> messages;
 
 	public String toString(){
 		return this.getName();

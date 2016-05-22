@@ -19,7 +19,6 @@
   <!DOCTYPE web-app PUBLIC
 	"-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
 	"http://java.sun.com/dtd/web-app_2_3.dtd">
-
 <web-app>
   <display-name>Jemla Maroc</display-name>
   
@@ -44,8 +43,9 @@
 
   <!-- The Usual Welcome File List -->
   <welcome-file-list>
-    <welcome-file>/WEB-INF/Pages/index.jsp</welcome-file>
-<!-- 	<welcome-file>index.jsp</welcome-file> -->
+<!--     <welcome-file>/WEB-INF/Pages/index.jsp</welcome-file> -->
+	<welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
+  <session-config><session-timeout>1000000</session-timeout></session-config>
 
 </web-app>
