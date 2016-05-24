@@ -78,8 +78,14 @@
 			<forward name="inactive" path="/WEB-INF/Pages/ManagerLogin.jsp"/>
 		</action>
 		
-		<action path="/publishProduct" type="ma.jemla.controller.AddProduct" name="addForm">
+		<action path="/publishProduct" type="ma.jemla.controller.AddProductRedirect" name="addForm">
 			<forward name="success" path="/WEB-INF/Pages/publishProduct.jsp" />
+			<forward name="failure" path="/WEB-INF/Pages/login.jsp"/>
+		</action>
+		
+		<action path="/addProduct" type="ma.jemla.controller.AddProduct" name="addForm">
+			<forward name="success" path="/WEB-INF/Pages/EntrepriseDashboard.jsp" />
+			<forward name="entreprise" path="/WEB-INF/Pages/addCategory.jsp"/>
 			<forward name="failure" path="/WEB-INF/Pages/login.jsp"/>
 		</action>
 		

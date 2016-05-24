@@ -129,19 +129,28 @@
 			<div class="col-sm-4">
 			<div class="login-form">
 				<h2>Publish a new product</h2>
-					<form action="" method="post">
+					<form action="addProduct.do" method="post" enctype="multipart/form-data">
 						<input type="text" placeholder="Product name" name="nom"/>
 						<input type="text" placeholder="Price" name="prix"/>
 						<input type="text" placeholder="Description" name="description"/>
-						<input type="text" placeholder="Unit" name="unite"/>
+						<input type="text" placeholder="Delai_jours" name="delai_jours"/>
 						<input type="text" placeholder="Available quantity" name="quantite"/>
 						<input type="text" placeholder="Price" name="prix"/>
-						<input type="text" placeholder="Unit" name="unite"/>
+						<span></span><select  name="unite"/>
+							<option value="KG">KG</option>
+							<option value="M2">M2</option>
+							<option value="L">L</option>
+							<option value="M">M</option>
+							<option value="G">G</option>
+						</select><br/></span>
+						<span>
 						<select name="categorie">
 							<c:forEach items="${categories}" var="cat">
 								<option value="${cat}">${cat}</option>
 							</c:forEach>
-						</select>
+						</select><br/>
+						</span>
+						<input type="file" name="picture" id="fileChooser"/><br/><br/>
 						<button type="submit" class="btn btn-default">Add product</button>
 					</form>
 				</div>

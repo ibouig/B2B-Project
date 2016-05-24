@@ -1,20 +1,36 @@
 package ma.jemla.view;
 
-import org.apache.struts.action.ActionErrors;
+import org.apache.struts.action.ActionForm;
+import org.apache.struts.upload.FormFile;
 
 import ma.jemla.model.Category;
-import ma.jemla.model.Unite;
 
-public class AddProductForm extends ActionErrors{
+public class AddProductForm extends ActionForm{
 	private String nom;
 	private String description;
 	private double prix;
-	private Unite unite;
+	private String unite;
 	private long quantite;
 	private long delai_jours;
 	private String imagePath;
 	private String ref;
 	private Category category;
+	private FormFile picture;
+	
+	
+	
+	public Category getCategory() {
+		return category;
+	}
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+	public FormFile getPicture() {
+		return picture;
+	}
+	public void setPicture(FormFile picture) {
+		this.picture = picture;
+	}
 	public String getNom() {
 		return nom;
 	}
@@ -33,10 +49,10 @@ public class AddProductForm extends ActionErrors{
 	public void setPrix(double prix) {
 		this.prix = prix;
 	}
-	public Unite getUnite() {
+	public String getUnite() {
 		return unite;
 	}
-	public void setUnite(Unite unite) {
+	public void setUnite(String unite) {
 		this.unite = unite;
 	}
 	public long getQuantite() {
