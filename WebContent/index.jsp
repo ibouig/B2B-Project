@@ -28,14 +28,38 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="Bootstrap/images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="Bootstrap/images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="Bootstrap/images/ico/apple-touch-icon-57-precomposed.png">
-    <script>
-		function loadDoc() {
- 		 	alert('ok');
+    <script></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script type="text/javascript">
+		function loadDoc( a) {
+			/*$(document).ready(
+				    function() {
+				    	//alert(a);
+				    	document.getElementById("madiv").textContent="newtext";
+				       // $('div.madiv').text('test');
+				    }
+				);*/
+				$(document).ajaxComplete(function(){
+					$("div.madiv").text(text.replace($("div.madiv"), "ok"));
+				});
+			//alert(a)
+			/*
+			 $.ajax({url: "addToCart.do?id=" + a, success: function(result){
+				//alert(a);
+				 //alert($("#madiv").val());
+		        $("#madiv").text(result);
+		        
+		    }});	 */
+ 		
 	}
+		
 </script>
 </head><!--/head-->
 
 <body>
+<div id="madiv">
+drfghgfghjjkghjhgkjhghjg
+</div>
 	<header id="header"><!--header-->
 		<div class="header_top"><!--header_top-->
 			<div class="container">
@@ -107,17 +131,12 @@
                                         <li><a href="WEB-INF/Pages/shop.html">Products</a></li>
 										<li><a href="Bootstrap/product-details.html">Product Details</a></li> 
 										<li><html:link action="checkout.do">Checkout</html:link></li> 
+										<%@page import="ma.jemla.daoimpl.*" %>
+										<% CartDaoRemoteImpl cart =(CartDaoRemoteImpl)request.getSession().getAttribute("");%>
 										<li class="cart"><html:link action="cart.do">Cart</html:link></li> 
 										<li><html:link action="loginRedirect.do">Login</html:link></li> 
                                     </ul>
                                 </li> 
-								<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="WEB-INF/Pages/blog.html">Blog List</a></li>
-										<li><a href="WEB-INF/Pages/blog-single.html">Blog Single</a></li>
-                                    </ul>
-                                </li> 
-								<li><a href="WEB-INF/Pages/404.html">404</a></li>
 								<li><html:link action="contactUs.do">Contact</html:link></li>
 							</ul>
 						</div>
@@ -335,20 +354,20 @@
 						${tmp.nom }
 						<div class="col-sm-4">
 							<div class="product-image-wrapper">
-							<form >
+							<form action="addToCart.do">
 								<div class="single-products">
 								<input type="hidden" name="id" value="${tmp.id}" >
 										<div class="productinfo text-center">
 											<img src="${tmp.imagePath}" alt="${tmp.nom}" />
 											<h2>${tmp.prix }DHS</h2>
 											<p>${tmp.nom}</p>
-											<button onClick="loadDoc()" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+											<button onClick="loadDoc(${tmp.id})" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
 										</div>
 										<div class="product-overlay">
 											<div class="overlay-content">
 												<h2>${tmp.prix }DHS</h2>
 												<p>${tmp.nom }</p>
-												<button onClick="loadDoc()" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+												<button onClick="loadDoc(${tmp.id})" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
 											</div>
 										</div>
 								</div>

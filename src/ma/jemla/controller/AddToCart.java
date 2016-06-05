@@ -22,9 +22,11 @@ public class AddToCart extends Action{
 	CartDaoRemoteImpl cat;
 	public ActionForward execute(ActionMapping map, ActionForm form, 
 			HttpServletRequest req, HttpServletResponse res)throws Exception{
+		String id = req.getParameter("id");
+		req.setAttribute("idPro", id);
 		try{
 			//System.err.println("nin the controller"+"\n\n\n\nhere");
-			/**/cat=(CartDaoRemoteImpl) req.getSession().getAttribute("cart");
+			cat=(CartDaoRemoteImpl) req.getSession().getAttribute("cart");
 			AddToCartForm myform = (AddToCartForm) form;
 			List<Product> prods = (List<Product>)req.getSession().getAttribute("prods");
 			Product prod = null;
@@ -56,7 +58,7 @@ public class AddToCart extends Action{
 				//req.getSession().setAttribute("cart", cat);
 			}else{
 				long new_q = cat.getLines().get(myform.getId()).getQuantity() /*+ myform.getQuatity()*/;
-				/**/cat.getOrderLine().get(myform.getId()).setQuantity(new_q);
+				cat.getOrderLine().get(myform.getId()).setQuantity(new_q);
 			}
 			PrintWriter out = res.getWriter();
 			out.print("Cart("+cat.getLines().size()+")");
