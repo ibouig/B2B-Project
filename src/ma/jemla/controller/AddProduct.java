@@ -57,7 +57,9 @@ public class AddProduct extends Action{
 				pdt.setDelai_jours(myForm.getDelai_jours());
 				pdt.setDescription(myForm.getDescription());
 				pdt.setEntreprise(entreprise);
-				pdt.setImagePath(getServlet().getServletContext().getRealPath("/") +"Bootstrap/images"+entreprise.getName()+"_"+fileName);
+				//pdt.setImagePath(/*getServlet().getServletContext().getRealPath("") +*/"Bootstrap/images"+entreprise.getName()+"_"+fileName);
+				pdt.setImagePath("Bootstrap/images/"+fileName);
+				System.out.println("\n\n\n\n"+"Bootstrap/images"+fileName+"\n\n\n");
 				pdt.setPrix(myForm.getPrix());
 				pdt.setNom(myForm.getNom());
 				pdt.setQuantite(myForm.getQuantite());

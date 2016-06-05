@@ -1,8 +1,10 @@
 package ma.jemla.model;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -15,12 +17,12 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class Order {
+public class Order implements Serializable{
 	@Id
 	@GeneratedValue
 	private long id ;
 	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.PERSIST)
 	private Entreprise entreprise;
 	
 	@Temporal(TemporalType.TIMESTAMP)

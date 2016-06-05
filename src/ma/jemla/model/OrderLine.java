@@ -1,19 +1,26 @@
 package ma.jemla.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class OrderLine {
+public class OrderLine implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue
 	private long id;
 	
-	@ManyToOne
-	private Order order;
-	
+//	@ManyToOne
+//	private Order order;
+//	
 	@ManyToOne
 	private Product product;
 	
@@ -21,17 +28,18 @@ public class OrderLine {
 	
 	private double prix;
 
-	public OrderLine(Order order, Product product, long quantity, double prix) {
+	public OrderLine(Product product, long quantity) {
 		super();
-		this.order = order;
+		//this.order = order;
 		this.product = product;
 		this.quantity = quantity;
-		this.prix = prix;
+		this.prix = product.getPrix()*quantity;
 	}
 
 	public OrderLine() {
-		super();
-		// TODO Auto-generated constructor stub
+		prix = 0;
+		quantity = 0;
+		product = null;
 	}
 
 	public long getId() {
@@ -40,14 +48,6 @@ public class OrderLine {
 
 	public void setId(long id) {
 		this.id = id;
-	}
-
-	public Order getOrder() {
-		return order;
-	}
-
-	public void setOrder(Order order) {
-		this.order = order;
 	}
 
 	public Product getProduct() {

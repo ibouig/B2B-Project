@@ -2,6 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@taglib uri="http://struts.apache.org/tags-logic" prefix="logic"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -143,6 +144,8 @@
 						</tr>
 					</thead>
 					<tbody>
+					<c:forEach items="${cart.lines }" var="tmp">
+					${tmp.product.id}
 						<tr>
 							<td class="cart_product">
 								<a href=""><img src="Bootstrap/images/cart/one.png" alt=""></a>
@@ -168,7 +171,7 @@
 								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
 							</td>
 						</tr>
-
+					</c:forEach>
 						<tr>
 							<td class="cart_product">
 								<a href=""><img src="Bootstrap/images/cart/two.png" alt=""></a>

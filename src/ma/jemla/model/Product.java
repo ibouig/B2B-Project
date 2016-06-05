@@ -1,5 +1,6 @@
 package ma.jemla.model;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -18,13 +19,19 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-@NamedQueries(
-		@NamedQuery(name="fetchByCategorie", query="select p from Product p where p.category=:cat")
-		)
+@NamedQueries({
+		@NamedQuery(name="fetchByCategorie", query="select p from Product p where p.category=:cat"),
+		@NamedQuery(name="fetchProducts", query="select p from Product p")
+})
 
 @Entity
-public class Product {
+public class Product implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue
 	private long id;

@@ -10,7 +10,7 @@
 	<!-- ================================================ Form Bean Definitions -->
 
 	<form-beans>
-
+		<form-bean name="cartForm" type="ma.jemla.view.AddToCartForm" />
 		<form-bean name="registerForm" type="ma.jemla.view.RegisterForm" />
 		<form-bean name="loginForm" type="ma.jemla.view.LoginForm" />
 		<form-bean name="addForm" type="ma.jemla.view.AddProductForm" />
@@ -18,6 +18,11 @@
 	</form-beans>
 
 	<action-mappings>
+	
+		<action path="/addToCart" type="ma.jemla.controller.AddToCart" name="cartForm" 
+	 	scope="request" validate="false">
+			<forward name="success" path="/addToCart.jsp" />
+		</action>
 
 		<action path="/register" scope="session" name="registerForm" type="ma.jemla.controller.UserInscription"
 		 validate="true" input="/WEB-INF/Pages/login.jsp">

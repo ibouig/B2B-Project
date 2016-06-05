@@ -33,7 +33,10 @@ public class CategoryDaoImpl implements CategoryDao{
 		try{
 			em.getTransaction().begin();
 			Query query = em.createNamedQuery("fetchCategoryName");
-			List<String> values = new ArrayList<String>();
+			List<String> values = query.getResultList();
+			/*System.out.println("In the getCategoryNames query");
+			for(String tmp:values)
+				System.out.println(tmp);*/
 			values = query.getResultList();
 			return values;
 		}catch(Exception e){
