@@ -22,6 +22,7 @@
 		<action path="/addToCart" type="ma.jemla.controller.AddToCart" name="cartForm" 
 	 	scope="request" validate="false">
 			<forward name="success" path="/index.jsp" />
+			<forward name="failure" path="/WEB-INF/Pages/login.jsp"/>
 		</action>
 
 		<action path="/register" scope="session" name="registerForm" type="ma.jemla.controller.UserInscription"

@@ -31,35 +31,47 @@
     <script></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script type="text/javascript">
-		function loadDoc( a) {
-			/*$(document).ready(
-				    function() {
-				    	//alert(a);
-				    	document.getElementById("madiv").textContent="newtext";
-				       // $('div.madiv').text('test');
-				    }
-				);*/
-				$(document).ajaxComplete(function(){
-					$("div.madiv").text(text.replace($("div.madiv"), "ok"));
-				});
-			//alert(a)
-			/*
-			 $.ajax({url: "addToCart.do?id=" + a, success: function(result){
-				//alert(a);
-				 //alert($("#madiv").val());
-		        $("#madiv").text(result);
+// 		function loadDoc( a) {
+// 			/*$(document).ready(
+// 				    function() {
+// 				    	//alert(a);
+// 				    	document.getElementById("madiv").textContent="newtext";
+// 				       // $('div.madiv').text('test');
+// 				    }
+// 				);*/
+// 				$(document).ajaxComplete(function(){
+// 					$("div.madiv").text(text.replace($("div.madiv"), "ok"));
+// 				});
+// 			//alert(a)
+// 			/*
+// 			 $.ajax({url: "addToCart.do?id=" + a, success: function(result){
+// 				//alert(a);
+// 				 //alert($("#madiv").val());
+// 		        $("#madiv").text(result);
 		        
-		    }});	 */
+// 		    }});	 */
  		
+// 	}
+function loadDoc( a) {
+			
+			//alert(a);
+ 		 	var xhttp = new XMLHttpRequest();
+ 		 	xhttp.onreadystatechange = function() {
+   			 if (xhttp.readyState == 4 && xhttp.status == 200) {
+   				 //alert(a);
+    			  document.getElementById("cart").innerHTML = xhttp.responseText;
+    			  //document.getElementsByClass("cart").innerHTML = xhttp.responseText;
+   			 }
+			  };
+			 
+ 			 xhttp.open("GET", "addToCart.do?id=" + a, true);
+ 			 xhttp.send();
 	}
 		
 </script>
 </head><!--/head-->
 
 <body>
-<div id="madiv">
-drfghgfghjjkghjhgkjhghjg
-</div>
 	<header id="header"><!--header-->
 		<div class="header_top"><!--header_top-->
 			<div class="container">
@@ -102,7 +114,7 @@ drfghgfghjjkghjhgkjhghjg
 								<li><html:link action="loginRedirect.do"><i class="fa fa-user"></i> Account</html:link></li>
 								<!-- <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li> -->
 								<li><a href="WEB-INF/Pages/checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-								<li ><html:link action="cart.do"><i id="cart" class="fa fa-shopping-cart">Cart</i> </html:link></li>
+								<li ><html:link action="cart.do"><i id="cart" class="fa fa-shopping-cart">Cart ${cart.lines.size() }</i> </html:link></li>
 								<li><html:link action="loginRedirect.do"><i class="fa fa-lock"></i> Login</html:link></li>
 							</ul>
 						</div>
@@ -348,13 +360,13 @@ drfghgfghjjkghjhgkjhghjg
 						ProductDaoImpl p_dao = new ProductDaoImpl();
 						List<Product> prods = p_dao.getProducts();
 						request.getSession().setAttribute("prods", prods);
-						System.out.println("\n\n\n"+prods.size()+"\n\n\n");
+						//System.out.println("\n\n\n"+prods.size()+"\n\n\n");
 						%>
 						<c:forEach items="${prods }" var="tmp">
 						${tmp.nom }
 						<div class="col-sm-4">
 							<div class="product-image-wrapper">
-							<form action="addToCart.do">
+							<form >
 								<div class="single-products">
 								<input type="hidden" name="id" value="${tmp.id}" >
 										<div class="productinfo text-center">
