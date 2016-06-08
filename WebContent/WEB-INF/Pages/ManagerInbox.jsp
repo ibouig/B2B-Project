@@ -67,8 +67,8 @@
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-								<li><html:link action="cart.do"><i class="fa fa-user"></i> Account</html:link></li>
-								<li><html:link action="logoutRedirect.do"><i class="fa fa-lock"></i> Logout</html:link></li>
+								<li><html:link action="cart.do"><i class="fa fa-user"></i> Profil</html:link></li>
+								<li><html:link action="logoutRedirect.do"><i class="fa fa-lock"></i> Se deconnecter</html:link></li>
 							</ul>
 						</div>
 					</div>
@@ -90,15 +90,15 @@
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><html:link action="managerLogin.do">Manager Dashboard</html:link></li>
+								<li><html:link action="managerLogin.do">Acceuil manager</html:link></li>
 								<li class="dropdown"><a href="#" >Valider<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="#" class="active">Annonces</a></li>
 										<li><a href="#">Ordres</a></li>
                                     </ul>
                                 </li> 
-                                <li><a class="active" >Inbox</a></li>
-                                <li ><html:link action="addCategoryRedirect.do">Add category</html:link></li> 
+                                <li><a class="active" >Messageries</a></li>
+                                <li ><html:link action="addCategoryRedirect.do">Ajouter catégorie</html:link></li> 
 							</ul>
 						</div>
 					</div>

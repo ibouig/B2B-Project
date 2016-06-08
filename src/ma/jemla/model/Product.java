@@ -21,7 +21,10 @@ import javax.persistence.TemporalType;
 
 @NamedQueries({
 		@NamedQuery(name="fetchByCategorie", query="select p from Product p where p.category=:cat"),
-		@NamedQuery(name="fetchProducts", query="select p from Product p")
+		@NamedQuery(name="fetchProducts", query="select p from Product p where p.validate = TRUE"),
+		@NamedQuery(name="fetchInvalid", query="select p from Product p where p.validate = FALSE"),
+		@NamedQuery(name="updateValid", query="UPDATE Product p set p.validate = TRUE where p.id=:id"), 
+		@NamedQuery(name="deleteById", query="DELETE FROM Product p where p.id=:id")
 })
 
 @Entity
@@ -48,6 +51,8 @@ public class Product implements Serializable{
 	private String ref;
 	@Temporal(value = TemporalType.TIMESTAMP)
 	private Date dateAjout;
+	
+	private boolean validate;
 	
 	@OneToMany
 	private List<OrderLine> orderLines;
@@ -202,5 +207,21 @@ public class Product implements Serializable{
 	public void setEntreprise(Entreprise entreprise) {
 		this.entreprise = entreprise;
 	}
+
+
+	public boolean isValidate() {
+		return validate;
+	}
+
+
+	public void setValidate(boolean validate) {
+		this.validate = validate;
+	}
+
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
 	
 }

@@ -19,6 +19,11 @@
 
 	<action-mappings>
 	
+		<action path="/validate" type="ma.jemla.controller.ValidateProduct" name="cartForm" scope="request" validate="false">
+			<forward name="success" path="/WEB-INF/Pages/ManagerDashboard.jsp" />
+			<forward name="failure" path="/WEB-INF/Pages/ManagerDashboard.jsp" />
+		</action>
+	
 		<action path="/addToCart" type="ma.jemla.controller.AddToCart" name="cartForm" 
 	 	scope="request" validate="false">
 			<forward name="success" path="/index.jsp" />
@@ -45,6 +50,7 @@
 		
 		<action path="/loginRedirect" type="ma.jemla.controller.LoginRedirect" >
 			<forward name="success" path="/WEB-INF/Pages/EntrepriseDashboard.jsp" />
+			<forward name="manager" path="/WEB-INF/Pages/ManagerDashboard.jsp" />
 			<forward name="failure" path="/WEB-INF/Pages/login.jsp"/>
 		</action>
 		

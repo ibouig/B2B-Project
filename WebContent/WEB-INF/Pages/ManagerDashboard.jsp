@@ -2,6 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@taglib uri="http://struts.apache.org/tags-logic" prefix="logic"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,7 +57,6 @@
 				</div>
 			</div>
 		</div><!--/header_top-->
-		
 		<div class="header-middle"><!--header-middle-->
 			<div class="container">
 				<div class="row">
@@ -91,15 +91,15 @@
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="#" class="active">Manager Dashboard</a></li>
+								<li><a href="#" class="active">Acceuil manager</a></li>
 								<li class="dropdown"><a href="#" >Valider<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="#" class="active">Annonces</a></li>
 										<li><a href="#">Ordres</a></li>
                                     </ul>
                                 </li> 
-                                <li><html:link action="inboxManager.do">Inbox</html:link></li>
-                                <li ><html:link action="addCategoryRedirect.do">Add category</html:link></li> 
+                                <li><html:link action="inboxManager.do">Messagerie</html:link></li>
+                                <li ><html:link action="addCategoryRedirect.do">Ajouter catégorie</html:link></li> 
 							</ul>
 						</div>
 					</div>
@@ -111,94 +111,48 @@
 				</div>
 			</div>
 		</div><!--/header-bottom-->
+
+		<div class="features_items">
+		<!--features_items-->
+		<h2 class="title text-center">Produits à valider</h2>
+		<%@page import="ma.jemla.daoimpl.ProductDaoImpl"%>
+		<%@page import="ma.jemla.model.Product"%>
+		<%@page import="java.util.*"%>
+		<%
+						ProductDaoImpl p_dao = new ProductDaoImpl();
+						List<Product> prods = p_dao.getInvalidProducts();
+						request.setAttribute("invalidprods", prods);
+						//System.out.println("\n\n\n"+prods.size()+"\n\n\n");
+						%>
+		<c:forEach items="${invalidprods }" var="tmp">
+			<div class="col-sm-4">
+				<div class="product-image-wrapper">
+					<form action="validate.do" method="post">
+						<div class="single-products">
+							<input type="hidden" name="id" value="${tmp.id}">
+							<div class="productinfo text-center">
+								<img src="${tmp.imagePath}" alt="${tmp.nom}" />
+								<h2>${tmp.prix }DHS</h2>
+								<p>${tmp.nom}</p>
+							</div>
+						</div>
+						<div class="choose">
+							<ul class="nav nav-pills nav-justified">
+								<li><button name="valider"><i class="fa fa-plus-square"></i>Valider</button></li>
+								<li><button name="supprimer"><i class="fa fa-plus-square"></i>Supprimer</button></li>
+							</ul>
+						</div>
+					</form>
+				</div>
+			</div>
+		</c:forEach>
+	</div>
+	<!--features_items-->
+		
 	</header><!--/header-->
 	
 	<section>
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-3">
-					<!--  -->
-				<div class="col-sm-9">
-					<div class="blog-post-area">
-						<h2 class="title text-center">Latest From our Blog</h2>
-						<div class="single-blog-post">
-							<h3>Girls Pink T Shirt arrived in store</h3>
-							<div class="post-meta">
-								<ul>
-									<li><i class="fa fa-user"></i> Mac Doe</li>
-									<li><i class="fa fa-clock-o"></i> 1:33 pm</li>
-									<li><i class="fa fa-calendar"></i> DEC 5, 2013</li>
-								</ul>
-								<span>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-half-o"></i>
-								</span>
-							</div>
-							<a href="">
-								<img src="Bootstrap/images/blog/blog-one.jpg" alt="">
-							</a>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-							<a  class="btn btn-primary" href="">Read More</a>
-						</div>
-						<div class="single-blog-post">
-							<h3>Girls Pink T Shirt arrived in store</h3>
-							<div class="post-meta">
-								<ul>
-									<li><i class="fa fa-user"></i> Mac Doe</li>
-									<li><i class="fa fa-clock-o"></i> 1:33 pm</li>
-									<li><i class="fa fa-calendar"></i> DEC 5, 2013</li>
-								</ul>
-								<span>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star-half-o"></i>
-								</span>
-							</div>
-							<a href="">
-								<img src="Bootstrap/images/blog/blog-two.jpg" alt="">
-							</a>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-							<a  class="btn btn-primary" href="">Read More</a>
-						</div>
-						<div class="single-blog-post">
-							<h3>Girls Pink T Shirt arrived in store</h3>
-							<div class="post-meta">
-								<ul>
-									<li><i class="fa fa-user"></i> Mac Doe</li>
-									<li><i class="fa fa-clock-o"></i> 1:33 pm</li>
-									<li><i class="fa fa-calendar"></i> DEC 5, 2013</li>
-								</ul>
-								<span>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star-half-o"></i>
-								</span>
-							</div>
-							<a href="">
-								<img src="Bootstrap/images/blog/blog-three.jpg" alt="">
-							</a>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-							<a  class="btn btn-primary" href="">Read More</a>
-						</div>
-						<div class="pagination-area">
-							<ul class="pagination">
-								<li><a href="" class="active">1</a></li>
-								<li><a href="">2</a></li>
-								<li><a href="">3</a></li>
-								<li><a href=""><i class="fa fa-angle-double-right"></i></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+		
 	</section>
 	
 	<footer id="footer"><!--Footer-->

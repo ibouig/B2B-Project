@@ -93,7 +93,7 @@
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><html:link action="loginRedirect.do">Dashboard Home</html:link></li>
+								<li><html:link action="loginRedirect.do">Acceuil</html:link></li>
 								<li class="dropdown"><a href="#">Profile<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="#">Qui sommes nous</a></li>
@@ -109,7 +109,7 @@
 										<li><a href="#">Vendue</a></li>
                                     </ul>
                                 </li> 
-								<li><html:link action="inbox.do">Inbox</html:link></li>
+								<li><html:link action="inbox.do">Messagerie</html:link></li>
 								<li><a href="#" class="active">Publier produit</a></li>
 							</ul>
 						</div>
@@ -519,7 +519,7 @@
 						</div>
 					</div><!--/category-tab-->
 					
-					<div class="recommended_items"><!--recommended_items-->
+					<!-- <div class="recommended_items">recommended_items
 						<h2 class="title text-center">recommended items</h2>
 						
 						<div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
@@ -608,8 +608,8 @@
 								<i class="fa fa-angle-right"></i>
 							  </a>			
 						</div>
-					</div><!--/recommended_items-->
-					
+					</div>/recommended_items
+ -->					
 				</div>
 			</div>
 		</div>

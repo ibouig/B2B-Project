@@ -1,12 +1,18 @@
 package ma.jemla.model;
 
 import java.util.List;
-
 import javax.persistence.Entity;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
-@NamedQuery(name="findByEmail",query="select e from Entreprise e where e.email=:email1 and e.password=:pass1")
+
+@NamedQueries({
+	@NamedQuery(name="fetchEntreprise", query="select e from Entreprise e"),
+	@NamedQuery(name="findByEmail",query="select e from Entreprise e where e.email=:email1 and e.password=:pass1")
+
+})
+
 @Entity
 public class Entreprise extends Account{
 	

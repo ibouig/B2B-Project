@@ -12,6 +12,21 @@ import ma.jemla.model.dao.ProductDao;;
 public class ProductDaoImpl implements ProductDao{
 	private EntityManagerFactory emf = Persistence.createEntityManagerFactory("B2B-Project");
 	private EntityManager em = emf.createEntityManager();
+	
+	public boolean validate(Long pdt) {
+		try{
+			em.getTransaction().begin();
+			Query query = em.createNamedQuery("updateValid");
+			query.setParameter("id", pdt);
+			query.executeUpdate();
+			em.getTransaction().commit();
+			
+		}catch(Exception exp){
+			exp.printStackTrace();
+			return false;
+		}
+		return true;
+	}
 	@Override
 	public boolean inserer(Product pdt) {
 		try{
@@ -25,11 +40,73 @@ public class ProductDaoImpl implements ProductDao{
 		}
 		return true;
 	}
+	
+	public boolean delete(Product pdt) {
+		try{
+			em.getTransaction().begin();
+			em.remove(pdt);
+			em.getTransaction().commit();
+			
+		}catch(Exception exp){
+			exp.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+	
+	public boolean delete(Long pdt) {
+		try{
+			em.getTransaction().begin();
+			Query query = em.createNamedQuery("deleteById");
+			query.setParameter("id", pdt);
+			query.executeUpdate();
+			em.getTransaction().commit();
+			
+		}catch(Exception exp){
+			exp.printStackTrace();
+			return false;
+		}
+		return true;
+	}
 	@Override
 	public List<Product> getProducts() {
 		try{
 			em.getTransaction().begin();
 			Query query = em.createNamedQuery("fetchProducts");
+			List<Product> values = query.getResultList();
+			/*System.out.println("In the fetchProducts query"+values.size()+"\n\n\n\n");
+			
+			for(Product tmp:values)
+				System.out.println(tmp.getNom());*/
+			values = query.getResultList();
+			return values;
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public List<Product> getInvalidProducts() {
+		try{
+			em.getTransaction().begin();
+			Query query = em.createNamedQuery("fetchInvalid");
+			List<Product> values = query.getResultList();
+			/*System.out.println("In the fetchProducts query"+values.size()+"\n\n\n\n");
+			
+			for(Product tmp:values)
+				System.out.println(tmp.getNom());*/
+			values = query.getResultList();
+			return values;
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public List<Product> getNotValidProducts() {
+		try{
+			em.getTransaction().begin();
+			Query query = em.createNamedQuery("fetchValid");
 			List<Product> values = query.getResultList();
 			/*System.out.println("In the fetchProducts query"+values.size()+"\n\n\n\n");
 			

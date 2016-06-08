@@ -129,7 +129,7 @@
 			<div class="row">
 				<div class="col-sm-4 col-sm-offset-1">
 					<div class="login-form"><!--login form-->
-						<h2>Login to your account</h2>
+						<h2>Se connecter</h2>
 						<form action="login.do" method="post">
 							<input type="email" placeholder="Email Address" name="email"/>
 							<input type="password" placeholder="password" name="password"/>
@@ -146,7 +146,7 @@
 				</div>
 				<div class="col-sm-4">
 					<div class="signup-form"><!--sign up form-->
-						<h2>New User Signup!</h2>
+						<h2>Nouveau utisateur</h2>
 						<form action="register.do" method="POST">
 							<input type="text" placeholder="Name" name="name" />
 							<input type="email" placeholder="Email Address" name="email" /><html:errors property="email"/>
@@ -158,16 +158,16 @@
 							<input type="text" placeholder="Ville" name="ville"/>
 							<input type="text" placeholder="Phone" name="phone"/>
 							<select name="country" class="countries" id="countryId">
-							<option value="">Select Country</option>
+							<option value="">Choix pays</option>
 							</select>
 							<div><br/></div>
 							
 							<select name="state" class="states" id="stateId">
-							<option value="">Select State</option>
+							<option value="">Régions</option>
 							</select>
 							<div><br/></div>
 							<select name="city" class="cities" id="cityId">
-							<option value="">Select City</option>
+							<option value="">Ville</option>
 							</select>
 							<div><br/></div>
 							

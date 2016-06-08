@@ -8,6 +8,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
+import ma.jemla.model.Account;
 import ma.jemla.model.Entreprise;
 
 public class LoginRedirect extends Action{
@@ -15,9 +16,12 @@ public class LoginRedirect extends Action{
 			HttpServletResponse res)throws Exception
 	{
 		System.out.println("in the controller ");
-		Entreprise entreprise = (Entreprise) req.getSession().getAttribute("ActiveUser");
-		if(entreprise != null){
-			return mapping.findForward("success");
+		Account account = (Account) req.getSession().getAttribute("ActiveUser");
+		if(account != null){
+			if(account.getClass()==Entreprise.class)
+				return mapping.findForward("success");
+			else
+				return mapping.findForward("manager");
 		}else{
 			return mapping.findForward("failure");
 		}

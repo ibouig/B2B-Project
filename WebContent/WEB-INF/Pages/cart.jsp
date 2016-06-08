@@ -143,7 +143,9 @@
 							<td></td>
 						</tr>
 					</thead>
+					
 					<tbody>
+					
 					<c:forEach items="${cart.lines }" var="tmp">
 						<tr>
 							<td class="cart_product">
@@ -171,6 +173,14 @@
 							</td>
 						</tr>
 					</c:forEach>
+					<tr>
+					<td>
+					<p class="cart_total_price">Total: </p>
+					</td>
+						<td colspan="11" align="center">
+								<p class="cart_total_price">${cart.total}</p>
+						</td>
+					</tr>
 					</tbody>
 				</table>
 			</div>
@@ -180,64 +190,10 @@
 	<section id="do_action">
 		<div class="container">
 			<div class="heading">
-				<h3>What would you like to do next?</h3>
-				<p>Choose if you have a discount code or reward points you want to use or would like to estimate your delivery cost.</p>
+				<h3>Proceder au paiement</h3>
+<!-- 				<p>Choose if you have a discount code or reward points you want to use or would like to estimate your delivery cost.</p> -->
 			</div>
 			<div class="row">
-				<div class="col-sm-6">
-					<div class="chose_area">
-						<ul class="user_option">
-							<li>
-								<input type="checkbox">
-								<label>Use Coupon Code</label>
-							</li>
-							<li>
-								<input type="checkbox">
-								<label>Use Gift Voucher</label>
-							</li>
-							<li>
-								<input type="checkbox">
-								<label>Estimate Shipping & Taxes</label>
-							</li>
-						</ul>
-						<ul class="user_info">
-							<li class="single_field">
-								<label>Country:</label>
-								<select>
-									<option>United States</option>
-									<option>Bangladesh</option>
-									<option>UK</option>
-									<option>India</option>
-									<option>Pakistan</option>
-									<option>Ucrane</option>
-									<option>Canada</option>
-									<option>Dubai</option>
-								</select>
-								
-							</li>
-							<li class="single_field">
-								<label>Region / State:</label>
-								<select>
-									<option>Select</option>
-									<option>Dhaka</option>
-									<option>London</option>
-									<option>Dillih</option>
-									<option>Lahore</option>
-									<option>Alaska</option>
-									<option>Canada</option>
-									<option>Dubai</option>
-								</select>
-							
-							</li>
-							<li class="single_field zip-field">
-								<label>Zip Code:</label>
-								<input type="text">
-							</li>
-						</ul>
-						<a class="btn btn-default update" href="">Get Quotes</a>
-						<a class="btn btn-default check_out" href="">Continue</a>
-					</div>
-				</div>
 				<div class="col-sm-6">
 					<div class="total_area">
 						<ul>
@@ -250,6 +206,33 @@
 							<a class="btn btn-default check_out" href="">Check Out</a>
 					</div>
 				</div>
+				<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" name='paypal-form'>
+<!-- 					<input type="hidden" name="item_name" value="name"> -->
+<!-- 					<input type="hidden" name="currency_code" value="USD"> -->
+<!-- 					<input type="hidden" name="amount" value="121212"> -->
+<!-- <!-- 					<input type="hidden" name="cmd" value="_cart"> --> -->
+<!-- 					<input type="hidden" name="upload" value="1"> -->
+<!--    					<input type="hidden" name="business" value="buyer@gmail.com"> -->
+<!--     				<input type="hidden" name="return\" value="http://localhost:8080/B2B-Project" > -->
+<!--     				<input type="hidden" name="notify_url" value="http://localhost:8080/ViderPanier"> -->
+<!--     				<input type="submit" name="submit" value="Payer !">  -->
+<input type="hidden" name="item_number" value="2" />
+        <input type="hidden" name="amount" value="1231" />
+        <input type="hidden" name="no_shipping" value="1" />
+        <input type="hidden" name="no_note" value="1" />
+        <input type="hidden" name="currency_code" value="EUR" />
+        <input type="hidden" name="lc" value="GB" />
+        <input type="hidden" name="bn" value="PP-BuyNowBF" />
+        <input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-but23.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!"  />
+        <img alt="fdff" border="0" src="https://www.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1" />
+        <!-- Payment confirmed -->
+        <input type="hidden" name="return" value="B2B-Project" />
+        <!-- Payment cancelled -->
+        <input type="hidden" name="cancel_return" value="index.jsp" />
+        <input type="hidden" name="rm" value="2" />
+        <input type="hidden" name="notify_url" value="http://www.chmscians.com/paypal/ipn.php" />
+        <input type="hidden" name="custom" value="any other custom field you want to pass" />
+				</form>
 			</div>
 		</div>
 	</section><!--/#do_action-->
