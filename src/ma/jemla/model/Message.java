@@ -41,10 +41,10 @@ public class Message {
 	@Enumerated
 	private MessageStatus messageStatus;
 
-	@ManyToOne(cascade = {CascadeType.ALL })
+	@ManyToOne
 	private Entreprise sender;
 	
-	@ManyToOne(cascade = {CascadeType.ALL })
+	@ManyToOne
 	private Entreprise receiver;
 	
 	public long getId() {

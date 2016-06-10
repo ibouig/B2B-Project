@@ -1,11 +1,20 @@
 package ma.jemla.view;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
 import org.apache.struts.upload.FormFile;
 
 import ma.jemla.model.Category;
 
 public class AddProductForm extends ActionForm{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String nom;
 	private String description;
 	private double prix;
@@ -14,16 +23,25 @@ public class AddProductForm extends ActionForm{
 	private long delai_jours;
 	private String imagePath;
 	private String ref;
-	private Category category;
+	private String categorie;
 	private FormFile picture;
 	
+	public ActionErrors validate(ActionMapping mapping,  HttpServletRequest request) {
+		ActionErrors errors = new ActionErrors();
+		/*
+		if(nom==null || imagePath == null)	
+			errors.add("email", new ActionMessage("error.email"));
+		if(unite ==null)
+			errors.add("password", new ActionMessage("error.password"));
+		*/
+		return errors;
+			}
 	
-	
-	public Category getCategory() {
-		return category;
+	public String getCategorie() {
+		return categorie;
 	}
-	public void setCategory(Category category) {
-		this.category = category;
+	public void setCategorie(String category) {
+		this.categorie = category;
 	}
 	public FormFile getPicture() {
 		return picture;

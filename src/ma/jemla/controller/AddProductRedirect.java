@@ -18,7 +18,7 @@ public class AddProductRedirect extends Action{
 	public ActionForward execute(ActionMapping mapping, ActionForm form,HttpServletRequest req, 
 			HttpServletResponse res)throws Exception
 	{
-		System.out.println("in the controller ");
+		System.out.println("in the controller AddProductRedirect");
 		Entreprise entreprise = (Entreprise) req.getSession().getAttribute("ActiveUser");
 		if(entreprise != null){
 			try{
@@ -27,9 +27,10 @@ public class AddProductRedirect extends Action{
 				values = c_dao.getCategoryNames();
 //				for(String tmp:values)
 //					System.out.println(tmp);
-				req.setAttribute("categories", values);
+				req.setAttribute("myCats", values);
 			}catch(Exception e){
 				e.printStackTrace();
+				return mapping.findForward("failure");
 			}
 			return mapping.findForward("success");
 		}else{

@@ -23,30 +23,22 @@ public class AddToCart extends Action{
 			HttpServletRequest req, HttpServletResponse res)throws Exception{
 		System.out.println("\n\n\n\n\n\n\nadd to cart\n\n\n\n");
 		Entreprise entreprise = (Entreprise) req.getSession().getAttribute("ActiveUser");
-		//if(entreprise != null){
 		String id = req.getParameter("id");
 		req.setAttribute("idPro", id);
 		try{
-			//System.err.println("nin the controller"+"\n\n\n\nhere");
 			cat=(CartDaoRemoteImpl) req.getSession().getAttribute("cart");
 			AddToCartForm myform = (AddToCartForm) form;
 			List<Product> prods = (List<Product>)req.getSession().getAttribute("prods");
 			Product prod = null;
-			//System.out.println(myform.getId()+"");
-			//System.out.println("\n\n\n the products are: "+prods.size()+"the product form: "+myform.getId());
 			for(int i=0; i<prods.size(); i++){
-				//System.out.println("product "+i+": "+prods.get(i).getId()+"\n");
 				if(myform.getId()==prods.get(i).getId()){
 					prod = prods.get(i);
 				}
 
 			}
-			//System.err.println("\n\n\n\nin the controller"+prod+"\n\n\n\nhere");
 			/*First time adding the product to the session */
 			if(cat == null){
 				cat = new CartDaoRemoteImpl();
-				//System.out.println("If Product: "+prod.getPrix()+"\n");
-				//System.out.println(cat.getLines().size());
 				OrderLine order_line = new OrderLine();
 				order_line.setProduct(prod);
 				order_line.setPrix(prod.getPrix());

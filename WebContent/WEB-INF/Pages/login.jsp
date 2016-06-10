@@ -67,11 +67,11 @@
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href=""><i class="fa fa-user"></i> Account</a></li>
+								<li><a href=""><i class="fa fa-user"></i> Mon compte</a></li>
 <!-- 								<li><a href=""><i class="fa fa-star"></i> Wishlist</a></li> -->
-								<li><html:link action="checkout.do"><i class="fa fa-crosshairs"></i> Checkout</html:link></li>
-								<li><html:link action="cart.do"><i class="fa fa-shopping-cart"></i> Cart</html:link></li>
-								<li><a href="login.jsp" class="active"><i class="fa fa-lock"></i> Login</a></li>
+<%-- 								<li><html:link action="checkout.do"><i class="fa fa-crosshairs"></i> Checkout</html:link></li> --%>
+								<li><html:link action="cart.do"><i class="fa fa-shopping-cart"></i> Panier</html:link></li>
+								<li><a href="#" class="active"><i class="fa fa-lock"></i> Login</a></li>
 							</ul>
 						</div>
 					</div>
@@ -93,16 +93,7 @@
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="index.jsp">Home</a></li>
-								<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="shop.jsp">Products</a></li>
-										<li><a href="product-details.jsp">Product Details</a></li> 
-										<li><html:link action="checkout.do">Checkout</html:link></li> 
-										<li><html:link action="cart.do">Cart</html:link></li> 
-										<li><a href="#" class="active">Login</a></li> 
-                                    </ul>
-                                </li> 
+								<li><a href="index.jsp">Acceuil</a></li> 
 <!-- 								<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a> -->
 <!--                                     <ul role="menu" class="sub-menu"> -->
 <!--                                         <li><a href="blog.jsp">Blog List</a></li> -->
@@ -155,7 +146,7 @@
 							<input type="text" placeholder="Adresse" name="adresse"/>
 							<input type="text" placeholder="Street" name="street"/>
 							<input type="text" placeholder="Zip Code" name="zipeCode"/>
-							<input type="text" placeholder="Ville" name="ville"/>
+<!-- 							<input type="text" placeholder="Ville" name="ville"/> -->
 							<input type="text" placeholder="Phone" name="phone"/>
 							<select name="country" class="countries" id="countryId">
 							<option value="">Choix pays</option>
@@ -166,7 +157,7 @@
 							<option value="">Régions</option>
 							</select>
 							<div><br/></div>
-							<select name="city" class="cities" id="cityId">
+							<select name="Ville" class="cities" id="cityId">
 							<option value="">Ville</option>
 							</select>
 							<div><br/></div>

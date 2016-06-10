@@ -13,7 +13,9 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.upload.FormFile;
 
+import ma.jemla.daoimpl.CategoryDaoImpl;
 import ma.jemla.daoimpl.ProductDaoImpl;
+import ma.jemla.model.Category;
 import ma.jemla.model.Entreprise;
 import ma.jemla.model.Product;
 import ma.jemla.model.Unite;
@@ -52,7 +54,10 @@ public class AddProduct extends Action{
 					}
 				}
 				Product pdt = new Product();
-				pdt.setCategory(myForm.getCategory());
+				CategoryDaoImpl c_dao = new CategoryDaoImpl();
+				Category cat = c_dao.getCategoryByNames(myForm.getCategorie());
+				System.out.println("dhgfdhghdgjdfhgjhfjghjfghjdhg " +myForm.getCategorie());
+				pdt.setCategory(cat);
 				pdt.setDateAjout(new Date());
 				pdt.setDelai_jours(myForm.getDelai_jours());
 				pdt.setDescription(myForm.getDescription());
@@ -70,14 +75,14 @@ public class AddProduct extends Action{
 					case "L" : pdt.setUnite(Unite.L);break;
 					case "G" : pdt.setUnite(Unite.G);break;
 				}
-				System.out.println("Info: "+myForm.getCategory()+", "+pdt.getUnite());
+				System.out.println("Info: "+myForm.getCategorie()+", "+pdt.getUnite());
 				
 				ProductDaoImpl p_dao = new ProductDaoImpl();
 				p_dao.inserer(pdt);
 
 			}catch(Exception e){
 				e.printStackTrace();
-				return mapping.findForward("failure");
+				return mapping.findForward("entreprise");
 			}
 			
 		}else{

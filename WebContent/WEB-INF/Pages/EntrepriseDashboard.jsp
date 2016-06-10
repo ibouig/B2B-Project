@@ -82,11 +82,10 @@
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href=""><i class="fa fa-user"></i> Account</a></li>
-								<li><html:link action="checkout.do">
-										<i class="fa fa-crosshairs"></i> Checkout</html:link></li>
+								<li><a href=""><i class="fa fa-user"></i> Mon compte</a></li>
+<%-- 								<li><html:link action="checkout.do"><i class="fa fa-crosshairs"></i> Checkout</html:link></li> --%>
 								<li><html:link action="cart.do">
-										<i class="fa fa-shopping-cart"></i> Cart</html:link></li>
+										<i class="fa fa-shopping-cart"></i> Panier</html:link></li>
 								<li><html:link action="logoutRedirect.do">
 										<i class="fa fa-lock"></i> Logout</html:link></li>
 							</ul>
@@ -112,13 +111,13 @@
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="#" class="active">Dashboard Home</a></li>
+								<li><a href="#" class="active">Acceuil entreprise</a></li>
 								<li class="dropdown"><a href="#">Profile<i
 										class="fa fa-angle-down"></i></a>
 									<ul role="menu" class="sub-menu">
 										<li><a href="#">Qui sommes nous</a></li>
 										<li><a href="product-details.jsp">Produits</a></li>
-										<li><html:link action="checkout.do">Checkout</html:link></li>
+<%-- 										<li><html:link action="checkout.do">Checkout</html:link></li> --%>
 										<!-- <li><a href="cart.jsp">Promouvoir Site</a></li>  -->
 										<li><a href="cart.jsp">Logout</a></li>
 									</ul></li>
@@ -128,7 +127,7 @@
 										<li><a href="#" class="active">Acheter</a></li>
 										<li><a href="#">Vendue</a></li>
 									</ul></li>
-								<li><html:link action="inbox.do">Inbox</html:link></li>
+								<li><html:link action="inbox.do">Messagerie</html:link></li>
 								<li><html:link action="publishProduct.do">Publier produit</html:link></li>
 							</ul>
 						</div>
@@ -146,18 +145,8 @@
 	<!--/header-->
 	<div class="features_items">
 		<!--features_items-->
-		<h2 class="title text-center">Features Items</h2>
-		<%@page import="ma.jemla.daoimpl.ProductDaoImpl"%>
-		<%@page import="ma.jemla.model.Product"%>
-		<%@page import="java.util.*"%>
-		<%
-						ProductDaoImpl p_dao = new ProductDaoImpl();
-						List<Product> prods = p_dao.getProducts();
-						request.setAttribute("prods", prods);
-						//System.out.println("\n\n\n"+prods.size()+"\n\n\n");
-						%>
-		<c:forEach items="${prods }" var="tmp">
-						${tmp.nom }
+		<h2 class="title text-center">Mes produits</h2>
+		<c:forEach items="${entprods }" var="tmp">
 						<div class="col-sm-4">
 				<div class="product-image-wrapper">
 					<form>
@@ -167,29 +156,7 @@
 								<img src="${tmp.imagePath}" alt="${tmp.nom}" />
 								<h2>${tmp.prix }DHS</h2>
 								<p>${tmp.nom}</p>
-								<button onClick="loadDoc(${tmp.id})"
-									class="btn btn-default add-to-cart">
-									<i class="fa fa-shopping-cart"></i>Add to cart
-								</button>
-							</div>
-							<div class="product-overlay">
-								<div class="overlay-content">
-									<h2>${tmp.prix }DHS</h2>
-									<p>${tmp.nom }</p>
-									<button onClick="loadDoc(${tmp.id})"
-										class="btn btn-default add-to-cart">
-										<i class="fa fa-shopping-cart"></i>Add to cart
-									</button>
 								</div>
-							</div>
-						</div>
-						<div class="choose">
-							<ul class="nav nav-pills nav-justified">
-								<li><a href="#"><i class="fa fa-plus-square"></i>Add to
-										wishlist</a></li>
-								<li><a href="#"><i class="fa fa-plus-square"></i>Add to
-										compare</a></li>
-							</ul>
 						</div>
 					</form>
 				</div>

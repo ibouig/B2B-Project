@@ -9,7 +9,8 @@ import javax.persistence.OneToMany;
 
 @NamedQueries({
 	@NamedQuery(name="fetchEntreprise", query="select e from Entreprise e"),
-	@NamedQuery(name="findByEmail",query="select e from Entreprise e where e.email=:email1 and e.password=:pass1")
+	@NamedQuery(name="findByEmail",query="select e from Entreprise e where e.email=:email1 and e.password=:pass1"),
+	@NamedQuery(name="fetchByID",query="select e from Entreprise e where e.id=:id")
 
 })
 

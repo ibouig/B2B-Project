@@ -23,8 +23,11 @@ import javax.persistence.TemporalType;
 		@NamedQuery(name="fetchByCategorie", query="select p from Product p where p.category=:cat"),
 		@NamedQuery(name="fetchProducts", query="select p from Product p where p.validate = TRUE"),
 		@NamedQuery(name="fetchInvalid", query="select p from Product p where p.validate = FALSE"),
+		@NamedQuery(name="fetchByEntreprise", query="SELECT p FROM Product p where p.entreprise.id=:entreprise"),
 		@NamedQuery(name="updateValid", query="UPDATE Product p set p.validate = TRUE where p.id=:id"), 
-		@NamedQuery(name="deleteById", query="DELETE FROM Product p where p.id=:id")
+		@NamedQuery(name="deleteById", query="DELETE FROM Product p where p.id=:id"),
+		@NamedQuery(name="getEntreprise", query="SELECT p.entreprise FROM Product p WHERE p.id=:id"),
+		@NamedQuery(name="fetchByCategory", query="SELECT p FROM Product p WHERE p.category.nom=:cat")
 })
 
 @Entity

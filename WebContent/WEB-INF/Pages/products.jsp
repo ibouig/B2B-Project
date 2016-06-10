@@ -1,7 +1,9 @@
+<%@page import="ma.jemla.daoimpl.CategoryDaoImpl"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@taglib uri="http://struts.apache.org/tags-logic" prefix="logic"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Ajout Catégorie| Jemla-Ma</title>
+    <title>Jemla Ma</title>
     <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="Bootstrap/css/font-awesome.min.css" rel="stylesheet">
     <link href="Bootstrap/css/prettyPhoto.css" rel="stylesheet">
@@ -26,6 +28,59 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="Bootstrap/images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="Bootstrap/images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="Bootstrap/images/ico/apple-touch-icon-57-precomposed.png">
+    <script></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script type="text/javascript">
+// 		function loadDoc( a) {
+// 			/*$(document).ready(
+// 				    function() {
+// 				    	//alert(a);
+// 				    	document.getElementById("madiv").textContent="newtext";
+// 				       // $('div.madiv').text('test');
+// 				    }
+// 				);*/
+// 				$(document).ajaxComplete(function(){
+// 					$("div.madiv").text(text.replace($("div.madiv"), "ok"));
+// 				});
+// 			//alert(a)
+// 			/*
+// 			 $.ajax({url: "addToCart.do?id=" + a, success: function(result){
+// 				//alert(a);
+// 				 //alert($("#madiv").val());
+// 		        $("#madiv").text(result);
+		        
+// 		    }});	 */
+ 		
+// 	}
+function loadDoc( a) {
+			
+			//alert(a);
+ 		 	var xhttp = new XMLHttpRequest();
+ 		 	xhttp.onreadystatechange = function() {
+   			 if (xhttp.readyState == 4 && xhttp.status == 200) {
+   				 //alert(a);
+    			  document.getElementById("cart").innerHTML = xhttp.responseText;
+    			  //document.getElementsByClass("cart").innerHTML = xhttp.responseText;
+   			 }
+			  };
+			 
+ 			 xhttp.open("GET", "addToCart.do?id=" + a, true);
+ 			 xhttp.send();
+	}
+	function productRedi(a){
+		window.location ="productRedirect.do?id=" + a;
+// 		var xhttp = new XMLHttpRequest();
+// 		 	xhttp.onreadystatechange = function() {
+// 			 if (xhttp.readyState == 4 && xhttp.status == 200) {
+// 				 //alert(a);
+// 			 }
+// 		  };
+		 
+// 			 xhttp.open("GET", "productRedirect.do?id=" + a, true);
+// 			 xhttp.send();
+	}
+		
+</script>
 </head><!--/head-->
 
 <body>
@@ -36,8 +91,8 @@
 					<div class="col-sm-6">
 						<div class="contactinfo">
 							<ul class="nav nav-pills">
-								<li><a href=""><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-								<li><a href=""><i class="fa fa-envelope"></i> info@jemla.ma</a></li>
+								<li><a href="#"><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
+								<li><a href="#"><i class="fa fa-envelope"></i> info@jemla.ma</a></li>
 								<li><a href=""><i class="fa fa-envelope"></i><%= session.getAttribute("ActiveUser")%></a></li>
 							</ul>
 						</div>
@@ -45,11 +100,11 @@
 					<div class="col-sm-6">
 						<div class="social-icons pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href=""><i class="fa fa-facebook"></i></a></li>
-								<li><a href=""><i class="fa fa-twitter"></i></a></li>
-								<li><a href=""><i class="fa fa-linkedin"></i></a></li>
-								<li><a href=""><i class="fa fa-dribbble"></i></a></li>
-								<li><a href=""><i class="fa fa-google-plus"></i></a></li>
+								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+								<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
 							</ul>
 						</div>
 					</div>
@@ -68,8 +123,11 @@
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-								<li><html:link action="managerLogin.do"><i class="fa fa-user">Mon compte</i></html:link> </a></li>
-								<li><html:link action="logoutRedirect.do"><i class="fa fa-lock"></i> Se déconnecter</html:link></li>
+								<li><html:link action="loginRedirect.do"><i class="fa fa-user"></i> Mon compte</html:link></li>
+								<!-- <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li> -->
+<!-- 								<li><a href="WEB-INF/Pages/checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li> -->
+								<li ><html:link action="cart.do"><i id="cart" class="fa fa-shopping-cart">Panier ${cart.lines.size() }</i> </html:link></li>
+								<li><html:link action="loginRedirect.do"><i class="fa fa-lock"></i> Login</html:link></li>
 							</ul>
 						</div>
 					</div>
@@ -91,15 +149,8 @@
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><html:link action="managerLogin.do">Acceuil manager</html:link></li>
-								<li class="dropdown"><a href="#" >Valider<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="#" class="active">Annonces</a></li>
-										<li><a href="#">Ordres</a></li>
-                                    </ul>
-                                </li> 
-                                <li><html:link action="inboxManager.do">Messagerie</html:link></li>
-                                <li ><a class="active">Ajouter category</a></li> 
+								<li><a href="index.jsp" class="active">Acceuil</a></li>
+								<li><html:link action="contactUs.do">Contact</html:link></li>
 							</ul>
 						</div>
 					</div>
@@ -111,31 +162,94 @@
 				</div>
 			</div>
 		</div><!--/header-bottom-->
-	</header><!--/header-->
-	
+	</header><!--/header-->	
 	<section>
 		<div class="container">
 			<div class="row">
-				<h2>Ajouter Catégorie</h2>
-					<div class="login-form">
-					<html:form action="addCategory.do" method="post">
-						<input type="text" placeholder="Nom catégorie" name="nom"/>
-						<html:textarea property="description" />
-<!-- 						<input type="text" placeholder="Description" name="description"/> -->
-						<button type="submit" class="btn btn-default">Ajouter Catégorie</button>
-					</html:form>
+				<div class="col-sm-3">
+					<div class="left-sidebar">
+						<h2>Category</h2>
+						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
+							
+							<%@page import="ma.jemla.daoimpl.CategoryDaoImpl"%>
+							<%@page import="ma.jemla.model.Category"%>
+							<%@page import="java.util.List"%>
+							<%
+							CategoryDaoImpl c_dao = new CategoryDaoImpl(); 
+							List<String> categories = c_dao.getCategoryNames();
+							request.setAttribute("categories", categories);
+							%>
+							<c:forEach items="${categories}" var="tmp">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title"><a href="catRedi.do?name=${tmp}">${tmp}</a></h4>
+									</div>
+								</div>
+							</c:forEach>
+						</div><!--/category-products-->	
+						<div class="price-range"><!--price-range-->
+							<h2>Prix</h2>
+							<div class="well text-center">
+								 <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2" ><br />
+								 <b class="pull-left">$ 0</b> <b class="pull-right">$ 600</b>
+							</div>
+						</div><!--/price-range-->
+						
+						<div class="shipping text-center"><!--shipping-->
+							<img src="Bootstrap/images/home/shipping.jpg" alt="" />
+						</div><!--/shipping-->
+					
+					</div>
+				</div>
+				
+				<div class="col-sm-9 padding-right">
+					 <div class="features_items"><!--features_items-->
+						<h2 class="title text-center">Nos produits</h2>
+
+						
+						<c:forEach items="${prodsCat }" var="tmp">
+						<div class="col-sm-4">
+							<div class="product-image-wrapper">
+							<form >
+								<div class="single-products">
+								<input type="hidden" name="id" value="${tmp.id}" >
+										<div class="productinfo text-center">
+											<img src="${tmp.imagePath}" alt="${tmp.nom}" />
+											<h2>${tmp.prix }DHS</h2>
+											<p><a href="javascript:productRedi(${tmp.id})">${tmp.nom}</a></p>
+											<button onClick="loadDoc(${tmp.id})" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+										</div>
+										<div class="product-overlay">
+											<div class="overlay-content">
+												<h2>${tmp.prix }DHS</h2>
+												<p><a href="javascript:productRedi(${tmp.id})">${tmp.nom}</a></p>
+												<button onClick="loadDoc(${tmp.id})" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+											</div>
+										</div>
+								</div>
+							</form>
+							</div>
+						</div>
+						</c:forEach>
+					</div><!--features_items-->
+					
 				</div>
 			</div>
 		</div>
 	</section>
 	
-	<footer id="footer"><!--Footer-->
+	<footer id="footer">
+		<!--Footer-->
 		<div class="footer-top">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-2">
 						<div class="companyinfo">
-							<h2><span>Jemla</span>-Ma</h2>
+							<h2>
+								<span>Jemla</span>-Ma
+							</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing
+								elit,sed do eiusmod tempor</p>
 						</div>
 					</div>
 					<div class="col-sm-7">
@@ -153,7 +267,7 @@
 								<h2>15 Mai 2016</h2>
 							</div>
 						</div>
-						
+
 						<div class="col-sm-3">
 							<div class="video-gallery text-center">
 								<a href="#">
@@ -168,7 +282,7 @@
 								<h2>15 Mai 2016</h2>
 							</div>
 						</div>
-						
+
 						<div class="col-sm-3">
 							<div class="video-gallery text-center">
 								<a href="#">
@@ -183,7 +297,7 @@
 								<h2>15 Mai 2016</h2>
 							</div>
 						</div>
-						
+
 						<div class="col-sm-3">
 							<div class="video-gallery text-center">
 								<a href="#">
@@ -208,7 +322,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="footer-widget">
 			<div class="container">
 				<div class="row">
@@ -265,33 +379,42 @@
 							<h2>About Shopper</h2>
 							<form action="#" class="searchform">
 								<input type="text" placeholder="Your email address" />
-								<button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
-								<p>Get the most recent updates from <br />our site and be updated your self...</p>
+								<button type="submit" class="btn btn-default">
+									<i class="fa fa-arrow-circle-o-right"></i>
+								</button>
+								<p>
+									Get the most recent updates from <br />our site and be updated
+									your self...
+								</p>
 							</form>
 						</div>
 					</div>
-					
+
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="footer-bottom">
 			<div class="container">
 				<div class="row">
-					<p class="pull-left">Copyright © 2016 Jemla_Ma Inc. All rights reserved.</p>
-					<p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
+					<p class="pull-left">Copyright © 2016 Jemla_Ma Inc. All rights
+						reserved.</p>
+					<p class="pull-right">
+						Designed by <span><a target="_blank"
+							href="http://www.themeum.com">Themeum</a></span>
+					</p>
 				</div>
 			</div>
 		</div>
-		
-	</footer><!--/Footer-->
+
+	</footer>
 	
 
   
     <script src="Bootstrap/js/jquery.js"></script>
-	<script src="Bootstrap/js/price-range.js"></script>
-	<script src="Bootstrap/js/jquery.scrollUp.min.js"></script>
 	<script src="Bootstrap/js/bootstrap.min.js"></script>
+	<script src="Bootstrap/js/jquery.scrollUp.min.js"></script>
+	<script src="Bootstrap/js/price-range.js"></script>
     <script src="Bootstrap/js/jquery.prettyPhoto.js"></script>
     <script src="Bootstrap/js/main.js"></script>
 </body>

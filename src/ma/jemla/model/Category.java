@@ -2,21 +2,23 @@ package ma.jemla.model;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-@NamedQueries(
-		@NamedQuery(name="fetchCategoryName", query="Select c.nom from Category c")
-		)
+@NamedQueries({
+		@NamedQuery(name="fetchCategoryName", query="Select c.nom from Category c")/*,
+		@NamedQuery(name="fetchCatProds", query="SELECT c.products FROM Category c where c.nom=:nom")
+*/})
 @Entity
 public class Category {
 	@Id
 	@GeneratedValue
 	private long id;
-	
+	@Column(nullable = false)
 	private String nom;
 	private String description;
 	

@@ -68,8 +68,8 @@
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href=""><i class="fa fa-user"></i> Account</a></li>
-								<li><html:link action="logoutRedirect.do"><i class="fa fa-lock"></i> Logout</html:link></li>
+								<li><html:link action="managerLogin.do"><i class="fa fa-user"></i> Mon compte</html:link></li>
+								<li><html:link action="logoutRedirect.do"><i class="fa fa-lock"></i> Se deconnecter</html:link></li>
 							</ul>
 						</div>
 					</div>

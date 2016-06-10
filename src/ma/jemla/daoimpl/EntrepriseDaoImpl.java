@@ -45,11 +45,11 @@ public class EntrepriseDaoImpl implements EntrepriseDao{
 		return ent;
 	}
 	
-	public List<Product> getEntreprises() {
+	public List<Entreprise> getEntreprises() {
 		try{
 			em.getTransaction().begin();
 			Query query = em.createNamedQuery("fetchEntreprise");
-			List<Product> values = query.getResultList();
+			List<Entreprise> values = query.getResultList();
 			/*System.out.println("In the fetchProducts query"+values.size()+"\n\n\n\n");
 			
 			for(Product tmp:values)
@@ -62,4 +62,16 @@ public class EntrepriseDaoImpl implements EntrepriseDao{
 		}
 	}
 
+	public Entreprise getEntreprise(long arg) {
+		try{
+			//em.getTransaction().begin();
+			Query query = em.createNamedQuery("fetchByID");
+			query.setParameter("id", arg);
+			Entreprise values = (Entreprise)query.getSingleResult();
+			return values;
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
+	}
 }

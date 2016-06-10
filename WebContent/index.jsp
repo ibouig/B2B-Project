@@ -67,6 +67,18 @@ function loadDoc( a) {
  			 xhttp.open("GET", "addToCart.do?id=" + a, true);
  			 xhttp.send();
 	}
+	function productRedi(a){
+		window.location ="productRedirect.do?id=" + a;
+// 		var xhttp = new XMLHttpRequest();
+// 		 	xhttp.onreadystatechange = function() {
+// 			 if (xhttp.readyState == 4 && xhttp.status == 200) {
+// 				 //alert(a);
+// 			 }
+// 		  };
+		 
+// 			 xhttp.open("GET", "productRedirect.do?id=" + a, true);
+// 			 xhttp.send();
+	}
 		
 </script>
 </head><!--/head-->
@@ -111,10 +123,10 @@ function loadDoc( a) {
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-								<li><html:link action="loginRedirect.do"><i class="fa fa-user"></i> Account</html:link></li>
+								<li><html:link action="loginRedirect.do"><i class="fa fa-user"></i> Mon compte</html:link></li>
 								<!-- <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li> -->
-								<li><a href="WEB-INF/Pages/checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-								<li ><html:link action="cart.do"><i id="cart" class="fa fa-shopping-cart">Cart ${cart.lines.size() }</i> </html:link></li>
+<!-- 								<li><a href="WEB-INF/Pages/checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li> -->
+								<li ><html:link action="cart.do"><i id="cart" class="fa fa-shopping-cart">Panier ${cart.lines.size() }</i> </html:link></li>
 								<li><html:link action="loginRedirect.do"><i class="fa fa-lock"></i> Login</html:link></li>
 							</ul>
 						</div>
@@ -137,18 +149,7 @@ function loadDoc( a) {
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="index.jsp" class="active">Home</a></li>
-								<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="WEB-INF/Pages/shop.html">Products</a></li>
-										<li><a href="Bootstrap/product-details.html">Product Details</a></li> 
-										<li><html:link action="checkout.do">Checkout</html:link></li> 
-										<%@page import="ma.jemla.daoimpl.*" %>
-										<% CartDaoRemoteImpl cart =(CartDaoRemoteImpl)request.getSession().getAttribute("");%>
-										<li class="cart"><html:link action="cart.do">Cart</html:link></li> 
-										<li><html:link action="loginRedirect.do">Login</html:link></li> 
-                                    </ul>
-                                </li> 
+								<li><a href="index.jsp" class="active">Acceuil</a></li>
 								<li><html:link action="contactUs.do">Contact</html:link></li>
 							</ul>
 						</div>
@@ -177,39 +178,39 @@ function loadDoc( a) {
 						<div class="carousel-inner">
 							<div class="item active">
 								<div class="col-sm-6">
-									<h1><span>E</span>-SHOPPER</h1>
-									<h2>Free E-Commerce Template</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-									<button type="button" class="btn btn-default get">Get it now</button>
+									<h1><span>Jemla</span>-MA</h1>
+									<h2>Acheter/Vendre efficacement</h2>
+									<p>Votre référence pour commerce entre entreprises</p>
+<!-- 									<button type="button" class="btn btn-default get" onclick="/login.do">Rejoignez nous</button> -->
 								</div>
 								<div class="col-sm-6">
-									<img src="Bootstrap/images/home/girl1.jpg" class="girl img-responsive" alt="" />
-									<img src="Bootstrap/images/home/pricing.png"  class="pricing" alt="" />
+									<img src="Bootstrap/images/home/ramadan.jpg" class="girl img-responsive" alt="" />
+<!-- 									<img src="Bootstrap/images/home/pricing.png"  class="pricing" alt="" /> -->
 								</div>
 							</div>
 							<div class="item">
 								<div class="col-sm-6">
-									<h1><span>E</span>-SHOPPER</h1>
-									<h2>100% Responsive Design</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-									<button type="button" class="btn btn-default get">Get it now</button>
+									<h1><span>Jemla</span>-MA</h1>
+									<h2>Acheter/Vendre efficacement</h2>
+									<p>Votre référence pour commerce entre entreprises. </p>
+<!-- 									<button type="button" class="btn btn-default get" onclick="/login.do">Rejoignez nous</button> -->
 								</div>
 								<div class="col-sm-6">
-									<img src="Bootstrap/images/home/girl2.jpg" class="girl img-responsive" alt="" />
-									<img src="Bootstrap/images/home/pricing.png"  class="pricing" alt="" />
+									<img src="Bootstrap/images/home/Tech-gadgets.jpg" class="girl img-responsive" alt="" />
+<!-- 									<img src="Bootstrap/images/home/pricing.png"  class="pricing" alt="" /> -->
 								</div>
 							</div>
 							
 							<div class="item">
 								<div class="col-sm-6">
-									<h1><span>E</span>-SHOPPER</h1>
-									<h2>Free Ecommerce Template</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-									<button type="button" class="btn btn-default get">Get it now</button>
+									<h1><span>Jemla</span></h1>
+									<h2>Acheter/Vendre efficacement</h2>
+									<p>Votre référence pour commerce entre entreprises. </p>
+<!-- 									<button type="button" class="btn btn-default get" onclick="/login.do">Rejoignez nous</button> -->
 								</div>
 								<div class="col-sm-6">
-									<img src="Bootstrap/images/home/girl3.jpg" class="girl img-responsive" alt="" />
-									<img src="Bootstrap/images/home/pricing.png" class="pricing" alt="" />
+									<img src="Bootstrap/images/home/clothing.jpg" class="girl img-responsive" alt="" />
+<!-- 									<img src="Bootstrap/images/home/pricing.png" class="pricing" alt="" /> -->
 								</div>
 							</div>
 							
@@ -247,29 +248,13 @@ function loadDoc( a) {
 							<c:forEach items="${categories}" var="tmp">
 								<div class="panel panel-default">
 									<div class="panel-heading">
-										<h4 class="panel-title"><a href="${tmp}">${tmp}</a></h4>
+										<h4 class="panel-title"><a href="catRedi.do?name=${tmp}">${tmp}</a></h4>
 									</div>
 								</div>
 							</c:forEach>
-						</div><!--/category-products-->
-					
-						<!-- <div class="brands_products">brands_products
-							<h2>Brands</h2>
-							<div class="brands-name">
-								<ul class="nav nav-pills nav-stacked">
-									<li><a href="#"> <span class="pull-right">(50)</span>Acne</a></li>
-									<li><a href="#"> <span class="pull-right">(56)</span>GrÃ¼ne Erde</a></li>
-									<li><a href="#"> <span class="pull-right">(27)</span>Albiro</a></li>
-									<li><a href="#"> <span class="pull-right">(32)</span>Ronhill</a></li>
-									<li><a href="#"> <span class="pull-right">(5)</span>Oddmolly</a></li>
-									<li><a href="#"> <span class="pull-right">(9)</span>Boudestijn</a></li>
-									<li><a href="#"> <span class="pull-right">(4)</span>RÃ¶sch creative culture</a></li>
-								</ul>
-							</div>
-						</div>/brands_products -->
-						
+						</div><!--/category-products-->	
 						<div class="price-range"><!--price-range-->
-							<h2>Price Range</h2>
+							<h2>Prix</h2>
 							<div class="well text-center">
 								 <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2" ><br />
 								 <b class="pull-left">$ 0</b> <b class="pull-right">$ 600</b>
@@ -285,7 +270,7 @@ function loadDoc( a) {
 				
 				<div class="col-sm-9 padding-right">
 					 <div class="features_items"><!--features_items-->
-						<h2 class="title text-center">Features Items</h2>
+						<h2 class="title text-center">Nos produits</h2>
 						<%@page import="ma.jemla.daoimpl.ProductDaoImpl" %>
 						<%@page import="ma.jemla.model.Product" %>
 						<%
@@ -303,426 +288,40 @@ function loadDoc( a) {
 										<div class="productinfo text-center">
 											<img src="${tmp.imagePath}" alt="${tmp.nom}" />
 											<h2>${tmp.prix }DHS</h2>
-											<p>${tmp.nom}</p>
+											<p><a href="javascript:productRedi(${tmp.id})">${tmp.nom}</a></p>
 											<button onClick="loadDoc(${tmp.id})" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
 										</div>
 										<div class="product-overlay">
 											<div class="overlay-content">
 												<h2>${tmp.prix }DHS</h2>
-												<p>${tmp.nom }</p>
+												<p><a href="javascript:productRedi(${tmp.id})">${tmp.nom}</a></p>
 												<button onClick="loadDoc(${tmp.id})" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
 											</div>
 										</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
-									</ul>
 								</div>
 							</form>
 							</div>
 						</div>
 						</c:forEach>
 					</div><!--features_items-->
-					<!-- <div class="category-tab">category-tab
-						<div class="col-sm-12">
-							<ul class="nav nav-tabs">
-								<li class="active"><a href="#tshirt" data-toggle="tab">T-Shirt</a></li>
-								<li><a href="#blazers" data-toggle="tab">Blazers</a></li>
-								<li><a href="#sunglass" data-toggle="tab">Sunglass</a></li>
-								<li><a href="#kids" data-toggle="tab">Kids</a></li>
-								<li><a href="#poloshirt" data-toggle="tab">Polo shirt</a></li>
-							</ul>
-						</div>
-						<div class="tab-content">
-							<div class="tab-pane fade active in" id="tshirt" >
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="Bootstrap/images/home/gallery1.jpg" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="Bootstrap/images/home/gallery2.jpg" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="Bootstrap/images/home/gallery3.jpg" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="Bootstrap/images/home/gallery4.jpg" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-							</div>
-							
-							<div class="tab-pane fade" id="blazers" >
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="Bootstrap/images/home/gallery4.jpg" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="Bootstrap/images/home/gallery3.jpg" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="Bootstrap/images/home/gallery2.jpg" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="Bootstrap/images/home/gallery1.jpg" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-							</div>
-							
-							<div class="tab-pane fade" id="sunglass" >
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="Bootstrap/images/home/gallery3.jpg" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="Bootstrap/images/home/gallery4.jpg" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="Bootstrap/images/home/gallery1.jpg" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="Bootstrap/images/home/gallery2.jpg" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-							</div>
-							
-							<div class="tab-pane fade" id="kids" >
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="Bootstrap/images/home/gallery1.jpg" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="Bootstrap/images/home/gallery2.jpg" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="Bootstrap/images/home/gallery3.jpg" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="Bootstrap/images/home/gallery4.jpg" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-							</div>
-							
-							<div class="tab-pane fade" id="poloshirt" >
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="Bootstrap/images/home/gallery2.jpg" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="Bootstrap/images/home/gallery4.jpg" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="Bootstrap/images/home/gallery3.jpg" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="Bootstrap/images/home/gallery1.jpg" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>/category-tab
-					 -->
-					<!-- <div class="recommended_items">recommended_items
-						<h2 class="title text-center">recommended items</h2>
-						
-						<div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
-							<div class="carousel-inner">
-								<div class="item active">	
-									<div class="col-sm-4">
-										<div class="product-image-wrapper">
-											<div class="single-products">
-												<div class="productinfo text-center">
-													<img src="Bootstrap/images/home/recommend1.jpg" alt="" />
-													<h2>$56</h2>
-													<p>Easy Polo Black Edition</p>
-													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-												</div>
-												
-											</div>
-										</div>
-									</div>
-									<div class="col-sm-4">
-										<div class="product-image-wrapper">
-											<div class="single-products">
-												<div class="productinfo text-center">
-													<img src="Bootstrap/images/home/recommend2.jpg" alt="" />
-													<h2>$56</h2>
-													<p>Easy Polo Black Edition</p>
-													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-												</div>
-												
-											</div>
-										</div>
-									</div>
-									<div class="col-sm-4">
-										<div class="product-image-wrapper">
-											<div class="single-products">
-												<div class="productinfo text-center">
-													<img src="Bootstrap/images/home/recommend3.jpg" alt="" />
-													<h2>$56</h2>
-													<p>Easy Polo Black Edition</p>
-													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-												</div>
-												
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="item">	
-									<div class="col-sm-4">
-										<div class="product-image-wrapper">
-											<div class="single-products">
-												<div class="productinfo text-center">
-													<img src="Bootstrap/images/home/recommend1.jpg" alt="" />
-													<h2>$56</h2>
-													<p>Easy Polo Black Edition</p>
-													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-												</div>
-												
-											</div>
-										</div>
-									</div>
-									<div class="col-sm-4">
-										<div class="product-image-wrapper">
-											<div class="single-products">
-												<div class="productinfo text-center">
-													<img src="Bootstrap/images/home/recommend2.jpg" alt="" />
-													<h2>$56</h2>
-													<p>Easy Polo Black Edition</p>
-													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-												</div>
-												
-											</div>
-										</div>
-									</div>
-									<div class="col-sm-4">
-										<div class="product-image-wrapper">
-											<div class="single-products">
-												<div class="productinfo text-center">
-													<img src="Bootstrap/images/home/recommend3.jpg" alt="" />
-													<h2>$56</h2>
-													<p>Easy Polo Black Edition</p>
-													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-												</div>
-												
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							 <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
-								<i class="fa fa-angle-left"></i>
-							  </a>
-							  <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
-								<i class="fa fa-angle-right"></i>
-							  </a>			
-						</div>
-					</div>/recommended_items -->
 					
 				</div>
 			</div>
 		</div>
 	</section>
 	
-	<footer id="footer"><!--Footer-->
+	<footer id="footer">
+		<!--Footer-->
 		<div class="footer-top">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-2">
 						<div class="companyinfo">
-							<h2><span>e</span>-shopper</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor</p>
+							<h2>
+								<span>Jemla</span>-Ma
+							</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing
+								elit,sed do eiusmod tempor</p>
 						</div>
 					</div>
 					<div class="col-sm-7">
@@ -737,10 +336,10 @@ function loadDoc( a) {
 									</div>
 								</a>
 								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
+								<h2>15 Mai 2016</h2>
 							</div>
 						</div>
-						
+
 						<div class="col-sm-3">
 							<div class="video-gallery text-center">
 								<a href="#">
@@ -752,10 +351,10 @@ function loadDoc( a) {
 									</div>
 								</a>
 								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
+								<h2>15 Mai 2016</h2>
 							</div>
 						</div>
-						
+
 						<div class="col-sm-3">
 							<div class="video-gallery text-center">
 								<a href="#">
@@ -767,10 +366,10 @@ function loadDoc( a) {
 									</div>
 								</a>
 								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
+								<h2>15 Mai 2016</h2>
 							</div>
 						</div>
-						
+
 						<div class="col-sm-3">
 							<div class="video-gallery text-center">
 								<a href="#">
@@ -782,20 +381,20 @@ function loadDoc( a) {
 									</div>
 								</a>
 								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
+								<h2>15 Mai 2016</h2>
 							</div>
 						</div>
 					</div>
 					<div class="col-sm-3">
 						<div class="address">
 							<img src="Bootstrap/images/home/map.png" alt="" />
-							<p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
+							<p>Jemla Ma Inc. Bd Abdelkrim El Khatabi, Marrakech Maroc</p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="footer-widget">
 			<div class="container">
 				<div class="row">
@@ -803,11 +402,11 @@ function loadDoc( a) {
 						<div class="single-widget">
 							<h2>Service</h2>
 							<ul class="nav nav-pills nav-stacked">
-								<li><a href="#">Online Help</a></li>
-								<li><a href="#">Contact Us</a></li>
-								<li><a href="#">Order Status</a></li>
-								<li><a href="#">Change Location</a></li>
-								<li><a href="#">FAQâ€™s</a></li>
+								<li><a href="">Online Help</a></li>
+								<li><a href="">Contact Us</a></li>
+								<li><a href="">Order Status</a></li>
+								<li><a href="">Change Location</a></li>
+								<li><a href="">FAQs</a></li>
 							</ul>
 						</div>
 					</div>
@@ -815,11 +414,11 @@ function loadDoc( a) {
 						<div class="single-widget">
 							<h2>Quick Shop</h2>
 							<ul class="nav nav-pills nav-stacked">
-								<li><a href="#">T-Shirt</a></li>
-								<li><a href="#">Mens</a></li>
-								<li><a href="#">Womens</a></li>
-								<li><a href="#">Gift Cards</a></li>
-								<li><a href="#">Shoes</a></li>
+								<li><a href="">T-Shirt</a></li>
+								<li><a href="">Mens</a></li>
+								<li><a href="">Womens</a></li>
+								<li><a href="">Gift Cards</a></li>
+								<li><a href="">Shoes</a></li>
 							</ul>
 						</div>
 					</div>
@@ -827,11 +426,11 @@ function loadDoc( a) {
 						<div class="single-widget">
 							<h2>Policies</h2>
 							<ul class="nav nav-pills nav-stacked">
-								<li><a href="#">Terms of Use</a></li>
-								<li><a href="#">Privecy Policy</a></li>
-								<li><a href="#">Refund Policy</a></li>
-								<li><a href="#">Billing System</a></li>
-								<li><a href="#">Ticket System</a></li>
+								<li><a href="">Terms of Use</a></li>
+								<li><a href="">Privacy Policy</a></li>
+								<li><a href="">Refund Policy</a></li>
+								<li><a href="">Billing System</a></li>
+								<li><a href="">Ticket System</a></li>
 							</ul>
 						</div>
 					</div>
@@ -839,11 +438,11 @@ function loadDoc( a) {
 						<div class="single-widget">
 							<h2>About Shopper</h2>
 							<ul class="nav nav-pills nav-stacked">
-								<li><a href="#">Company Information</a></li>
-								<li><a href="#">Careers</a></li>
-								<li><a href="#">Store Location</a></li>
-								<li><a href="#">Affillate Program</a></li>
-								<li><a href="#">Copyright</a></li>
+								<li><a href="">Company Information</a></li>
+								<li><a href="">Careers</a></li>
+								<li><a href="">Store Location</a></li>
+								<li><a href="">Affillate Program</a></li>
+								<li><a href="">Copyright</a></li>
 							</ul>
 						</div>
 					</div>
@@ -852,26 +451,35 @@ function loadDoc( a) {
 							<h2>About Shopper</h2>
 							<form action="#" class="searchform">
 								<input type="text" placeholder="Your email address" />
-								<button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
-								<p>Get the most recent updates from <br />our site and be updated your self...</p>
+								<button type="submit" class="btn btn-default">
+									<i class="fa fa-arrow-circle-o-right"></i>
+								</button>
+								<p>
+									Get the most recent updates from <br />our site and be updated
+									your self...
+								</p>
 							</form>
 						</div>
 					</div>
-					
+
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="footer-bottom">
 			<div class="container">
 				<div class="row">
-					<p class="pull-left">Copyright © 2016 Jemla Ma Inc. All rights reserved.</p>
-					<p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
+					<p class="pull-left">Copyright © 2016 Jemla_Ma Inc. All rights
+						reserved.</p>
+					<p class="pull-right">
+						Designed by <span><a target="_blank"
+							href="http://www.themeum.com">Themeum</a></span>
+					</p>
 				</div>
 			</div>
 		</div>
-		
-	</footer><!--/Footer-->
+
+	</footer>
 	
 
   

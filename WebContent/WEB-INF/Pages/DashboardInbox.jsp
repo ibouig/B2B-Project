@@ -2,6 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@taglib uri="http://struts.apache.org/tags-logic" prefix="logic"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Inbox | Jemla-Ma</title>
+    <title>Messagerie | Jemla-Ma</title>
     <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="Bootstrap/css/font-awesome.min.css" rel="stylesheet">
     <link href="Bootstrap/css/prettyPhoto.css" rel="stylesheet">
@@ -67,10 +68,10 @@
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href=""><i class="fa fa-user"></i> Account</a></li>
-								<li><a href="checkout.jsp"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-								<li><html:link action="cart.do"><i class="fa fa-shopping-cart"></i> Cart</html:link></li>
-<%-- 								<li><html:link action="loginRedirect.do"><i class="fa fa-lock"></i> Logout</html:link></li> --%>
+								<li><a href=""><i class="fa fa-user"></i> Mon compte</a></li>
+<!-- 								<li><a href="checkout.jsp"><i class="fa fa-crosshairs"></i> Checkout</a></li> -->
+								<li><html:link action="cart.do"><i class="fa fa-shopping-cart"></i> Panier</html:link></li>
+								<li><html:link action="loginRedirect.do"><i class="fa fa-lock"></i> Logout</html:link></li>
 							</ul>
 						</div>
 					</div>
@@ -92,12 +93,12 @@
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><html:link action="loginRedirect.do">Dashboard Home</html:link></li>
+								<li><html:link action="loginRedirect.do">Acceuil entreprise</html:link></li>
 								<li class="dropdown"><a href="#">Profile<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="#">Qui sommes nous</a></li>
 										<li><a href="product-details.jsp">Produits</a></li> 
-										<li><html:link action="checkout.do">Checkout</html:link></li> 
+<%-- 										<li><html:link action="checkout.do">Checkout</html:link></li>  --%>
 										<!-- <li><a href="cart.jsp">Promouvoir Site</a></li>  -->
 										<li><a href="cart.jsp">Logout</a></li> 
                                     </ul>
@@ -108,7 +109,7 @@
 										<li><a href="#">Vendue</a></li>
                                     </ul>
                                 </li> 
-								<li><a class="active" href="#">Inbox</a></li>
+								<li><a class="active" href="#">Messagerie</a></li>
 								<li><html:link action="publishProduct.do">Publier produit</html:link></li>
 							</ul>
 						</div>
@@ -174,7 +175,7 @@
                 </ul>
             </div>
             <div class="pull-right">
-                <span class="text-muted"><b>1</b>–<b>50</b> of <b>160</b></span>
+<!--                 <span class="text-muted"><b>1</b>–<b>50</b> of <b>160</b></span> -->
                 <div class="btn-group btn-group-sm">
                     <button type="button" class="btn btn-default">
                         <span class="glyphicon glyphicon-chevron-left"></span>
@@ -192,7 +193,7 @@
             <a href="#" class="btn btn-danger btn-sm btn-block" role="button"><i class="glyphicon glyphicon-edit"></i> Compose</a>
             <hr>
             <ul class="nav nav-pills nav-stacked">
-                <li class="active"><a href="#"><span class="badge pull-right">32</span> Inbox </a>
+                <li class="active"><a href="#"><span class="badge pull-right"></span> Inbox </a>
                 </li>
                 <li><a href="#">Starred</a></li>
                 <li><a href="#">Important</a></li>
@@ -204,82 +205,46 @@
             <!-- Nav tabs -->
             <ul class="nav nav-tabs">
                 <li class="active"><a href="#home" data-toggle="tab"><span class="glyphicon glyphicon-inbox">
-                </span>Primary</a></li>
-                <li><a href="#profile" data-toggle="tab"><span class="glyphicon glyphicon-user"></span>
-                    Social</a></li>
-                <li><a href="#messages" data-toggle="tab"><span class="glyphicon glyphicon-tags"></span>
-                    Promotions</a></li>
-                <li><a href="#settings" data-toggle="tab"><span class="glyphicon glyphicon-plus no-margin">
-                </span></a></li>
+                </span>Messages</a></li>
             </ul>
             <!-- Tab panes -->
             <div class="tab-content">
                 <div class="tab-pane fade in active" id="home">
+                    <c:forEach items="${msgs}" var="tmp">
                     <div class="list-group">
                         <a href="#" class="list-group-item">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox">
-                                </label>
-                            </div>
-                            <span class="glyphicon glyphicon-star-empty"></span><span class="name" style="min-width: 120px;
-                                display: inline-block;">Mark Otto</span> <span class="">Nice work on the lastest version</span>
-                            <span class="text-muted" style="font-size: 11px;">- More content here</span> <span class="badge">12:10 AM</span> <span class="pull-right"><span class="glyphicon glyphicon-paperclip">
-                                </span></span></a><a href="#" class="list-group-item">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox">
-                                        </label>
-                                    </div>
-                                    <span class="glyphicon glyphicon-star-empty"></span><span class="name" style="min-width: 120px;
-                                        display: inline-block;">Jason Markus</span> <span class="">This is big title</span>
-                                    <span class="text-muted" style="font-size: 11px;">- I saw that you had..</span> <span class="badge">12:09 AM</span> <span class="pull-right"><span class="glyphicon glyphicon-paperclip">
-                                        </span></span></a><a href="#" class="list-group-item read">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox">
-                                                </label>
-                                            </div>
-                                            <span class="glyphicon glyphicon-star"></span><span class="name" style="min-width: 120px;
-                                                display: inline-block;">Jane Patel</span> <span class="">This is big title</span>
-                                            <span class="text-muted" style="font-size: 11px;">- Hi hello how r u ?</span> <span class="badge">11:30 PM</span> <span class="pull-right"><span class="glyphicon glyphicon-paperclip">
-                                                </span></span></a>
-                    </div>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <span class="name" style="min-width: 120px; display: inline-block;">${tmp.sender.name }</span> 
+                            <span class="">${tmp.messageContent }</span>
+                            <span class="text-muted" style="font-size: 11px;">- More content here</span> 
+                            <span class="badge">${tmp.sendDate }</span> 
+                            <span class="pull-right"></span>
+                            <span class="glyphicon glyphicon-paperclip"></span>
+                        </a>
+                   </div>
+                   </c:forEach>
+                       
                 </div>
-                <div class="tab-pane fade in" id="profile">
-                    <div class="list-group">
-                        <div class="list-group-item">
-                            <span class="text-center">This tab is empty.</span>
-                        </div>
-                    </div>
                 </div>
-                <div class="tab-pane fade in" id="messages">
-                    ...</div>
-                <div class="tab-pane fade in" id="settings">
-                    This tab is empty.</div>
-            </div>
-            
-            <div class="row-md-12">
-                
-                <div class="well"> 
-                  <a href="http://www.bootply.com/XXmcPas41w">Edit on Bootply</a>
-                </div>
-
             </div>
         </div>
     </div>
-</div>
+
 
 	</section>
 	
-	<footer id="footer"><!--Footer-->
+<footer id="footer">
+		<!--Footer-->
 		<div class="footer-top">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-2">
 						<div class="companyinfo">
-							<h2><span>e</span>-shopper</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor</p>
+							<h2>
+								<span>Jemla</span>-Ma
+							</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing
+								elit,sed do eiusmod tempor</p>
 						</div>
 					</div>
 					<div class="col-sm-7">
@@ -294,10 +259,10 @@
 									</div>
 								</a>
 								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
+								<h2>15 Mai 2016</h2>
 							</div>
 						</div>
-						
+
 						<div class="col-sm-3">
 							<div class="video-gallery text-center">
 								<a href="#">
@@ -309,10 +274,10 @@
 									</div>
 								</a>
 								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
+								<h2>15 Mai 2016</h2>
 							</div>
 						</div>
-						
+
 						<div class="col-sm-3">
 							<div class="video-gallery text-center">
 								<a href="#">
@@ -324,10 +289,10 @@
 									</div>
 								</a>
 								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
+								<h2>15 Mai 2016</h2>
 							</div>
 						</div>
-						
+
 						<div class="col-sm-3">
 							<div class="video-gallery text-center">
 								<a href="#">
@@ -339,20 +304,20 @@
 									</div>
 								</a>
 								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
+								<h2>15 Mai 2016</h2>
 							</div>
 						</div>
 					</div>
 					<div class="col-sm-3">
 						<div class="address">
-							<img src="images/home/map.png" alt="" />
-							<p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
+							<img src="Bootstrap/images/home/map.png" alt="" />
+							<p>Jemla Ma Inc. Bd Abdelkrim El Khatabi, Marrakech Maroc</p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="footer-widget">
 			<div class="container">
 				<div class="row">
@@ -364,13 +329,13 @@
 								<li><a href="">Contact Us</a></li>
 								<li><a href="">Order Status</a></li>
 								<li><a href="">Change Location</a></li>
-								<li><a href="">FAQ’s</a></li>
+								<li><a href="">FAQs</a></li>
 							</ul>
 						</div>
 					</div>
 					<div class="col-sm-2">
 						<div class="single-widget">
-							<h2>Quock Shop</h2>
+							<h2>Quick Shop</h2>
 							<ul class="nav nav-pills nav-stacked">
 								<li><a href="">T-Shirt</a></li>
 								<li><a href="">Mens</a></li>
@@ -385,7 +350,7 @@
 							<h2>Policies</h2>
 							<ul class="nav nav-pills nav-stacked">
 								<li><a href="">Terms of Use</a></li>
-								<li><a href="">Privecy Policy</a></li>
+								<li><a href="">Privacy Policy</a></li>
 								<li><a href="">Refund Policy</a></li>
 								<li><a href="">Billing System</a></li>
 								<li><a href="">Ticket System</a></li>
@@ -409,26 +374,35 @@
 							<h2>About Shopper</h2>
 							<form action="#" class="searchform">
 								<input type="text" placeholder="Your email address" />
-								<button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
-								<p>Get the most recent updates from <br />our site and be updated your self...</p>
+								<button type="submit" class="btn btn-default">
+									<i class="fa fa-arrow-circle-o-right"></i>
+								</button>
+								<p>
+									Get the most recent updates from <br />our site and be updated
+									your self...
+								</p>
 							</form>
 						</div>
 					</div>
-					
+
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="footer-bottom">
 			<div class="container">
 				<div class="row">
-					<p class="pull-left">Copyright © 2013 E-SHOPPER Inc. All rights reserved.</p>
-					<p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
+					<p class="pull-left">Copyright � 2016 Jemla_Ma Inc. All rights
+						reserved.</p>
+					<p class="pull-right">
+						Designed by <span><a target="_blank"
+							href="http://www.themeum.com">Themeum</a></span>
+					</p>
 				</div>
 			</div>
 		</div>
-		
-	</footer><!--/Footer-->
+
+	</footer>
 	
 
   

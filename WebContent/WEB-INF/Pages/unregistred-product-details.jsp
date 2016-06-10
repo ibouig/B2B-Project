@@ -2,6 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@taglib uri="http://struts.apache.org/tags-logic" prefix="logic"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Checkout | Jemla-Ma</title>
+    <title>Détails du produit | Jemla-Ma</title>
     <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="Bootstrap/css/font-awesome.min.css" rel="stylesheet">
     <link href="Bootstrap/css/prettyPhoto.css" rel="stylesheet">
@@ -38,6 +39,7 @@
 							<ul class="nav nav-pills">
 								<li><a href=""><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
 								<li><a href=""><i class="fa fa-envelope"></i> info@jemla.ma</a></li>
+								<li><a href=""><i class="fa fa-envelope"></i><%= session.getAttribute("ActiveUser")%></a></li>
 							</ul>
 						</div>
 					</div>
@@ -55,8 +57,7 @@
 				</div>
 			</div>
 		</div><!--/header_top-->
-		
-		<div class="header-middle"><!--header-middle-->
+	<div class="header-middle"><!--header-middle-->
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-4">
@@ -67,11 +68,11 @@
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href=""><i class="fa fa-user"></i> Mon compte</a></li>
-								<!-- <li><a href=""><i class="fa fa-star"></i> Wishlist</a></li> -->
-<!-- 								<li><a href="checkout.jsp" class="active"><i class="fa fa-crosshairs"></i> Checkout</a></li> -->
-								<li><html:link action="cart.do"><i class="fa fa-shopping-cart"></i> Panier</html:link></li>
-								<li><a href="login.jsp"><i class="fa fa-lock"></i> Login</a></li>
+								<li><html:link action="loginRedirect.do"><i class="fa fa-user"></i> Account</html:link></li>
+								<!-- <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li> -->
+								<li><a href="WEB-INF/Pages/checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+								<li ><html:link action="cart.do"><i id="cart" class="fa fa-shopping-cart">Cart ${cart.lines.size() }</i> </html:link></li>
+								<li><html:link action="loginRedirect.do"><i class="fa fa-lock"></i> Login</html:link></li>
 							</ul>
 						</div>
 					</div>
@@ -93,23 +94,7 @@
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="index.jsp">Home</a></li>
-								<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="shop.jsp">Products</a></li>
-										<li><a href="product-details.jsp">Product Details</a></li> 
-										<li><a href="checkout.jsp" class="active">Checkout</a></li> 
-										<li><a href="cart.jsp">Cart</a></li> 
-										<li><a href="login.jsp">Login</a></li> 
-                                    </ul>
-                                </li> 
-								<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="blog.jsp">Blog List</a></li>
-										<li><a href="blog-single.jsp">Blog Single</a></li>
-                                    </ul>
-                                </li> 
-								<li><a href="404.jsp">404</a></li>
+								<li><a href="index.jsp" class="active">Home</a></li>
 								<li><html:link action="contactUs.do">Contact</html:link></li>
 							</ul>
 						</div>
@@ -122,247 +107,88 @@
 				</div>
 			</div>
 		</div><!--/header-bottom-->
-	</header><!--/header-->
-
-	<section id="cart_items">
-		<div class="container">
-			<div class="breadcrumbs">
-				<ol class="breadcrumb">
-				  <li><a href="#">Home</a></li>
-				  <li class="active">Check out</li>
-				</ol>
-			</div><!--/breadcrums-->
-
-			<div class="step-one">
-				<h2 class="heading">Step1</h2>
-			</div>
-			<div class="checkout-options">
-				<h3>New User</h3>
-				<p>Checkout options</p>
-				<ul class="nav">
-					<li>
-						<label><input type="checkbox"> Register Account</label>
-					</li>
-					<li>
-						<label><input type="checkbox"> Guest Checkout</label>
-					</li>
-					<li>
-						<a href=""><i class="fa fa-times"></i>Cancel</a>
-					</li>
-				</ul>
-			</div><!--/checkout-options-->
-
-			<div class="register-req">
-				<p>Please use Register And Checkout to easily get access to your order history, or use Checkout as Guest</p>
-			</div><!--/register-req-->
-
-			<div class="shopper-informations">
-				<div class="row">
-					<div class="col-sm-3">
-						<div class="shopper-info">
-							<p>Shopper Information</p>
-							<form>
-								<input type="text" placeholder="Display Name">
-								<input type="text" placeholder="User Name">
-								<input type="password" placeholder="Password">
-								<input type="password" placeholder="Confirm password">
-							</form>
-							<a class="btn btn-primary" href="">Get Quotes</a>
-							<a class="btn btn-primary" href="">Continue</a>
-						</div>
-					</div>
-					<div class="col-sm-5 clearfix">
-						<div class="bill-to">
-							<p>Bill To</p>
-							<div class="form-one">
-								<form>
-									<input type="text" placeholder="Company Name">
-									<input type="text" placeholder="Email*">
-									<input type="text" placeholder="Title">
-									<input type="text" placeholder="First Name *">
-									<input type="text" placeholder="Middle Name">
-									<input type="text" placeholder="Last Name *">
-									<input type="text" placeholder="Address 1 *">
-									<input type="text" placeholder="Address 2">
-								</form>
-							</div>
-							<div class="form-two">
-								<form>
-									<input type="text" placeholder="Zip / Postal Code *">
-									<select>
-										<option>-- Country --</option>
-										<option>United States</option>
-										<option>Bangladesh</option>
-										<option>UK</option>
-										<option>India</option>
-										<option>Pakistan</option>
-										<option>Ucrane</option>
-										<option>Canada</option>
-										<option>Dubai</option>
-									</select>
-									<select>
-										<option>-- State / Province / Region --</option>
-										<option>United States</option>
-										<option>Bangladesh</option>
-										<option>UK</option>
-										<option>India</option>
-										<option>Pakistan</option>
-										<option>Ucrane</option>
-										<option>Canada</option>
-										<option>Dubai</option>
-									</select>
-									<input type="password" placeholder="Confirm password">
-									<input type="text" placeholder="Phone *">
-									<input type="text" placeholder="Mobile Phone">
-									<input type="text" placeholder="Fax">
-								</form>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="order-message">
-							<p>Shipping Order</p>
-							<textarea name="message"  placeholder="Notes about your order, Special Notes for Delivery" rows="16"></textarea>
-							<label><input type="checkbox"> Shipping to bill address</label>
-						</div>	
-					</div>					
-				</div>
-			</div>
-			<div class="review-payment">
-				<h2>Review & Payment</h2>
-			</div>
-
-			<div class="table-responsive cart_info">
-				<table class="table table-condensed">
-					<thead>
-						<tr class="cart_menu">
-							<td class="image">Item</td>
-							<td class="description"></td>
-							<td class="price">Price</td>
-							<td class="quantity">Quantity</td>
-							<td class="total">Total</td>
-							<td></td>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td class="cart_product">
-								<a href=""><img src="Bootstrap/images/cart/one.png" alt=""></a>
-							</td>
-							<td class="cart_description">
-								<h4><a href="">Colorblock Scuba</a></h4>
-								<p>Web ID: 1089772</p>
-							</td>
-							<td class="cart_price">
-								<p>$59</p>
-							</td>
-							<td class="cart_quantity">
-								<div class="cart_quantity_button">
-									<a class="cart_quantity_up" href=""> + </a>
-									<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-									<a class="cart_quantity_down" href=""> - </a>
-								</div>
-							</td>
-							<td class="cart_total">
-								<p class="cart_total_price">$59</p>
-							</td>
-							<td class="cart_delete">
-								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
-							</td>
-						</tr>
-
-						<tr>
-							<td class="cart_product">
-								<a href=""><img src="Bootstrap/images/cart/two.png" alt=""></a>
-							</td>
-							<td class="cart_description">
-								<h4><a href="">Colorblock Scuba</a></h4>
-								<p>Web ID: 1089772</p>
-							</td>
-							<td class="cart_price">
-								<p>$59</p>
-							</td>
-							<td class="cart_quantity">
-								<div class="cart_quantity_button">
-									<a class="cart_quantity_up" href=""> + </a>
-									<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-									<a class="cart_quantity_down" href=""> - </a>
-								</div>
-							</td>
-							<td class="cart_total">
-								<p class="cart_total_price">$59</p>
-							</td>
-							<td class="cart_delete">
-								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
-							</td>
-						</tr>
-						<tr>
-							<td class="cart_product">
-								<a href=""><img src="Bootstrap/images/cart/three.png" alt=""></a>
-							</td>
-							<td class="cart_description">
-								<h4><a href="">Colorblock Scuba</a></h4>
-								<p>Web ID: 1089772</p>
-							</td>
-							<td class="cart_price">
-								<p>$59</p>
-							</td>
-							<td class="cart_quantity">
-								<div class="cart_quantity_button">
-									<a class="cart_quantity_up" href=""> + </a>
-									<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-									<a class="cart_quantity_down" href=""> - </a>
-								</div>
-							</td>
-							<td class="cart_total">
-								<p class="cart_total_price">$59</p>
-							</td>
-							<td class="cart_delete">
-								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
-							</td>
-						</tr>
-						<tr>
-							<td colspan="4">&nbsp;</td>
-							<td colspan="2">
-								<table class="table table-condensed total-result">
-									<tr>
-										<td>Cart Sub Total</td>
-										<td>$59</td>
-									</tr>
-									<tr>
-										<td>Exo Tax</td>
-										<td>$2</td>
-									</tr>
-									<tr class="shipping-cost">
-										<td>Shipping Cost</td>
-										<td>Free</td>										
-									</tr>
-									<tr>
-										<td>Total</td>
-										<td><span>$61</span></td>
-									</tr>
-								</table>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="payment-options">
-					<span>
-						<label><input type="checkbox"> Direct Bank Transfer</label>
-					</span>
-					<span>
-						<label><input type="checkbox"> Check Payment</label>
-					</span>
-					<span>
-						<label><input type="checkbox"> Paypal</label>
-					</span>
-				</div>
-		</div>
-	</section> <!--/#cart_items-->
-
 	
+	</header><!--/header-->
+	
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3">
+					<div class="left-sidebar">
+						<h2>Category</h2>
+						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
+							<%@page import="ma.jemla.daoimpl.CategoryDaoImpl"%>
+							<%@page import="ma.jemla.model.Category"%>
+							<%@page import="java.util.List"%>
+							<%
+							CategoryDaoImpl c_dao = new CategoryDaoImpl(); 
+							List<String> categories = c_dao.getCategoryNames();
+							request.setAttribute("categories", categories);
+							%>
+							<c:forEach items="${categories}" var="tmp">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title"><a href="${tmp}">${tmp}</a></h4>
+									</div>
+								</div>
+							</c:forEach>
+						</div><!--/category-products-->
+						
+						
+						<div class="shipping text-center"><!--shipping-->
+							<img src="Bootstrap/images/home/shipping.jpg" alt="" />
+						</div><!--/shipping-->
+						
+					</div>
+				</div>
+				
+				<div class="col-sm-9 padding-right">
+					<div class="product-details"><!--product-details-->
+						<div class="col-sm-5">
+							<div class="view-product">
+								<img src="${product.imagePath } " alt="" />
+								<h3>ZOOM</h3>
+							</div>
+							
 
+						</div>
+						<div class="col-sm-7">
+							<div class="product-information"><!--/product-information-->
+							<form action="addToCart.do">
+								<img src="Bootstrap/images/product-details/new.jpg" class="newarrival" alt="" />
+								<h2>${product.nom }</h2>
+								<p>Produit ID: ${product.id }</p>
+<%-- 								<img src="${product.imagePath }" alt="${product.nom }" /> --%>
+								<span>
+									<span>${product.prix }</span>
+									<label>Quantity:</label>
+									<input type="text" value="3" />
+									<button type="button" class="btn btn-fefault cart">
+										<i class="fa fa-shopping-cart"></i>
+										Ajouter au panier
+									</button>
+								</span>
+								<p><b>Availability:</b> In Stock</p>
+								<p><b>Condition:</b> New</p>
+								<p><b>Brand:</b> ${product.entreprise }</p>
+								<a href=""><img src="Bootstrap/images/product-details/share.png" class="share img-responsive"  alt="" /></a>
+							</form>
+							</div><!--/product-information-->
+						</div>
+					</div><!--/product-details-->
+					
+					<div class="category-tab shop-details-tab"><!--category-tab-->
+						<div class="col-sm-12">
+							<ul class="nav nav-tabs">
+								<li class="active"><a href="#reviews" data-toggle="tab">Connectez vous pour contacter le vendeur</a></li>
+							</ul>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+	</section>
 	<footer id="footer"><!--Footer-->
 		<div class="footer-top">
 			<div class="container">
@@ -522,10 +348,11 @@
 	</footer><!--/Footer-->
 	
 
-
+  
     <script src="Bootstrap/js/jquery.js"></script>
-	<script src="Bootstrap/js/bootstrap.min.js"></script>
+	<script src="Bootstrap/js/price-range.js"></script>
     <script src="Bootstrap/js/jquery.scrollUp.min.js"></script>
+	<script src="Bootstrap/js/bootstrap.min.js"></script>
     <script src="Bootstrap/js/jquery.prettyPhoto.js"></script>
     <script src="Bootstrap/js/main.js"></script>
 </body>

@@ -15,6 +15,7 @@ public class Account implements Serializable{
 	private String name;
 	private String password;
 	private String conf_pass;
+	@Column(unique=true)
 	private String email;
 	
 	public String getEmail() {

@@ -45,4 +45,17 @@ public class CategoryDaoImpl implements CategoryDao{
 		}
 	}
 
+	
+	public Category getCategoryByNames(String arg1) {
+		try{
+			em.getTransaction().begin();
+			Query query = em.createQuery("SELECT c FROM Category c WHERE c.nom=:nom");
+			query.setParameter("nom", arg1);
+			Category values = (Category) query.getSingleResult();
+			return values;
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
+	}
 }

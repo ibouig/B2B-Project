@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Cart | Jemla-Ma</title>
+    <title>Panier | Jemla-Ma</title>
     <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="Bootstrap/css/font-awesome.min.css" rel="stylesheet">
     <link href="Bootstrap/css/prettyPhoto.css" rel="stylesheet">
@@ -68,9 +68,9 @@
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-								<li><html:link action="login.do"><i class="fa fa-user"></i> Account</html:link></li>
-								<li><html:link action="checkout.do"><i class="fa fa-crosshairs"></i> Checkout</html:link></li>
-								<li><a href="#" class="active"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+								<li><html:link action="login.do"><i class="fa fa-user"></i>Mon compte</html:link></li>
+<%-- 								<li><html:link action="checkout.do"><i class="fa fa-crosshairs"></i> Checkout</html:link></li> --%>
+								<li><a href="#" class="active"><i class="fa fa-shopping-cart"></i> Panier</a></li>
 								<!-- <li><a href="login.jsp"><i class="fa fa-lock"></i> Login</a></li> -->
 							</ul>
 						</div>
@@ -93,22 +93,7 @@
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="index.jsp">Home</a></li>
-								<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="shop.jsp">Products</a></li>
-										<li><a href="product-details.jsp">Product Details</a></li> 
-										<li><a href="checkout.jsp">Checkout</a></li> 
-										<li><a href="#" class="active">Cart</a></li> 
-										<li><html:link action="login.do">Login</html:link></li> 
-                                    </ul>
-                                </li> <!-- 
-								<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="blog.jsp">Blog List</a></li>
-										<li><a href="blog-single.jsp">Blog Single</a></li>
-                                    </ul>
-                                </li>  -->
+								<li><a href="index.jsp">Acceuil</a></li>
 								<li><a href="contact-us.jsp">Contact</a></li>
 							</ul>
 						</div>
@@ -127,7 +112,7 @@
 		<div class="container">
 			<div class="breadcrumbs">
 				<ol class="breadcrumb">
-				  <li><a href="#">Home</a></li>
+				  <li><a href="#">Acceuil</a></li>
 				  <li class="active">Shopping Cart</li>
 				</ol>
 			</div>
@@ -135,10 +120,10 @@
 				<table class="table table-condensed">
 					<thead>
 						<tr class="cart_menu">
-							<td class="image">Item</td>
+							<td class="image">Produit</td>
 							<td class="description"></td>
-							<td class="price">Price</td>
-							<td class="quantity">Quantity</td>
+							<td class="price">Prix</td>
+							<td class="quantity">Quantité</td>
 							<td class="total">Total</td>
 							<td></td>
 						</tr>
@@ -147,31 +132,36 @@
 					<tbody>
 					
 					<c:forEach items="${cart.lines }" var="tmp">
+					
 						<tr>
-							<td class="cart_product">
-								<a href=""><img src="Bootstrap/images/cart/one.png" alt=""></a>
+						<html:form action="cartProduct.do" method="post">
+						<input type="hidden" name="id" value="${tmp.value.product.id}" >
+							<td class="cart_product" >
+								<a href=""><img src="${tmp.value.product.imagePath}" alt="" width="80" height="80"></a>
 							</td>
 							<td class="cart_description">
 								<h4><a href="">${tmp.value.product.nom}</a></h4>
-								<p>Web ID: 1089772</p>
+								<p>Produit ID: ${tmp.value.product.id}</p>
 							</td>
 							<td class="cart_price">
 								<p>${tmp.value.product.prix}</p>
 							</td>
 							<td class="cart_quantity">
 								<div class="cart_quantity_button">
-									<a class="cart_quantity_up" href=""> + </a>
-									<input class="cart_quantity_input" type="text" name="quantity" value="${tmp.value.quantity}" autocomplete="off" size="2">
-									<a class="cart_quantity_down" href=""> - </a>
+									<button name="plus" class="cart_quantity_up" > + </button>
+									<input class="cart_quantity_input" type="text" name="quantity" value="${tmp.value.quantity}" autocomplete="off" size="2" disabled>
+									<button name="moins" class="cart_quantity_down" > - </button>
 								</div>
 							</td>
 							<td class="cart_total">
 								<p class="cart_total_price">${tmp.value.product.prix*tmp.value.quantity }</p>
 							</td>
 							<td class="cart_delete">
-								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+								<button name="supprimer" class="cart_quantity_delete"><i class="fa fa-times"></i></button>
 							</td>
+						</html:form>
 						</tr>
+					
 					</c:forEach>
 					<tr>
 					<td>
@@ -191,48 +181,46 @@
 		<div class="container">
 			<div class="heading">
 				<h3>Proceder au paiement</h3>
-<!-- 				<p>Choose if you have a discount code or reward points you want to use or would like to estimate your delivery cost.</p> -->
 			</div>
 			<div class="row">
 				<div class="col-sm-6">
 					<div class="total_area">
-						<ul>
-							<li>Cart Sub Total <span>$59</span></li>
-							<li>Eco Tax <span>$2</span></li>
-							<li>Shipping Cost <span>Free</span></li>
-							<li>Total <span>$61</span></li>
-						</ul>
-							<a class="btn btn-default update" href="">Update</a>
-							<a class="btn btn-default check_out" href="">Check Out</a>
+<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+    <input type="hidden" name="cmd" value="_xclick">
+    <input type="hidden" name="business" value="hamzakasry@gmail.com">
+    <input type="hidden" name="item_name" value="Donation">
+    <input type="hidden" name="item_number" value="1">
+    <input type="hidden" name="amount" value="${cart.total}">
+    <input type="hidden" name="no_shipping" value="0">
+    <input type="hidden" name="no_note" value="1">
+    <input type="hidden" name="currency_code" value="USD">
+    <input type="hidden" name="lc" value="AU">
+    <input type="hidden" name="bn" value="PP-BuyNowBF">
+    <input type="image" src="https://www.paypal.com/en_AU/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">
+    <img alt="" border="0" src="https://www.paypal.com/en_AU/i/scr/pixel.gif" width="1" height="1">
+</form>
+						<%-- <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" name='paypal-form'>
+
+							<input type="hidden" name="item_number" value="1" />
+					        <input type="hidden" name="amount" value="${cart.total}" />
+<!-- 					        <input type="hidden" name="no_shipping" value="1" /> -->
+<!-- 					        <input type="hidden" name="no_note" value="1" /> -->
+					        <input type="hidden" name="currency_code" value="EUR" />
+<!-- 					        <input type="hidden" name="lc" value="GB" /> -->
+<!-- 					        <input type="hidden" name="bn" value="PP-BuyNowBF" /> -->
+					        
+<!-- 					        <img alt="fdff" border="0" src="https://www.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1" /> -->
+					        <!-- Payment confirmed -->
+					        <input type="hidden" name="return" value="/B2B-Project/" />
+					        <!-- Payment cancelled -->
+					        <input type="hidden" name="cancel_return" value="index.jsp" />
+					        <input type="hidden" name="rm" value="2" />
+					        <input type="hidden" name="notify_url" value="http://www.chmscians.com/paypal/ipn.php" />
+							<input type="submit" alt="Make payments with PayPal - it's fast, free and secure!"  />
+				</form> --%>
 					</div>
 				</div>
-				<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" name='paypal-form'>
-<!-- 					<input type="hidden" name="item_name" value="name"> -->
-<!-- 					<input type="hidden" name="currency_code" value="USD"> -->
-<!-- 					<input type="hidden" name="amount" value="121212"> -->
-<!-- <!-- 					<input type="hidden" name="cmd" value="_cart"> --> -->
-<!-- 					<input type="hidden" name="upload" value="1"> -->
-<!--    					<input type="hidden" name="business" value="buyer@gmail.com"> -->
-<!--     				<input type="hidden" name="return\" value="http://localhost:8080/B2B-Project" > -->
-<!--     				<input type="hidden" name="notify_url" value="http://localhost:8080/ViderPanier"> -->
-<!--     				<input type="submit" name="submit" value="Payer !">  -->
-<input type="hidden" name="item_number" value="2" />
-        <input type="hidden" name="amount" value="1231" />
-        <input type="hidden" name="no_shipping" value="1" />
-        <input type="hidden" name="no_note" value="1" />
-        <input type="hidden" name="currency_code" value="EUR" />
-        <input type="hidden" name="lc" value="GB" />
-        <input type="hidden" name="bn" value="PP-BuyNowBF" />
-        <input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-but23.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!"  />
-        <img alt="fdff" border="0" src="https://www.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1" />
-        <!-- Payment confirmed -->
-        <input type="hidden" name="return" value="B2B-Project" />
-        <!-- Payment cancelled -->
-        <input type="hidden" name="cancel_return" value="index.jsp" />
-        <input type="hidden" name="rm" value="2" />
-        <input type="hidden" name="notify_url" value="http://www.chmscians.com/paypal/ipn.php" />
-        <input type="hidden" name="custom" value="any other custom field you want to pass" />
-				</form>
+				
 			</div>
 		</div>
 	</section><!--/#do_action-->
@@ -244,7 +232,6 @@
 					<div class="col-sm-2">
 						<div class="companyinfo">
 							<h2><span>Jemla</span>-Ma</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor</p>
 						</div>
 					</div>
 					<div class="col-sm-7">
