@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Contact | E-Shopper</title>
+    <title>Contact | Jemla-Ma</title>
     <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="Bootstrap/css/font-awesome.min.css" rel="stylesheet">
     <link href="Bootstrap/css/prettyPhoto.css" rel="stylesheet">
@@ -37,7 +37,7 @@
 						<div class="contactinfo">
 							<ul class="nav nav-pills">
 								<li><a href=""><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-								<li><a href=""><i class="fa fa-envelope"></i> info@domain.com</a></li>
+								<li><a href=""><i class="fa fa-envelope"></i> info@jemla.ma</a></li>
 							</ul>
 						</div>
 					</div>
@@ -61,40 +61,16 @@
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
-							<a href="index.jsp"><img src="Bootstrap/Bootstrap/images/home/logo.png" alt="" /></a>
-						</div>
-						<div class="btn-group pull-right">
-							<div class="btn-group">
-								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-									USA
-									<span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><a href="">Canada</a></li>
-									<li><a href="">UK</a></li>
-								</ul>
-							</div>
-							
-							<div class="btn-group">
-								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-									DOLLAR
-									<span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><a href="">Canadian Dollar</a></li>
-									<li><a href="">Pound</a></li>
-								</ul>
-							</div>
+							<a href="index.jsp"><img src="Bootstrap/images/home/logo.png" alt="" /></a>
 						</div>
 					</div>
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href=""><i class="fa fa-user"></i> Account</a></li>
-								<li><a href=""><i class="fa fa-star"></i> Wishlist</a></li>
-								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-								<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+								<li><html:link action="login.do"><i class="fa fa-user"></i> Account</html:link></li>
+								<li><html:link action="checkout.do"><i class="fa fa-crosshairs"></i> Checkout</html:link></li>
+								<li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+								<li><html:link action="login.do"><i class="fa fa-lock"></i> Login</html:link></li>
 							</ul>
 						</div>
 					</div>
@@ -119,21 +95,21 @@
 								<li><a href="index.jsp">Home</a></li>
 								<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="shop.html">Products</a></li>
-										<li><a href="product-details.html">Product Details</a></li> 
-										<li><a href="checkout.html">Checkout</a></li> 
-										<li><a href="cart.html">Cart</a></li> 
-										<li><html:link action="loginRedirect.do">Login</html:link></li> 
+                                        <!-- <li><a href="shop.jsp">Products</a></li>
+										<li><a href="product-details.jsp">Product Details</a></li> --> 
+										<li><a href="checkout.jsp">Checkout</a></li> 
+										<li><a href="cart.jsp">Cart</a></li> 
+										<li><html:link action="login.do">Login</html:link></li> 
                                     </ul>
                                 </li> 
 								<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="blog.html">Blog List</a></li>
-										<li><a href="blog-single.html">Blog Single</a></li>
+                                        <li><a href="blog.jsp">Blog List</a></li>
+										<li><a href="blog-single.jsp">Blog Single</a></li>
                                     </ul>
                                 </li> 
-								<li><a href="404.html">404</a></li>
-								<li><a href="contact-us.html" class="active">Contact</a></li>
+								<!-- <li><a href="404.jsp">404</a></li> -->
+								
 							</ul>
 						</div>
 					</div>
@@ -149,13 +125,7 @@
 	 
 	 <div id="contact-page" class="container">
     	<div class="bg">
-	    	<div class="row">    		
-	    		<div class="col-sm-12">    			   			
-					<h2 class="title text-center">Contact <strong>Us</strong></h2>    			    				    				
-					<div id="gmap" class="contact-map">
-					</div>
-				</div>			 		
-			</div>    	
+	    	    	
     		<div class="row">  	
 	    		<div class="col-sm-8">
 	    			<div class="contact-form">
@@ -184,12 +154,12 @@
 	    			<div class="contact-info">
 	    				<h2 class="title text-center">Contact Info</h2>
 	    				<address>
-	    					<p>E-Shopper Inc.</p>
-							<p>935 W. Webster Ave New Streets Chicago, IL 60614, NY</p>
-							<p>Newyork USA</p>
+	    					<p>Jemla Ma Inc.</p>
+							<p>Bd Abdelkrim El Lhatabi, Marrakech</p>
+							<p>Maroc</p>
 							<p>Mobile: +2346 17 38 93</p>
 							<p>Fax: 1-714-252-0026</p>
-							<p>Email: info@e-shopper.com</p>
+							<p>Email: info@jemla.ma</p>
 	    				</address>
 	    				<div class="social-networks">
 	    					<h2 class="title text-center">Social Networking</h2>
@@ -220,7 +190,7 @@
 				<div class="row">
 					<div class="col-sm-2">
 						<div class="companyinfo">
-							<h2><span>e</span>-shopper</h2>
+							<h2><span>Jemla</span>-Ma</h2>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor</p>
 						</div>
 					</div>
@@ -236,7 +206,7 @@
 									</div>
 								</a>
 								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
+								<h2>15 Mai 2016</h2>
 							</div>
 						</div>
 						
@@ -251,7 +221,7 @@
 									</div>
 								</a>
 								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
+								<h2>15 Mai 2016</h2>
 							</div>
 						</div>
 						
@@ -266,7 +236,7 @@
 									</div>
 								</a>
 								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
+								<h2>15 Mai 2016</h2>
 							</div>
 						</div>
 						
@@ -281,14 +251,14 @@
 									</div>
 								</a>
 								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
+								<h2>15 Mai 2016</h2>
 							</div>
 						</div>
 					</div>
 					<div class="col-sm-3">
 						<div class="address">
 							<img src="Bootstrap/images/home/map.png" alt="" />
-							<p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
+							<p>Jemla Ma Inc. Bd Abdelkrim El Khatabi, Marrakech Maroc</p>
 						</div>
 					</div>
 				</div>
@@ -306,13 +276,13 @@
 								<li><a href="">Contact Us</a></li>
 								<li><a href="">Order Status</a></li>
 								<li><a href="">Change Location</a></li>
-								<li><a href="">FAQ’s</a></li>
+								<li><a href="">FAQs</a></li>
 							</ul>
 						</div>
 					</div>
 					<div class="col-sm-2">
 						<div class="single-widget">
-							<h2>Quock Shop</h2>
+							<h2>Quick Shop</h2>
 							<ul class="nav nav-pills nav-stacked">
 								<li><a href="">T-Shirt</a></li>
 								<li><a href="">Mens</a></li>
@@ -327,7 +297,7 @@
 							<h2>Policies</h2>
 							<ul class="nav nav-pills nav-stacked">
 								<li><a href="">Terms of Use</a></li>
-								<li><a href="">Privecy Policy</a></li>
+								<li><a href="">Privacy Policy</a></li>
 								<li><a href="">Refund Policy</a></li>
 								<li><a href="">Billing System</a></li>
 								<li><a href="">Ticket System</a></li>
@@ -364,7 +334,7 @@
 		<div class="footer-bottom">
 			<div class="container">
 				<div class="row">
-					<p class="pull-left">Copyright © 2013 E-SHOPPER Inc. All rights reserved.</p>
+					<p class="pull-left">Copyright � 2016 Jemla_Ma Inc. All rights reserved.</p>
 					<p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
 				</div>
 			</div>

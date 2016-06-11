@@ -2,6 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@taglib uri="http://struts.apache.org/tags-logic" prefix="logic"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Cart | E-Shopper</title>
+    <title>Panier | Jemla-Ma</title>
     <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="Bootstrap/css/font-awesome.min.css" rel="stylesheet">
     <link href="Bootstrap/css/prettyPhoto.css" rel="stylesheet">
@@ -37,7 +38,7 @@
 						<div class="contactinfo">
 							<ul class="nav nav-pills">
 								<li><a href=""><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-								<li><a href=""><i class="fa fa-envelope"></i> info@domain.com</a></li>
+								<li><a href=""><i class="fa fa-envelope"></i> info@jemla.ma</a></li>
 							</ul>
 						</div>
 					</div>
@@ -61,40 +62,16 @@
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
-							<a href="index.html"><img src="Bootstrap/images/home/logo.png" alt="" /></a>
-						</div>
-						<div class="btn-group pull-right">
-							<div class="btn-group">
-								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-									USA
-									<span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><a href="">Canada</a></li>
-									<li><a href="">UK</a></li>
-								</ul>
-							</div>
-							
-							<div class="btn-group">
-								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-									DOLLAR
-									<span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><a href="">Canadian Dollar</a></li>
-									<li><a href="">Pound</a></li>
-								</ul>
-							</div>
+							<a href="index.jsp"><img src="Bootstrap/images/home/logo.png" alt="" /></a>
 						</div>
 					</div>
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href=""><i class="fa fa-user"></i> Account</a></li>
-								<li><a href=""><i class="fa fa-star"></i> Wishlist</a></li>
-								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-								<li><a href="cart.html" class="active"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-								<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+								<li><html:link action="login.do"><i class="fa fa-user"></i>Mon compte</html:link></li>
+<%-- 								<li><html:link action="checkout.do"><i class="fa fa-crosshairs"></i> Checkout</html:link></li> --%>
+								<li><a href="#" class="active"><i class="fa fa-shopping-cart"></i> Panier</a></li>
+								<!-- <li><a href="login.jsp"><i class="fa fa-lock"></i> Login</a></li> -->
 							</ul>
 						</div>
 					</div>
@@ -116,24 +93,8 @@
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="index.jsp">Home</a></li>
-								<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="shop.html">Products</a></li>
-										<li><a href="product-details.html">Product Details</a></li> 
-										<li><a href="checkout.html">Checkout</a></li> 
-										<li><a href="cart.html" class="active">Cart</a></li> 
-										<li><a href="login.html">Login</a></li> 
-                                    </ul>
-                                </li> 
-								<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="blog.html">Blog List</a></li>
-										<li><a href="blog-single.html">Blog Single</a></li>
-                                    </ul>
-                                </li> 
-								<li><a href="404.html">404</a></li>
-								<li><a href="contact-us.html">Contact</a></li>
+								<li><a href="index.jsp">Acceuil</a></li>
+								<li><a href="contact-us.jsp">Contact</a></li>
 							</ul>
 						</div>
 					</div>
@@ -151,7 +112,7 @@
 		<div class="container">
 			<div class="breadcrumbs">
 				<ol class="breadcrumb">
-				  <li><a href="#">Home</a></li>
+				  <li><a href="#">Acceuil</a></li>
 				  <li class="active">Shopping Cart</li>
 				</ol>
 			</div>
@@ -159,91 +120,57 @@
 				<table class="table table-condensed">
 					<thead>
 						<tr class="cart_menu">
-							<td class="image">Item</td>
+							<td class="image">Produit</td>
 							<td class="description"></td>
-							<td class="price">Price</td>
-							<td class="quantity">Quantity</td>
+							<td class="price">Prix</td>
+							<td class="quantity">Quantité</td>
 							<td class="total">Total</td>
 							<td></td>
 						</tr>
 					</thead>
+					
 					<tbody>
+					
+					<c:forEach items="${cart.lines }" var="tmp">
+					
 						<tr>
-							<td class="cart_product">
-								<a href=""><img src="Bootstrap/images/cart/one.png" alt=""></a>
+						<html:form action="cartProduct.do" method="post">
+						<input type="hidden" name="id" value="${tmp.value.product.id}" >
+							<td class="cart_product" >
+								<a href=""><img src="${tmp.value.product.imagePath}" alt="" width="80" height="80"></a>
 							</td>
 							<td class="cart_description">
-								<h4><a href="">Colorblock Scuba</a></h4>
-								<p>Web ID: 1089772</p>
+								<h4><a href="">${tmp.value.product.nom}</a></h4>
+								<p>Produit ID: ${tmp.value.product.id}</p>
 							</td>
 							<td class="cart_price">
-								<p>$59</p>
+								<p>${tmp.value.product.prix}</p>
 							</td>
 							<td class="cart_quantity">
 								<div class="cart_quantity_button">
-									<a class="cart_quantity_up" href=""> + </a>
-									<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-									<a class="cart_quantity_down" href=""> - </a>
+									<button name="plus" class="cart_quantity_up" > + </button>
+									<input class="cart_quantity_input" type="text" name="quantity" value="${tmp.value.quantity}" autocomplete="off" size="2" disabled>
+									<button name="moins" class="cart_quantity_down" > - </button>
 								</div>
 							</td>
 							<td class="cart_total">
-								<p class="cart_total_price">$59</p>
+								<p class="cart_total_price">${tmp.value.product.prix*tmp.value.quantity }</p>
 							</td>
 							<td class="cart_delete">
-								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+								<button name="supprimer" class="cart_quantity_delete"><i class="fa fa-times"></i></button>
 							</td>
+						</html:form>
 						</tr>
-
-						<tr>
-							<td class="cart_product">
-								<a href=""><img src="Bootstrap/images/cart/two.png" alt=""></a>
-							</td>
-							<td class="cart_description">
-								<h4><a href="">Colorblock Scuba</a></h4>
-								<p>Web ID: 1089772</p>
-							</td>
-							<td class="cart_price">
-								<p>$59</p>
-							</td>
-							<td class="cart_quantity">
-								<div class="cart_quantity_button">
-									<a class="cart_quantity_up" href=""> + </a>
-									<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-									<a class="cart_quantity_down" href=""> - </a>
-								</div>
-							</td>
-							<td class="cart_total">
-								<p class="cart_total_price">$59</p>
-							</td>
-							<td class="cart_delete">
-								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
-							</td>
-						</tr>
-						<tr>
-							<td class="cart_product">
-								<a href=""><img src="Bootstrap/images/cart/three.png" alt=""></a>
-							</td>
-							<td class="cart_description">
-								<h4><a href="">Colorblock Scuba</a></h4>
-								<p>Web ID: 1089772</p>
-							</td>
-							<td class="cart_price">
-								<p>$59</p>
-							</td>
-							<td class="cart_quantity">
-								<div class="cart_quantity_button">
-									<a class="cart_quantity_up" href=""> + </a>
-									<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-									<a class="cart_quantity_down" href=""> - </a>
-								</div>
-							</td>
-							<td class="cart_total">
-								<p class="cart_total_price">$59</p>
-							</td>
-							<td class="cart_delete">
-								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
-							</td>
-						</tr>
+					
+					</c:forEach>
+					<tr>
+					<td>
+					<p class="cart_total_price">Total: </p>
+					</td>
+						<td colspan="11" align="center">
+								<p class="cart_total_price">${cart.total}</p>
+						</td>
+					</tr>
 					</tbody>
 				</table>
 			</div>
@@ -253,76 +180,47 @@
 	<section id="do_action">
 		<div class="container">
 			<div class="heading">
-				<h3>What would you like to do next?</h3>
-				<p>Choose if you have a discount code or reward points you want to use or would like to estimate your delivery cost.</p>
+				<h3>Proceder au paiement</h3>
 			</div>
 			<div class="row">
 				<div class="col-sm-6">
-					<div class="chose_area">
-						<ul class="user_option">
-							<li>
-								<input type="checkbox">
-								<label>Use Coupon Code</label>
-							</li>
-							<li>
-								<input type="checkbox">
-								<label>Use Gift Voucher</label>
-							</li>
-							<li>
-								<input type="checkbox">
-								<label>Estimate Shipping & Taxes</label>
-							</li>
-						</ul>
-						<ul class="user_info">
-							<li class="single_field">
-								<label>Country:</label>
-								<select>
-									<option>United States</option>
-									<option>Bangladesh</option>
-									<option>UK</option>
-									<option>India</option>
-									<option>Pakistan</option>
-									<option>Ucrane</option>
-									<option>Canada</option>
-									<option>Dubai</option>
-								</select>
-								
-							</li>
-							<li class="single_field">
-								<label>Region / State:</label>
-								<select>
-									<option>Select</option>
-									<option>Dhaka</option>
-									<option>London</option>
-									<option>Dillih</option>
-									<option>Lahore</option>
-									<option>Alaska</option>
-									<option>Canada</option>
-									<option>Dubai</option>
-								</select>
-							
-							</li>
-							<li class="single_field zip-field">
-								<label>Zip Code:</label>
-								<input type="text">
-							</li>
-						</ul>
-						<a class="btn btn-default update" href="">Get Quotes</a>
-						<a class="btn btn-default check_out" href="">Continue</a>
-					</div>
-				</div>
-				<div class="col-sm-6">
 					<div class="total_area">
-						<ul>
-							<li>Cart Sub Total <span>$59</span></li>
-							<li>Eco Tax <span>$2</span></li>
-							<li>Shipping Cost <span>Free</span></li>
-							<li>Total <span>$61</span></li>
-						</ul>
-							<a class="btn btn-default update" href="">Update</a>
-							<a class="btn btn-default check_out" href="">Check Out</a>
+<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+    <input type="hidden" name="cmd" value="_xclick">
+    <input type="hidden" name="business" value="hamzakasry@gmail.com">
+    <input type="hidden" name="item_name" value="Donation">
+    <input type="hidden" name="item_number" value="1">
+    <input type="hidden" name="amount" value="${cart.total}">
+    <input type="hidden" name="no_shipping" value="0">
+    <input type="hidden" name="no_note" value="1">
+    <input type="hidden" name="currency_code" value="USD">
+    <input type="hidden" name="lc" value="AU">
+    <input type="hidden" name="bn" value="PP-BuyNowBF">
+    <input type="image" src="https://www.paypal.com/en_AU/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">
+    <img alt="" border="0" src="https://www.paypal.com/en_AU/i/scr/pixel.gif" width="1" height="1">
+</form>
+						<%-- <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" name='paypal-form'>
+
+							<input type="hidden" name="item_number" value="1" />
+					        <input type="hidden" name="amount" value="${cart.total}" />
+<!-- 					        <input type="hidden" name="no_shipping" value="1" /> -->
+<!-- 					        <input type="hidden" name="no_note" value="1" /> -->
+					        <input type="hidden" name="currency_code" value="EUR" />
+<!-- 					        <input type="hidden" name="lc" value="GB" /> -->
+<!-- 					        <input type="hidden" name="bn" value="PP-BuyNowBF" /> -->
+					        
+<!-- 					        <img alt="fdff" border="0" src="https://www.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1" /> -->
+					        <!-- Payment confirmed -->
+					        <input type="hidden" name="return" value="/B2B-Project/" />
+					        <!-- Payment cancelled -->
+					        <input type="hidden" name="cancel_return" value="index.jsp" />
+					        <input type="hidden" name="rm" value="2" />
+					        <input type="hidden" name="notify_url" value="http://www.chmscians.com/paypal/ipn.php" />
+							<input type="submit" alt="Make payments with PayPal - it's fast, free and secure!"  />
+				</form> --%>
 					</div>
 				</div>
+				
 			</div>
 		</div>
 	</section><!--/#do_action-->
@@ -333,8 +231,7 @@
 				<div class="row">
 					<div class="col-sm-2">
 						<div class="companyinfo">
-							<h2><span>e</span>-shopper</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor</p>
+							<h2><span>Jemla</span>-Ma</h2>
 						</div>
 					</div>
 					<div class="col-sm-7">
@@ -349,7 +246,7 @@
 									</div>
 								</a>
 								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
+								<h2>15 Mai 2016</h2>
 							</div>
 						</div>
 						
@@ -364,7 +261,7 @@
 									</div>
 								</a>
 								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
+								<h2>15 Mai 2016</h2>
 							</div>
 						</div>
 						
@@ -379,7 +276,7 @@
 									</div>
 								</a>
 								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
+								<h2>15 Mai 2016</h2>
 							</div>
 						</div>
 						
@@ -394,14 +291,14 @@
 									</div>
 								</a>
 								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
+								<h2>15 Mai 2016</h2>
 							</div>
 						</div>
 					</div>
 					<div class="col-sm-3">
 						<div class="address">
 							<img src="Bootstrap/images/home/map.png" alt="" />
-							<p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
+							<p>Jemla Ma Inc. Bd Abdelkrim El Khatabi, Marrakech Maroc</p>
 						</div>
 					</div>
 				</div>
@@ -419,13 +316,13 @@
 								<li><a href="">Contact Us</a></li>
 								<li><a href="">Order Status</a></li>
 								<li><a href="">Change Location</a></li>
-								<li><a href="">FAQâ€™s</a></li>
+								<li><a href="">FAQs</a></li>
 							</ul>
 						</div>
 					</div>
 					<div class="col-sm-2">
 						<div class="single-widget">
-							<h2>Quock Shop</h2>
+							<h2>Quick Shop</h2>
 							<ul class="nav nav-pills nav-stacked">
 								<li><a href="">T-Shirt</a></li>
 								<li><a href="">Mens</a></li>
@@ -440,7 +337,7 @@
 							<h2>Policies</h2>
 							<ul class="nav nav-pills nav-stacked">
 								<li><a href="">Terms of Use</a></li>
-								<li><a href="">Privecy Policy</a></li>
+								<li><a href="">Privacy Policy</a></li>
 								<li><a href="">Refund Policy</a></li>
 								<li><a href="">Billing System</a></li>
 								<li><a href="">Ticket System</a></li>
@@ -477,13 +374,14 @@
 		<div class="footer-bottom">
 			<div class="container">
 				<div class="row">
-					<p class="pull-left">Copyright Â© 2013 E-SHOPPER Inc. All rights reserved.</p>
+					<p class="pull-left">Copyright © 2016 Jemla_Ma Inc. All rights reserved.</p>
 					<p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
 				</div>
 			</div>
 		</div>
 		
 	</footer><!--/Footer-->
+	
 	
 
 

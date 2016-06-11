@@ -1,11 +1,14 @@
 package ma.jemla.daoimpl;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 import ma.jemla.model.Entreprise;
+import ma.jemla.model.Product;
 import ma.jemla.model.dao.EntrepriseDao;
 
 public class EntrepriseDaoImpl implements EntrepriseDao{
@@ -41,5 +44,34 @@ public class EntrepriseDaoImpl implements EntrepriseDao{
 		}
 		return ent;
 	}
+	
+	public List<Entreprise> getEntreprises() {
+		try{
+			em.getTransaction().begin();
+			Query query = em.createNamedQuery("fetchEntreprise");
+			List<Entreprise> values = query.getResultList();
+			/*System.out.println("In the fetchProducts query"+values.size()+"\n\n\n\n");
+			
+			for(Product tmp:values)
+				System.out.println(tmp.getNom());*/
+			values = query.getResultList();
+			return values;
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
+	}
 
+	public Entreprise getEntreprise(long arg) {
+		try{
+			//em.getTransaction().begin();
+			Query query = em.createNamedQuery("fetchByID");
+			query.setParameter("id", arg);
+			Entreprise values = (Entreprise)query.getSingleResult();
+			return values;
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
+	}
 }

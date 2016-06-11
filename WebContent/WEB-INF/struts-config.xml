@@ -7,86 +7,150 @@
 <struts-config>
 
 
-<!-- ================================================ Form Bean Definitions -->
+	<!-- ================================================ Form Bean Definitions -->
 
-    <form-beans>
+	<form-beans>
+		<form-bean name="cartForm" type="ma.jemla.view.AddToCartForm" />
+		<form-bean name="registerForm" type="ma.jemla.view.RegisterForm" />
+		<form-bean name="loginForm" type="ma.jemla.view.LoginForm" />
+		<form-bean name="addForm" type="ma.jemla.view.AddProductForm" />
+		<form-bean name="messageForm" type="ma.jemla.view.MessageForm" />
+		<form-bean name="addCategory" type="ma.jemla.view.AddCategoryForm" />
+	</form-beans>
 
-        <form-bean  name="registerForm" type="ma.jemla.view.RegisterForm"/>
-		<form-bean  name="loginForm" type="ma.jemla.view.LoginForm"/>
-    </form-beans>
+	<action-mappings>
+	
+		<action path="/catRedi" type="ma.jemla.controller.CategoryRedirect" >
+			<forward name="success" path="/WEB-INF/Pages/products.jsp" />
+		</action>
+		
+		<action path="/addMessage" name="messageForm" type="ma.jemla.controller.AddMessage" validate="false">
+			<forward name="success" path="/WEB-INF/Pages/product-details.jsp" />
+			<forward name="failure" path="/index.jsp" />
+		</action>
+	
+		<action path="/cartProduct" type="ma.jemla.controller.ProductCart" name="cartForm" scope="request" validate="false">
+			<forward name="success" path="/WEB-INF/Pages/cart.jsp" />
+		</action>
+	
+		<action path="/productRedirect" type="ma.jemla.controller.ProductRedirect" validate="false">
+			<forward name="success" path="/WEB-INF/Pages/product-details.jsp" />
+			<forward name="unregistred" path="/WEB-INF/Pages/unregistred-product-details.jsp" />
+		</action>
+		<action path="/validate" type="ma.jemla.controller.ValidateProduct" name="cartForm" scope="request" validate="false">
+			<forward name="success" path="/WEB-INF/Pages/ManagerDashboard.jsp" />
+			<forward name="failure" path="/WEB-INF/Pages/ManagerDashboard.jsp" />
+		</action>
+	
+		<action path="/addToCart" type="ma.jemla.controller.AddToCart" name="cartForm" 
+	 	scope="request" validate="false">
+			<forward name="success" path="/index.jsp" />
+			<forward name="failure" path="/WEB-INF/Pages/login.jsp"/>
+		</action>
 
-    <action-mappings>
+		<action path="/register" scope="session" name="registerForm" type="ma.jemla.controller.UserInscription"
+		 validate="true" input="/WEB-INF/Pages/login.jsp">
+			<forward name="success" path="/WEB-INF/Pages/EntrepriseDashboard.jsp" />
+			<forward name="failure" path="/WEB-INF/Pages/login.jsp"/>
+		</action>
+		
+		<action path="/login" scope="session" name="loginForm" type="ma.jemla.controller.Login"
+		 validate="true" input="/WEB-INF/Pages/login.jsp">
+			<forward name="success" path="/WEB-INF/Pages/EntrepriseDashboard.jsp" />
+			<forward name="failure" path="/WEB-INF/Pages/login.jsp"/>
+		</action>
+		
+		<action path="/manager" scope="session" name="loginForm" type="ma.jemla.controller.ManagerLogin"
+		 validate="true" input="/WEB-INF/Pages/ManagerLogin.jsp">
+			<forward name="success" path="/WEB-INF/Pages/ManagerDashboard.jsp" />
+			<forward name="failure" path="/WEB-INF/Pages/ManagerLogin.jsp"/>
+		</action>
+		
+		<action path="/loginRedirect" type="ma.jemla.controller.LoginRedirect" >
+			<forward name="success" path="/WEB-INF/Pages/EntrepriseDashboard.jsp" />
+			<forward name="manager" path="/WEB-INF/Pages/ManagerDashboard.jsp" />
+			<forward name="failure" path="/WEB-INF/Pages/login.jsp"/>
+		</action>
+		
+		<action path="/logoutRedirect" type="ma.jemla.controller.Logout" >
+			<forward name="success" path="/index.jsp" />
+		</action>
+		
+		<action path="/inbox" scope="session" type="ma.jemla.controller.Inbox" >
+			<forward name="success" path="/WEB-INF/Pages/DashboardInbox.jsp" />
+			<forward name="failure" path="/WEB-INF/Pages/login.jsp"/>
+		</action>
+		
+		<action path="/inboxManager" scope="session" type="ma.jemla.controller.ManagerInbox" >
+			<forward name="success" path="/WEB-INF/Pages/ManagerInbox.jsp" />
+			<forward name="failure" path="/WEB-INF/Pages/login.jsp"/>
+		</action>
+		
+		<action path="/cart" scope="session" type="ma.jemla.controller.CartRedirect" >
+			<forward name="success" path="/WEB-INF/Pages/cart.jsp" />
+			<forward name="failure" path="/WEB-INF/Pages/cart.jsp"/>
+		</action>
+		
+		<action path="/checkout" scope="session" type="ma.jemla.controller.CheckoutRedirect" >
+			<forward name="success" path="/WEB-INF/Pages/checkout.jsp" />
+			<forward name="failure" path="/WEB-INF/Pages/checkout.jsp"/>
+		</action>
+		
+		<action path="/contactUs" type="ma.jemla.controller.ContactUs">
+			<forward name="active" path="/WEB-INF/Pages/DashboardInbox.jsp" />
+			<forward name="inactive" path="/WEB-INF/Pages/contact-us.jsp"/>
+		</action>
+		
+		<action path="/managerLogin" type="ma.jemla.controller.ContactUs">
+			<forward name="success" path="/WEB-INF/Pages/ManagerDashboard.jsp" />
+			<forward name="failure" path="/WEB-INF/Pages/ManagerLogin.jsp"/>
+			<forward name="active" path="/WEB-INF/Pages/ManagerDashboard.jsp" />
+			<forward name="inactive" path="/WEB-INF/Pages/ManagerLogin.jsp"/>
+		</action>
+		
+		<action path="/publishProduct" type="ma.jemla.controller.AddProductRedirect" >
+			<forward name="success" path="/WEB-INF/Pages/publishProduct.jsp" />
+			<forward name="failure" path="/WEB-INF/Pages/login.jsp"/>
+		</action>
+		
+		<action path="/addProduct" type="ma.jemla.controller.AddProduct" name="addForm" validate="true" input="/WEB-INF/Pages/publishProduct.jsp">
+			<forward name="success" path="/WEB-INF/Pages/EntrepriseDashboard.jsp" />
+			<forward name="entreprise" path="/WEB-INF/Pages/publishProduct.jsp"/>
+			<forward name="failure" path="/WEB-INF/Pages/login.jsp"/>
+		</action>
+		
+		<action path="/addCategory" scope="session" name="addCategory" type="ma.jemla.controller.AddCategory"
+		 validate="true" input="/WEB-INF/Pages/addCategory.jsp">
+			<forward name="success" path="/WEB-INF/Pages/ManagerDashboard.jsp" />
+			<forward name="entreprise" path="/WEB-INF/Pages/addCategory.jsp"/>
+			<forward name="failure" path="/index.jsp"/>
+		</action>
+		
+		<action path="/addCategoryRedirect" type="ma.jemla.controller.AddCategoryRedirect" >
+			<forward name="success" path="/WEB-INF/Pages/addCategory.jsp" />
+			<forward name="failure" path="/index.jsp"/>
+			<forward name="entreprise" path="/WEB-INF/Pages/EntrepriseDashboard.jsp"/>
+		</action>
+		
+		
+		</action-mappings>
+	
 
-        <action path="/register"  type="ma.jemla.controller.UserInscription" name="registerForm"
-            scope="request"
-            validate="true" >
-        	<forward name="success" path="/WEB-INF/Pages/EntrepriseDashboard.jsp"/>
-        	<forward name="failure" path="/WEB-INF/Pages/login.jsp"></forward>
-        </action>
-        <action path="/login"  type="ma.jemla.controller.Login" name="loginForm"
-            scope="request"
-            validate="true" >
-        	<forward name="success" path="/WEB-INF/Pages/EntrepriseDashboard.jsp"/>
-        	<forward name="failure" path="/WEB-INF/Pages/login.jsp"></forward>
-        </action>
-		<action path="/loginRedirect" forward="/WEB-INF/Pages/login.jsp"/>
-    </action-mappings>
+
+	<!-- ======================================== Message Resources Definitions -->
+
+	<message-resources parameter="MessageResources" />
 
 
-<!-- ======================================== Message Resources Definitions -->
-
-    <message-resources parameter="MessageResources" />
+	<!-- =============================================== Plug Ins Configuration -->
 
 
-<!-- =============================================== Plug Ins Configuration -->
+	<!-- =================================================== Validator plugin -->
 
-  <!-- ======================================================= Tiles plugin -->
-  <!--
-     This plugin initialize Tiles definition factory. This later can takes some
-	 parameters explained here after. The plugin first read parameters from
-	 web.xml, thenoverload them with parameters defined here. All parameters
-	 are optional.
-     The plugin should be declared in each struts-config file.
-       - definitions-config: (optional)
-            Specify configuration file names. There can be several comma
-		    separated file names (default: ?? )
-       - moduleAware: (optional - struts1.1)
-            Specify if the Tiles definition factory is module aware. If true
-            (default), there will be one factory for each Struts module.
-			If false, there will be one common factory for all module. In this
-            later case, it is still needed to declare one plugin per module.
-            The factory will be initialized with parameters found in the first
-            initialized plugin (generally the one associated with the default
-            module).
-			  true : One factory per module. (default)
-			  false : one single shared factory for all modules
-	   - definitions-parser-validate: (optional)
-	        Specify if xml parser should validate the Tiles configuration file.
-			  true : validate. DTD should be specified in file header (default)
-			  false : no validation
-
-	  Paths found in Tiles definitions are relative to the main context.
-
-      To use this plugin, download and add the Tiles jar to your WEB-INF/lib
-      directory then uncomment the plugin definition below.
-
-    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
-
-      <set-property property="definitions-config"
-                       value="/WEB-INF/tiles-defs.xml" />
-      <set-property property="moduleAware" value="true" />
-    </plug-in>
-  -->  
-
-
-  <!-- =================================================== Validator plugin -->
-
-  <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
-    <set-property
-        property="pathnames"
-        value="/org/apache/struts/validator/validator-rules.xml,
-               /WEB-INF/validation.xml"/>
-  </plug-in>
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+			value="/org/apache/struts/validator/validator-rules.xml,
+               /WEB-INF/validation.xml" />
+	</plug-in>
 
 </struts-config>
-

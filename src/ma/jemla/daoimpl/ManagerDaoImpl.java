@@ -3,7 +3,9 @@ package ma.jemla.daoimpl;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
+import ma.jemla.model.Entreprise;
 import ma.jemla.model.Manager;
 import ma.jemla.model.dao.ManagerDao;
 
@@ -31,6 +33,22 @@ public class ManagerDaoImpl implements ManagerDao{
 		em.persist(new Manager());
 		em.getTransaction().commit();
 		em.close();
+	}
+	@Override
+	public Manager login(String email, String password) {
+		Manager man = new Manager();
+		try{
+			em.getTransaction().begin();
+			Query query = em.createNamedQuery("findManagerByEmail");
+			query.setParameter("email1", email);
+			query.setParameter("pass1", password);
+			man = (Manager)query.getSingleResult();
+			
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
+		return man;
 	}
 
 }
